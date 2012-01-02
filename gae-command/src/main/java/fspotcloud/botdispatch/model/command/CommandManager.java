@@ -16,6 +16,7 @@ import com.google.inject.Provider;
 
 import fspotcloud.botdispatch.model.api.Command;
 import fspotcloud.botdispatch.model.api.Commands;
+import fspotcloud.botdispatch.model.api.NullCommand;
 
 public class CommandManager implements Commands {
 

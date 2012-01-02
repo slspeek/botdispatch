@@ -1,4 +1,4 @@
-package fspotcloud.botdispatch.model.command;
+package fspotcloud.botdispatch.model.api;
 
 import java.util.Date;
 

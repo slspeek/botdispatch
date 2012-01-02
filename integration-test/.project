@@ -3,16 +3,12 @@
 	<name>integration-test</name>
 	<comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
 	<projects>
-		<project>appengine-deps</project>
 		<project>bot</project>
 		<project>command-api</project>
 		<project>controller</project>
 		<project>gae-command</project>
-		<project>guice-deps</project>
-		<project>gwt-deps</project>
 		<project>test</project>
 		<project>test-bot</project>
-		<project>xmlrpc-server-deps</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

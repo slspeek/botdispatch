@@ -12,24 +12,32 @@
 	<description></description>
 	<packaging>war</packaging>
 	<dependencies>
+	<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+		</dependency>
 		<dependency>
-			<groupId>fspotcloud.deps</groupId>
-			<artifactId>guice-deps</artifactId>
-			<version>${project.version}</version>
-			<type>pom</type>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-assistedinject</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-servlet</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>fspotcloud.bot-dispatch</groupId>
 			<artifactId>test</artifactId>
 			<version>${project.version}</version>
+			<scope>compile</scope>
 			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>fspotcloud.bot-dispatch</groupId>
 			<artifactId>controller</artifactId>
-			<version>${project.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>fspotcloud.bot-dispatch</groupId>
@@ -41,9 +49,6 @@
 		<dependency>
 			<groupId>fspotcloud.bot-dispatch</groupId>
 			<artifactId>gae-command</artifactId>
-			<version>${project.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
 		</dependency>
 		
 		<dependency>
@@ -57,20 +62,9 @@
 			<artifactId>selenium-java-client-driver</artifactId>
 			<version>1.0.2</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>fspotcloud.bot-dispatch</groupId>
-			<artifactId>test-bot</artifactId>
-			<version>0.1-beta-01</version>
-			<type>jar</type>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>1.9.0-rc1</version>
-			<type>jar</type>
-			<scope>test</scope>
 		</dependency>
 		<!-- GAE libraries for local testing as described here: http://code.google.com/appengine/docs/java/howto/unittesting.html -->
 		<dependency>
@@ -93,11 +87,19 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>fspotcloud.deps</groupId>
-			<artifactId>xmlrpc-server-deps</artifactId>
-			<version>0.1-beta-01</version>
-			<type>pom</type>
-			<scope>compile</scope>
+			<groupId>org.apache.xmlrpc</groupId>
+			<artifactId>xmlrpc-server</artifactId>
+			<version>${org.apache.xmlrpc.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlrpc</groupId>
+			<artifactId>xmlrpc-common</artifactId>
 		</dependency>
 	
 	</dependencies>

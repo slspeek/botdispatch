@@ -3,8 +3,6 @@
 	<name>bot</name>
 	<comment>The bot that processes the Actions and posts Results on GAE. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
 	<projects>
-		<project>guice-deps</project>
-		<project>gwt-deps</project>
 		<project>test</project>
 	</projects>
 	<buildSpec>

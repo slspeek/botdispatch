@@ -13,42 +13,55 @@
 	<packaging>jar</packaging>
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>command-api</artifactId>
-			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>fspotcloud.deps</groupId>
-			<artifactId>xmlrpc-server-deps</artifactId>
-			<type>pom</type>
+			<groupId>org.apache.xmlrpc</groupId>
+			<artifactId>xmlrpc-server</artifactId>
+			<version>${org.apache.xmlrpc.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.xmlrpc</groupId>
 			<artifactId>xmlrpc-common</artifactId>
-			<version>${org.apache.xmlrpc.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<version>${gwt.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>gae-command</artifactId>
-			<classifier>special</classifier>
-			<version>${project.version}</version>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fspotcloud.deps</groupId>
-			<artifactId>gwt-deps</artifactId>
-			<version>${project.version}</version>
-			<type>pom</type>
+			<groupId>net.customware.gwt.dispatch</groupId>
+			<artifactId>gwt-dispatch</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fspotcloud.deps</groupId>
-			<artifactId>guice-deps</artifactId>
-			<version>${project.version}</version>
-			<type>pom</type>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-assistedinject</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject.extensions</groupId>
+			<artifactId>guice-servlet</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -62,36 +75,24 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>bot</artifactId>
-			<version>${project.version}</version>
-			<type>test-jar</type>
-			<scope>test</scope>
-		</dependency>
-		<!-- GAE libraries for local testing as described here: http://code.google.com/appengine/docs/java/howto/unittesting.html -->
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-stubs</artifactId>
-			<version>${gae.version}</version>
-			<scope>test</scope>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-local-runtime</artifactId>
-			<version>${gae.version}</version>
-			<scope>test</scope>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.3</version>
 		</dependency>
 		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-testing</artifactId>
-			<version>${gae.version}</version>
+			<groupId>javax.jdo</groupId>
+			<artifactId>jdo2-api</artifactId>
+			<version>2.3-eb</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- only for testing -->
 		<dependency>
 			<groupId>fspotcloud.bot-dispatch</groupId>
 			<artifactId>gae-command</artifactId>
-			<version>0.1-beta-01</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

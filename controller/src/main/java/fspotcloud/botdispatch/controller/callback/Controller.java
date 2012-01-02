@@ -12,7 +12,7 @@ import com.google.inject.Inject;
 
 import fspotcloud.botdispatch.model.api.Command;
 import fspotcloud.botdispatch.model.api.Commands;
-import fspotcloud.botdispatch.model.command.NullCommand;
+import fspotcloud.botdispatch.model.api.NullCommand;
 
 public class Controller {
 

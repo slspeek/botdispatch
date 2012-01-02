@@ -3,10 +3,7 @@
 	<name>gae-command</name>
 	<comment>GWT-Dispatch extension for bot/controllers. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
 	<projects>
-		<project>appengine-deps</project>
 		<project>command-api</project>
-		<project>guice-deps</project>
-		<project>gwt-deps</project>
 		<project>test</project>
 	</projects>
 	<buildSpec>
