@@ -33,13 +33,11 @@ public class BotDispatchServerImpl implements BotDispatchServer {
 	}
 
 	@Override
-	public void runForever() throws XmlRpcException, IOException,
-			ClassNotFoundException {
+	public void runForever() throws Exception {
 		runForever(Integer.MAX_VALUE);
 	}
 
-	public void runForever(int n) throws XmlRpcException, IOException,
-			ClassNotFoundException {
+	public void runForever(int n) throws Exception {
 		byte[] serializedResult = null;
 		long callbackId = -1;
 		Action<?> currentAction;

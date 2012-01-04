@@ -35,18 +35,18 @@ public class BotTest extends TestCase {
 	}
 	
 	
-	public void testRunOnce() throws XmlRpcException, IOException, ClassNotFoundException, InterruptedException {
+	public void testRunOnce() throws Exception {
 		target.runForever(1);
 		verify(server).runForever(1);
 	}
 	
-	public void testRunOnceOnException() throws XmlRpcException, IOException, ClassNotFoundException, InterruptedException {
+	public void testRunOnceOnException() throws Exception {
 		doThrow(new RuntimeException()).when(server).runForever(1);
 		target.runForever(1);
 		verify(server).runForever(1);
 	}
 	
-	public void testRunTwiceOnException() throws XmlRpcException, IOException, ClassNotFoundException, InterruptedException {
+	public void testRunTwiceOnException() throws Exception {
 		doThrow(new RuntimeException()).when(server).runForever(2);
 		target.runForever(2);
 		verify(server, times(2)).runForever(2);

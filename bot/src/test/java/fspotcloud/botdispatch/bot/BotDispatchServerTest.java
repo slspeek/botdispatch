@@ -40,13 +40,13 @@ public class BotDispatchServerTest extends TestCase {
 		super.setUp();
 	}
 
-	public void testEmptyStart() throws XmlRpcException, IOException, ClassNotFoundException {
+	public void testEmptyStart() throws Exception {
 		when(remote.execute(-1L,null)).thenReturn(new Object[] { -1L, null});
 		target.runForever(1);
 		verify(pauser).pause();
 	}
 	
-	public void testStart() throws XmlRpcException, IOException, ClassNotFoundException {
+	public void testStart() throws Exception {
 		when(remote.execute(-1L,null)).thenReturn(new Object[] { 1000L, serializedAction});
 		when(remote.execute(1000L,serializedResult)).thenReturn(new Object[] { -1L, null});
 		target.runForever(2);
