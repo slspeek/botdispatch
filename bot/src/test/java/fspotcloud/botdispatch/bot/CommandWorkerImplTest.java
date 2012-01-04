@@ -1,13 +1,10 @@
 package fspotcloud.botdispatch.bot;
 
-import java.io.IOException;
-
 import junit.framework.TestCase;
 import net.customware.gwt.dispatch.server.Dispatch;
 import net.customware.gwt.dispatch.shared.Action;
 
 import org.apache.commons.lang.SerializationUtils;
-import org.apache.xmlrpc.XmlRpcException;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -34,7 +31,7 @@ public class CommandWorkerImplTest extends TestCase {
 		super.setUp();
 	}
 
-	public void testRun() throws XmlRpcException, IOException,
+	public void testRun() throws Exception,
 			ClassNotFoundException {
 		byte[] resultInBytes = target.doExecute();
 		TestResult testResult = (TestResult) SerializationUtils.deserialize(resultInBytes);

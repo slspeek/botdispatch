@@ -1,15 +1,12 @@
 package fspotcloud.botdispatch.bot;
 
-import java.io.IOException;
 import java.util.logging.Logger;
 
 import net.customware.gwt.dispatch.shared.Action;
 
 import org.apache.commons.lang.SerializationUtils;
-import org.apache.xmlrpc.XmlRpcException;
 
 import com.google.inject.Inject;
-import com.google.inject.name.Named;
 
 public class BotDispatchServerImpl implements BotDispatchServer {
 
@@ -19,17 +16,14 @@ public class BotDispatchServerImpl implements BotDispatchServer {
 	final private RemoteExecutor remote;
 	final private CommandWorkerFactory factory;
 	final private Pauser pauser;
-	final private int pause;
 
 	@Inject
 	public BotDispatchServerImpl(RemoteExecutor remote,
-			CommandWorkerFactory factory, Pauser pauser,
-			@Named("pause") int pause) {
+			CommandWorkerFactory factory, Pauser pauser) {
 		super();
 		this.factory = factory;
 		this.remote = remote;
 		this.pauser = pauser;
-		this.pause = pause;
 	}
 
 	@Override

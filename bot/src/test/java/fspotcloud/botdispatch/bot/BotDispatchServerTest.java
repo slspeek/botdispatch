@@ -3,13 +3,9 @@ package fspotcloud.botdispatch.bot;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
-import java.io.IOException;
-
 import junit.framework.TestCase;
 
 import org.apache.commons.lang.SerializationUtils;
-import org.apache.xmlrpc.XmlRpcException;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -36,7 +32,7 @@ public class BotDispatchServerTest extends TestCase {
 		factory = injector.getInstance(CommandWorkerFactory.class);
 		serializedAction = SerializationUtils.serialize(action);
 		serializedResult = SerializationUtils.serialize(result); 
-		target = new BotDispatchServerImpl(remote, factory, pauser, 10000);
+		target = new BotDispatchServerImpl(remote, factory, pauser);
 		super.setUp();
 	}
 

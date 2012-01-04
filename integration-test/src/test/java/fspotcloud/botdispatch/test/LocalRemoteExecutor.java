@@ -2,8 +2,6 @@ package fspotcloud.botdispatch.test;
 
 import java.io.IOException;
 
-import org.apache.xmlrpc.XmlRpcException;
-
 import com.google.inject.Inject;
 
 import fspotcloud.botdispatch.bot.RemoteExecutor;
@@ -21,13 +19,11 @@ public class LocalRemoteExecutor implements RemoteExecutor {
 
 	@Override
 	public Object[] execute(long callbackId, byte[] serializedResult)
-			throws XmlRpcException {
-		// TODO Auto-generated method stub
+			throws Exception {
 		Object[] result = null;
 		try {
 			result = controller.callback(callbackId, serializedResult);
 		} catch (IOException e) {
-			// TODO: handle exception
 		}
 		return result;
 	}

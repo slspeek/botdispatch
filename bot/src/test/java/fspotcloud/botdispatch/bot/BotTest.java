@@ -1,19 +1,15 @@
 package fspotcloud.botdispatch.bot;
 
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.*;
-
-import java.io.IOException;
-
 import junit.framework.TestCase;
-
-import org.apache.xmlrpc.XmlRpcException;
 
 import com.google.inject.Provider;
 public class BotTest extends TestCase {
 
-	private static final int PAUSE = 1;
+	private static final int PAUSE = 0;
 	BotDispatchServer server;
 	Provider<BotDispatchServer> provider;
 	Bot target;

@@ -1,7 +1,9 @@
 <projectDescription>
   <name>bot</name>
   <comment>The bot that processes the Actions and posts Results on GAE. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
-  <projects/>
+  <projects>
+    <project>test</project>
+  </projects>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.jdt.core.javabuilder</name>

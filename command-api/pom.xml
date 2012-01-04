@@ -4,11 +4,11 @@
 	<parent>
 		<groupId>fspotcloud.bot-dispatch</groupId>
 		<artifactId>bot-dispatch</artifactId>
-		<version>0.1-beta-01</version>
+		<version>0.2-botdispatch</version>
 	</parent>
 	<groupId>fspotcloud.bot-dispatch</groupId>
 	<artifactId>command-api</artifactId>
-	<version>0.1-beta-01</version>
+	<version>0.2-botdispatch</version>
 	<packaging>jar</packaging>
 	<name>Command Model Interface</name>
 	<dependencies>

@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>fspotcloud.bot-dispatch</groupId>
 		<artifactId>bot-dispatch</artifactId>
-		<version>0.1-beta-01</version>
+		<version>0.2-botdispatch</version>
 	</parent>
 	<groupId>fspotcloud.bot-dispatch</groupId>
 	<artifactId>test-bot</artifactId>
@@ -15,18 +15,12 @@
 		<dependency>
 			<groupId>fspotcloud.bot-dispatch</groupId>
 			<artifactId>bot</artifactId>
-			<version>0.1-beta-01</version>
+			<version>0.2-botdispatch</version>
 		</dependency>
 		<dependency>
 			<groupId>fspotcloud.bot-dispatch</groupId>
 			<artifactId>test</artifactId>
-			<version>0.1-beta-01</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-httpclient</groupId>
-			<artifactId>commons-httpclient</artifactId>
-			<version>3.1</version>
-			<scope>runtime</scope>
+			<version>0.2-botdispatch</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.inject</groupId>
