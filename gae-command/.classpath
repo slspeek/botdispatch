@@ -3,26 +3,26 @@
   <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
   <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
   <classpathentry kind="output" path="target/classes"/>
-  <classpathentry kind="var" path="M2_REPO/javax/inject/javax.inject/1/javax.inject-1.jar"/>
-  <classpathentry kind="var" path="M2_REPO/javax/jdo/jdo2-api/2.3-eb/jdo2-api-2.3-eb.jar"/>
-  <classpathentry kind="var" path="M2_REPO/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javax/inject/javax.inject/1/javax.inject-1.jar" sourcepath="M2_REPO/javax/inject/javax.inject/1/javax.inject-1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javax/jdo/jdo2-api/2.3-eb/jdo2-api-2.3-eb.jar" sourcepath="M2_REPO/javax/jdo/jdo2-api/2.3-eb/jdo2-api-2.3-eb-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar" sourcepath="M2_REPO/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" sourcepath="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/appengine/appengine-api-1.0-sdk/1.6.0/appengine-api-1.0-sdk-1.6.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/appengine/appengine-api-stubs/1.6.0/appengine-api-stubs-1.6.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/appengine/appengine-local-runtime/1.6.0/appengine-local-runtime-1.6.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/appengine/appengine-testing/1.6.0/appengine-testing-1.6.0.jar"/>
   <classpathentry kind="src" path="/command-api"/>
-  <classpathentry kind="var" path="M2_REPO/commons-lang/commons-lang/2.6/commons-lang-2.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-lang/commons-lang/2.6/commons-lang-2.6.jar" sourcepath="M2_REPO/commons-lang/commons-lang/2.6/commons-lang-2.6-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/appengine/orm/datanucleus-appengine/1.0.4.1/datanucleus-appengine-1.0.4.1.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/datanucleus/datanucleus-core/1.1.5/datanucleus-core-1.1.5.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/datanucleus/datanucleus-core/1.1.5/datanucleus-core-1.1.5.jar" sourcepath="M2_REPO/org/datanucleus/datanucleus-core/1.1.5/datanucleus-core-1.1.5-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/appengine/datanucleus-jpa/1.1.5/datanucleus-jpa-1.1.5.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/appengine/geronimo-jpa_3.0_spec/1.1.1/geronimo-jpa_3.0_spec-1.1.1.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/google/inject/guice/3.0/guice-3.0.jar"/>
-  <classpathentry kind="var" path="M2_REPO/net/customware/gwt/dispatch/gwt-dispatch/1.2.0/gwt-dispatch-1.2.0.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/google/gwt/gwt-servlet/2.4.0/gwt-servlet-2.4.0.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/google/gwt/gwt-user/2.4.0/gwt-user-2.4.0.jar"/>
-  <classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/inject/guice/3.0/guice-3.0.jar" sourcepath="M2_REPO/com/google/inject/guice/3.0/guice-3.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/net/customware/gwt/dispatch/gwt-dispatch/1.2.0/gwt-dispatch-1.2.0.jar" sourcepath="M2_REPO/net/customware/gwt/dispatch/gwt-dispatch/1.2.0/gwt-dispatch-1.2.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/gwt/gwt-servlet/2.4.0/gwt-servlet-2.4.0.jar" sourcepath="M2_REPO/com/google/gwt/gwt-servlet/2.4.0/gwt-servlet-2.4.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/gwt/gwt-user/2.4.0/gwt-user-2.4.0.jar" sourcepath="M2_REPO/com/google/gwt/gwt-user/2.4.0/gwt-user-2.4.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar" sourcepath="M2_REPO/junit/junit/3.8.1/junit-3.8.1-sources.jar"/>
   <classpathentry kind="src" path="/test"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 </classpath>

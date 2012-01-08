@@ -25,7 +25,7 @@ public class ErrorHandlerImpl {
 
 
 	public void onError() {
-		AsyncCallback<Result> callback = command.getCallback();
+		AsyncCallback<? extends Result> callback = command.getCallback();
 		if (injector != null) {
 			injector.injectMembers(callback);
 		}
