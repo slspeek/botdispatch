@@ -44,7 +44,7 @@ public class CommandEntity implements Command {
 	private boolean locked;
 
 	public CommandEntity(Action<?> action,
-			AsyncCallback<Result> callback) throws IOException {
+			AsyncCallback<Result> callback) {
 		ctime = new Date();
 		this.action = action;
 		this.callback = callback;
