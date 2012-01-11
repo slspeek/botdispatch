@@ -1,21 +1,35 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
-        http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
-	version="1.0">
-
-	<!-- A JPA Persistence Unit -->
-	<persistence-unit name="transactions-optional" transaction-type="RESOURCE_LOCAL">
-		<provider>org.datanucleus.store.appengine.jpa.DatastorePersistenceProvider</provider>
-
-		<!-- JPA entities must be registered here -->
-		<class>fspotcloud.botdispatch.model.command.jpa.CommandEntity</class>
-		<properties>
-			<property name="datanucleus.NontransactionalRead" value="true" />
-			<property name="datanucleus.NontransactionalWrite" value="true" />
-			<property name="datanucleus.ConnectionURL" value="appengine" />
-		</properties>
-	</persistence-unit>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence         http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <!-- A JPA Persistence Unit -->
+  <persistence-unit name="derby" transaction-type="RESOURCE_LOCAL">
+    <!-- JPA entities must be registered here -->
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <class>fspotcloud.botdispatch.model.command.jpa.CommandEntity</class>
+    <properties>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.connection.username" value="jpa"/>
+      <property name="hibernate.connection.driver_class" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect"/>
+      <property name="hibernate.connection.password" value="jpa"/>
+      <property name="hibernate.connection.url" value="jdbc:derby://localhost:1527/JPA"/>
+      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="org.hibernate.tutorial.jpa">
+    <description>
+            Persistence unit for the JPA tutorial of the Hibernate Getting Started Guide
+        </description>
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <class>fspotcloud.botdispatch.model.command.jpa.Event</class>
+    <properties>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.connection.username" value="ev"/>
+      <property name="hibernate.connection.driver_class" value="org.apache.derby.jdbc.ClientDriver"/>
+    <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect"/>
+      <property name="hibernate.connection.password" value="ev"/>
+      <property name="hibernate.connection.url" value="jdbc:derby://localhost:1527/event"/>
+      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+    </properties>
+  </persistence-unit>
 </persistence>

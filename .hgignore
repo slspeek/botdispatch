@@ -1,4 +1,5 @@
 syntax: glob
+.gradle/*
 grapher/src/site/resources/*.png
 extras/*
 test-output/*

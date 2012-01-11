@@ -1,102 +1,70 @@
 package fspotcloud.botdispatch.model.command.jpa;
 
-import java.io.IOException;
+import fspotcloud.botdispatch.model.api.Command;
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-
-
-import net.customware.gwt.dispatch.shared.Action;
-import net.customware.gwt.dispatch.shared.Result;
-
+import javax.persistence.*;
 import org.apache.commons.lang.SerializationUtils;
-
-import com.google.appengine.api.datastore.Blob;
-import com.google.gwt.user.client.rpc.AsyncCallback;
-
-import fspotcloud.botdispatch.model.api.Command;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class CommandEntity implements Command {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 
-	private Action<?> action;
-	private AsyncCallback<Result> callback;
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
+    private Long id;
+    //transient private Blob callbackBlob;
+    //transient private Blob actionBlob;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date ctime;
+    @Basic
+    private boolean locked;
+    @Column(columnDefinition = "BLOB")
+    private Serializable callback;
+    @Column(columnDefinition = "BLOB")
+    private Serializable action;
 
-	@Basic
-	private Blob callbackBlob;
+    public CommandEntity() {
+    }
 
-	@Basic
-	private Blob actionBlob;
+    public CommandEntity(Serializable action, Serializable callback) {
+        ctime = new Date();
+        this.action = action;
+        this.callback = callback;
+    }
 
-	@Basic
-	private Date ctime;
+    public Long getId() {
+        return id;
+    }
 
-	@Basic
-	private boolean locked;
+    public Date getCtime() {
+        return ctime;
+    }
 
-	public CommandEntity(Action<?> action,
-			AsyncCallback<Result> callback) {
-		ctime = new Date();
-		this.action = action;
-		this.callback = callback;
+    @Override
+    public String toString() {
+        String result = " : ";
+        return result;
+    }
 
-		callbackBlob = new Blob(
-				SerializationUtils.serialize((Serializable) callback));
-		actionBlob = new Blob(
-				SerializationUtils.serialize((Serializable) action));
-	}
+    public void setLocked(boolean locked) {
+        this.locked = locked;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public boolean isLocked() {
+        return locked;
+    }
 
-	public Date getCtime() {
-		return ctime;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	@Override
-	public Action<?> getAction() {
-		if (action == null) {
-			action = (Action<?>) SerializationUtils.deserialize(actionBlob.getBytes());
-		}
-		return action;
-	}
+    public Serializable getAction() {
+        return action;
+    }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public AsyncCallback<Result> getCallback() {
-		if (callback == null) {
-			callback = (AsyncCallback<Result>) SerializationUtils.deserialize(callbackBlob.getBytes());
-		}
-		return callback;
-	}
-
-	@Override
-	public String toString() {
-		String result = String.valueOf(action) + " : "
-				+ String.valueOf(callback);
-		return result;
-	}
-
-	public void setLocked(boolean locked) {
-		this.locked = locked;
-	}
-
-	public boolean isLocked() {
-		return locked;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
+    public Serializable getCallback() {
+        return callback;
+    }
 }

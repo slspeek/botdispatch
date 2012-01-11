@@ -2,46 +2,40 @@ package fspotcloud.botdispatch.model.api;
 
 import java.util.Date;
 
-import net.customware.gwt.dispatch.shared.Action;
-import net.customware.gwt.dispatch.shared.Result;
-
-import com.google.gwt.user.client.rpc.AsyncCallback;
 
 import fspotcloud.botdispatch.model.api.Command;
+import java.io.Serializable;
 
 public class NullCommand implements Command {
 
-	public static Command INSTANCE = new NullCommand();
-	@Override
-	public Long getId() {
-		return -1L;
-	}
+    public static Command INSTANCE = new NullCommand();
 
-	@Override
-	public Action<?> getAction() {
-		return null;
-	}
+    @Override
+    public Long getId() {
+        return -1L;
+    }
 
-	@Override
-	public AsyncCallback<Result> getCallback() {
-		return null;
-	}
+    @Override
+    public Serializable getAction() {
+        return null;
+    }
 
-	@Override
-	public Date getCtime() {
-		return null;
-	}
+    @Override
+    public Date getCtime() {
+        return null;
+    }
 
-	@Override
-	public boolean isLocked() {
-		return false;
-	}
+    @Override
+    public boolean isLocked() {
+        return false;
+    }
 
-	@Override
-	public void setLocked(boolean b) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void setLocked(boolean b) {
+    }
 
-
+    @Override
+    public Serializable getCallback() {
+        return null;
+    }
 }
