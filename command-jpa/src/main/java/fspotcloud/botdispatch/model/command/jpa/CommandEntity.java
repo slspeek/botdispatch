@@ -1,10 +1,12 @@
 package fspotcloud.botdispatch.model.command.jpa;
 
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import fspotcloud.botdispatch.model.api.Command;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
-import org.apache.commons.lang.SerializationUtils;
+import net.customware.gwt.dispatch.shared.Action;
+import net.customware.gwt.dispatch.shared.Result;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -28,10 +30,10 @@ public class CommandEntity implements Command {
     public CommandEntity() {
     }
 
-    public CommandEntity(Serializable action, Serializable callback) {
+    public CommandEntity(Action<?> action, AsyncCallback<? extends Result> callback) {
         ctime = new Date();
-        this.action = action;
-        this.callback = callback;
+        this.action = (Serializable) action;
+        this.callback = (Serializable) callback;
     }
 
     public Long getId() {
@@ -60,11 +62,11 @@ public class CommandEntity implements Command {
         this.id = id;
     }
 
-    public Serializable getAction() {
-        return action;
+    public Action<?> getAction() {
+        return (Action<?>) action;
     }
 
-    public Serializable getCallback() {
-        return callback;
+    public AsyncCallback<? extends Result> getCallback() {
+        return (AsyncCallback<? extends Result>) callback;
     }
 }

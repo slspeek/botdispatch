@@ -29,7 +29,7 @@ public class ResultHandlerImpl {
 
 
 	public void callback() {
-		AsyncCallback<Result> callback = command.getCallback();
+		AsyncCallback<Result> callback = (AsyncCallback<Result>) command.getCallback();
 		if (injector != null) {
 			injector.injectMembers(callback);
 		}

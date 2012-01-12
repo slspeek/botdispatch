@@ -1,15 +1,18 @@
 package fspotcloud.botdispatch.model.api;
 
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import java.io.Serializable;
 import java.util.Date;
+import net.customware.gwt.dispatch.shared.Action;
+import net.customware.gwt.dispatch.shared.Result;
 
 public interface Command {
 
     Long getId();
 
-    Serializable getAction();
+    Action<?> getAction();
 
-    Serializable getCallback();
+    AsyncCallback<? extends Result> getCallback();
 
     Date getCtime();
 

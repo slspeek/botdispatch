@@ -1,10 +1,13 @@
 package fspotcloud.botdispatch.model.api;
 
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import java.util.Date;
 
 
 import fspotcloud.botdispatch.model.api.Command;
 import java.io.Serializable;
+import net.customware.gwt.dispatch.shared.Action;
+import net.customware.gwt.dispatch.shared.Result;
 
 public class NullCommand implements Command {
 
@@ -16,7 +19,7 @@ public class NullCommand implements Command {
     }
 
     @Override
-    public Serializable getAction() {
+    public Action<?> getAction() {
         return null;
     }
 
@@ -35,7 +38,7 @@ public class NullCommand implements Command {
     }
 
     @Override
-    public Serializable getCallback() {
+    public AsyncCallback<? extends Result> getCallback() {
         return null;
     }
 }

@@ -52,7 +52,7 @@ public class CommandManager implements Commands {
     @Override
     public CommandEntity createAndSave(Action<?> action,
             AsyncCallback<? extends Result> callback) {
-        CommandEntity cmd = new CommandEntity((Serializable)action, (Serializable) callback);
+        CommandEntity cmd = new CommandEntity(action, callback);
         save(cmd);
         return cmd;
     }
