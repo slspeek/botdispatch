@@ -6,11 +6,12 @@ import java.util.List;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.persist.PersistFilter;
 import com.google.inject.servlet.GuiceServletContextListener;
 
 import fspotcloud.botdispatch.controller.inject.ControllerModule;
 import fspotcloud.botdispatch.controller.inject.ControllerServletModule;
-import fspotcloud.botdispatch.model.CommandModelModule;
+import fspotcloud.botdispatch.model.command.jpa.CommandModelModule;
 
 public class GuiceServletConfig extends GuiceServletContextListener {
 	@Override
@@ -26,6 +27,7 @@ public class GuiceServletConfig extends GuiceServletContextListener {
 		protected void configureServlets() {
 			super.configureServlets();
 			serve("/test").with(TestServlet.class);
+                        filter("/*").through(PersistFilter.class);
 		}
 	}
 

@@ -19,7 +19,7 @@ public class WebDriverITestCase extends TestCase {
 
 	public WebDriverITestCase() {
 		this(new WebDriverProviderFactory().firefoxProvider(),
-				"http://localhost:8080");
+				"http://localhost:8080/integration-tomcat");
 	}
 
 	@Override

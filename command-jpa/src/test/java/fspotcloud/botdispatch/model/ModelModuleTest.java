@@ -1,5 +1,6 @@
 package fspotcloud.botdispatch.model;
 
+import fspotcloud.botdispatch.model.command.jpa.CommandModelModule;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 

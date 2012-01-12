@@ -14,7 +14,7 @@ public class ControllerServletModule extends ServletModule {
 
 	@Override
 	protected void configureServlets() {
-		String botSecret = System.getProperty("bot.secret");
+		String botSecret = System.getProperty("bot.secret", "SECRET");
 		serve("/controller/" + botSecret).with(ControllerServlet.class);
 	}
 

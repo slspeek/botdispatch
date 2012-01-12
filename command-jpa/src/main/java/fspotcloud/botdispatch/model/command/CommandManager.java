@@ -28,6 +28,7 @@ public class CommandManager implements Commands {
     }
 
     public void save(Command c) {
+        
         EntityManager entityManager = entityManagerProvider.get();
         entityManager.getTransaction().begin();
         entityManager.persist(c);

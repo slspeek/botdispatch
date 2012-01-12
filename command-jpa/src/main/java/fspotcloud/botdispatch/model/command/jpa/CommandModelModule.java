@@ -1,4 +1,4 @@
-package fspotcloud.botdispatch.model;
+package fspotcloud.botdispatch.model.command.jpa;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
@@ -14,6 +14,6 @@ public class CommandModelModule extends AbstractModule {
 	protected void configure() {
 		bind(Commands.class).to(CommandManager.class).in(Singleton.class);
 		bind(Integer.class).annotatedWith(Names.named("maxCommandDelete")).toInstance(new Integer(300));
-		install(new JpaPersistModule("transactions-optional"));
+		install(new JpaPersistModule("derby"));
 	}
 }
