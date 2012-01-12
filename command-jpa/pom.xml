@@ -114,6 +114,12 @@
         </dependency>
         <dependency>
             <groupId>org.apache.derby</groupId>
+            <artifactId>derbyrun</artifactId>
+            <version>10.7.1.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
             <artifactId>derbynet</artifactId>
             <version>10.7.1.1</version>
         </dependency>

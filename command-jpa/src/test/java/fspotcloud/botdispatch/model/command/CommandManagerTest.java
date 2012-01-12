@@ -51,8 +51,8 @@ public class CommandManagerTest extends TestCase {
         Command retrieved = commandManager.getAndLockFirstCommand();
         assertTrue(retrieved.isLocked());
         assertEquals(cmdDO.getAction(), retrieved.getAction());
-        //assertNotNull(retrieved.getCallback());
-        //assertEquals(TestAsyncCallback.class, retrieved.getCallback().getClass());
+        assertNotNull(retrieved.getCallback());
+        assertEquals(TestAsyncCallback.class, retrieved.getCallback().getClass());
         retrieved = commandManager.getAndLockFirstCommand();
         assertEquals(NullCommand.class, retrieved.getClass());
 
