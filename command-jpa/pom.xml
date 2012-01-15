@@ -126,12 +126,6 @@
         </dependency>
         <dependency>
             <groupId>org.apache.derby</groupId>
-            <artifactId>derbyrun</artifactId>
-            <version>10.7.1.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.derby</groupId>
             <artifactId>derbynet</artifactId>
             <version>10.7.1.1</version>
         </dependency>
@@ -148,24 +142,10 @@
         <dependency>
             <groupId>net.customware.gwt.dispatch</groupId>
             <artifactId>gwt-dispatch</artifactId>
-            <version>1.2.0</version>
         </dependency>
         <dependency>
             <groupId>com.google.inject.extensions</groupId>
             <artifactId>guice-persist</artifactId>
-            <version>3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-testing</artifactId>
-            <version>1.6.0</version>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-1.0-sdk</artifactId>
-            <version>1.6.0</version>
         </dependency>
         <dependency>
             <groupId>javax.jdo</groupId>
@@ -250,7 +230,7 @@
                     <log4jConfiguration>${project.build.directory}/classes/log4j.properties</log4jConfiguration>
                     <verbose>true</verbose>
 					<!-- Make sure this path contains your persistent classes! -->
-                    <mappingIncludes>fspotcloud/botdispatch/model/**/*.class</mappingIncludes>
+                    <mappingIncludes>fspotcloud/botdispatch/model/jpa/**/*Entity.class</mappingIncludes>
                     <verbose>true</verbose>
                     <enhancerName>ASM</enhancerName>
                     <api>JDO</api>

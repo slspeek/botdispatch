@@ -16,8 +16,6 @@ public class CommandEntity implements Command {
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     private Long id;
-    //transient private Blob callbackBlob;
-    //transient private Blob actionBlob;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date ctime;
     @Basic

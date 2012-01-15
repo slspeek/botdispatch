@@ -13,12 +13,13 @@
 	<name>Command Model Interface</name>
 	<dependencies>
 		<dependency>
-			<groupId>com.google.gwt</groupId>
-			<artifactId>gwt-user</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>net.customware.gwt.dispatch</groupId>
 			<artifactId>gwt-dispatch</artifactId>
 		</dependency>
+	 <dependency>
+	  <groupId>com.google.gwt</groupId>
+	  <artifactId>gwt-servlet</artifactId>
+	  <version>2.4.0</version>
+	 </dependency>
 	</dependencies>
 </project>
