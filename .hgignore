@@ -1,5 +1,6 @@
 syntax: glob
 .gradle/*
+*/JPA/*
 grapher/src/site/resources/*.png
 extras/*
 test-output/*

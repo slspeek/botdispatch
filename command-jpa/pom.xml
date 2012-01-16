@@ -27,6 +27,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        
         <dependency>
             <groupId>fspotcloud.bot-dispatch</groupId>
             <artifactId>test</artifactId>

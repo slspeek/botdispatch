@@ -80,7 +80,7 @@
         <module>bot</module>
         <module>test-bot</module>
         <module>integration-test</module>
-<!--        <module>integration-tomcat</module>-->
+        <module>integration-tomcat</module>
     </modules>
     <properties>
         
