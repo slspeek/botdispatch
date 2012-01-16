@@ -14,6 +14,6 @@ public class CommandModelModule extends AbstractModule {
 	protected void configure() {
 		bind(Commands.class).to(CommandManager.class).in(Singleton.class);
 		bind(Integer.class).annotatedWith(Names.named("maxCommandDelete")).toInstance(new Integer(300));
-		install(new JpaPersistModule("derby"));
+		install(new JpaPersistModule("derby-command"));
 	}
 }

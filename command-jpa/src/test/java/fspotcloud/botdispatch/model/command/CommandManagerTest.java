@@ -18,7 +18,7 @@ import junit.framework.TestCase;
 
 public class CommandManagerTest extends TestCase {
 
-    private static final EntityManagerFactory emfInstance = Persistence.createEntityManagerFactory("derby");
+    private static final EntityManagerFactory emfInstance = Persistence.createEntityManagerFactory("derby-command");
     Provider<EntityManager> pmProvider = new Provider<EntityManager>() {
 
         @Override
