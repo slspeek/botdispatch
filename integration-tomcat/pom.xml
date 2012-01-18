@@ -144,7 +144,7 @@
                         </exclude>
                     </excludes>
                 </configuration>
-                <executions>
+<!--                <executions>
                     <execution>
                         <id>integration-tests</id>
                         <phase>integration-test</phase>
@@ -153,7 +153,7 @@
                         </goals>
                         <configuration>
                             <skip>false</skip>
-							<!-- XXX: excludes-element really needed -->
+							 XXX: excludes-element really needed 
                             <excludes>
                                 <exclude>none</exclude>
                             </excludes>
@@ -162,13 +162,13 @@
                             </includes>
                         </configuration>
                     </execution>
-                </executions>
+                </executions>-->
             </plugin>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat6-maven-plugin</artifactId>
                 <version>2.0-SNAPSHOT</version>
-                <executions>
+<!--                <executions>
                     <execution>
                         <id>integration</id>
                         <goals>
@@ -183,7 +183,7 @@
                         </goals>
                         <phase>post-integration-test</phase>
                     </execution>
-                </executions>
+                </executions>-->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
