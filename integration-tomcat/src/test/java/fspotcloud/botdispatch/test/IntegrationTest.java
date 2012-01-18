@@ -1,5 +1,6 @@
 package fspotcloud.botdispatch.test;
 
+import fspotcloud.botdispatch.test.selenium.LocalBotModule;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import net.customware.gwt.dispatch.shared.DispatchException;

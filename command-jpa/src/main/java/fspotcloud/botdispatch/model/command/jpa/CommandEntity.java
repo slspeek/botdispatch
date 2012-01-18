@@ -20,9 +20,9 @@ public class CommandEntity implements Command {
     private Date ctime;
     @Basic
     private boolean locked;
-    @Column(columnDefinition = "BLOB")
+    @Lob
     private Serializable callback;
-    @Column(columnDefinition = "BLOB")
+    @Lob
     private Serializable action;
 
     public CommandEntity() {

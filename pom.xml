@@ -334,6 +334,13 @@
     </reporting>
     <repositories>
         <repository>
+            <id>Apache</id>
+            <url>http://people.apache.org/repo/m2-snapshot-repository/org/apache/tomcat/</url>
+            <snapshots>
+                <enabled></enabled>
+            </snapshots>
+        </repository>
+        <repository>
             <id>fspotcloud-maven</id>
             <url>http://maven.fspotcloud.googlecode.com/hg/repo</url>
         </repository>

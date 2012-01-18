@@ -1,4 +1,4 @@
-package fspotcloud.botdispatch.test;
+package fspotcloud.botdispatch.test.selenium;
 
 import junit.framework.TestCase;
 
