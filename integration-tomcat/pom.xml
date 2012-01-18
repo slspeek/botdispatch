@@ -65,7 +65,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-	 <dependency>
+        <dependency>
             <groupId>com.google.guiceberry</groupId>
             <artifactId>guiceberry</artifactId>
             <version>3.0.4</version>
@@ -197,7 +197,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.6</version>
-                <executions>
+<!--                <executions>
                     <execution>
                         <id>run-peer</id>
                         <phase>pre-integration-test</phase>
@@ -231,9 +231,18 @@
                             <goal>run</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions>-->
             </plugin>
         </plugins>
 
     </build>
+    <repositories>
+        <repository>
+            <id>Apache</id>
+            <url>http://people.apache.org/repo/m2-snapshot-repository/org/apache/tomcat/</url>
+            <snapshots>
+                <enabled></enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
