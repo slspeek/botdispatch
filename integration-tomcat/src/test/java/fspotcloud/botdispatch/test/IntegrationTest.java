@@ -1,58 +1,51 @@
 package fspotcloud.botdispatch.test;
 
-import fspotcloud.botdispatch.test.selenium.LocalBotModule;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import com.google.guiceberry.junit4.GuiceBerryRule;
 import net.customware.gwt.dispatch.shared.DispatchException;
 
 import org.mockito.ArgumentCaptor;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
+import com.google.inject.Inject;
 
 import fspotcloud.botdispatch.bot.Bot;
-import fspotcloud.botdispatch.controller.dispatch.DefaultControllerDispatchAsync;
-import fspotcloud.botdispatch.controller.inject.ControllerModule;
-import fspotcloud.botdispatch.model.command.jpa.CommandModelModule;
-import fspotcloud.botdispatch.model.command.jpa.PersistServiceInitializer;
-import junit.framework.Test;
-import junit.framework.TestCase;
+import fspotcloud.botdispatch.controller.dispatch.ControllerDispatchAsync;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.mockito.Captor;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-public class IntegrationTest extends TestCase {
+public class IntegrationTest {
 
-    Injector injector;
+    @Rule
+    public GuiceBerryRule guiceBerry = new GuiceBerryRule(BotDispatchGuiceberryEnv.class);
+   
     TestAction action = new TestAction("Your name here");
     SecondAction secondAction = new SecondAction("gnu");
     ThrowingAction throwing = new ThrowingAction("Demian");
-    TestAsyncCallback callback;
+    TestAsyncCallback callback = new TestAsyncCallback();
     String resultMessage = "Hello to you, Your name here";
-    HeavyReport report;
-    DefaultControllerDispatchAsync dispatch;
+    HeavyReport report = new HeavyReport();
+    @Inject
+    ControllerDispatchAsync dispatch;
+    @Inject
     Bot bot;
+    @Captor
     ArgumentCaptor<DispatchException> captor;
 
-    @Override
+    @Before
     public void setUp() {
-        callback = new TestAsyncCallback();
-        report = mock(HeavyReport.class);
-
-        injector = Guice.createInjector(new LocalBotModule(),
-                new ActionsModule(), new CommandModelModule(),
-                new ControllerModule(), new HeavyReportModule(report));
-        injector.getInstance(PersistServiceInitializer.class);
-        bot = injector.getInstance(Bot.class);
-        dispatch = injector.getInstance(DefaultControllerDispatchAsync.class);
-        captor = ArgumentCaptor.forClass(DispatchException.class);
+        MockitoAnnotations.initMocks(this);
     }
 
+    @Test
     public void testOne() throws InterruptedException {
-        dispatch.execute(action, callback);
-        dispatch.execute(secondAction, callback);
         dispatch.execute(throwing, callback);
+        dispatch.execute(secondAction, callback);
+        dispatch.execute(action, callback);
         bot.runForever(4);
-        verify(report).report(resultMessage);
-        verify(report).report("GNU");
-        verify(report).error(captor.capture());
-
+       Assert.assertEquals(resultMessage, report.report);
     }
 }

@@ -1,7 +1,15 @@
 package fspotcloud.botdispatch.test;
 
 
-public interface HeavyReport {
-	void report(String message);
-	void error(Throwable error);
+public class HeavyReport {
+    
+        static String report;
+        
+        public HeavyReport() {}
+        public void report(String message) {
+            report = message;
+        }
+
+        public void error(Throwable error) {
+        }
 }
