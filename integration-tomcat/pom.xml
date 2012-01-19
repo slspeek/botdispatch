@@ -241,7 +241,7 @@
             <id>Apache</id>
             <url>http://people.apache.org/repo/m2-snapshot-repository</url>
             <snapshots>
-                <enabled></enabled>
+                <enabled>true</enabled>
             </snapshots>
         </repository>
     </repositories>

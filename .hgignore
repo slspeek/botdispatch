@@ -1,4 +1,6 @@
 syntax: glob
+derby.log
+*/derby.log
 .gradle/*
 *JPA/*
 grapher/src/site/resources/*.png
