@@ -5,47 +5,18 @@
     <parent>
         <groupId>fspotcloud.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.3-bd</version>
+        <version>0.31-bd</version>
     </parent>
     <groupId>fspotcloud.bot-dispatch</groupId>
     <artifactId>command-jpa</artifactId>
-    <version>0.3-bd</version>
+    <version>0.31-bd</version>
     <packaging>jar</packaging>
-    <name>Command JPA Implementation</name>
+    <name>Command JPA Base</name>
     <dependencies>
         <dependency>
             <groupId>fspotcloud.bot-dispatch</groupId>
             <artifactId>command-api</artifactId>
             <exclusions>
-                <exclusion>
-                    <artifactId>gwt-dispatch</artifactId>
-                    <groupId>net.customware.gwt.dispatch</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>gwt-user</artifactId>
-                    <groupId>com.google.gwt</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        
-        <dependency>
-            <groupId>fspotcloud.bot-dispatch</groupId>
-            <artifactId>test</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>appengine-api-stubs</artifactId>
-                    <groupId>com.google.appengine</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>appengine-local-runtime</artifactId>
-                    <groupId>com.google.appengine</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>appengine-testing</artifactId>
-                    <groupId>com.google.appengine</groupId>
-                </exclusion>
                 <exclusion>
                     <artifactId>gwt-dispatch</artifactId>
                     <groupId>net.customware.gwt.dispatch</groupId>
@@ -74,60 +45,8 @@
             <version>2.6</version>
             <type>jar</type>
         </dependency>
-        <dependency>
-            <groupId>com.google.guiceberry</groupId>
-            <artifactId>guiceberry</artifactId>
-            <version>3.0.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava-testlib</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.10</version>
-            <scope>test</scope>
-        </dependency>
 
-        <!-- Hibernate uses slf4j for logging, for our purposes here use the simple backend -->
-
-        
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-        </dependency><!-- Hibernate gives you a choice of bytecode providers between cglib and javassist -->
-
-        
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.6.1</version>
-        </dependency><dependency>
-            <groupId>javassist</groupId>
-            <artifactId>javassist</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derbyclient</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derbynet</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derbytools</artifactId>
-        </dependency>
+        <!-- Hibernate uses slf4j for logging, for our purposes here use the simple backend --><!-- Hibernate gives you a choice of bytecode providers between cglib and javassist -->
         <dependency>
             <groupId>javax.transaction</groupId>
             <artifactId>jta</artifactId>
@@ -146,76 +65,15 @@
             <artifactId>jdo-api</artifactId>
             <version>3.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>geronimo-jpa_3.0_spec</artifactId>
+            <version>1.1.1</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>special</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>special</classifier>
-                            <excludes>
-                                <exclude>META-INF/jdoconfig.xml</exclude>
-                            </excludes>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>test-jar</id>
-                        <goals>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>jar</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <excludes>
-                                <exclude>fspotcloud/**</exclude>
-                                <exclude>META-INF/jdoconfig.xml</exclude>
-                            </excludes>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.1</version>
-                <executions>
-                    <execution>
-                        <id>pre-test</id>
-                        <phase>process-test-resources</phase>
-                        <configuration>
-                            <tasks>
-                                <delete dir="${basedir}/WEB-INF" includeemptydirs="true" />
-                            </tasks>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>clear</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <tasks>
-                                <delete dir="${basedir}/WEB-INF" includeemptydirs="true" />
-                            </tasks>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>maven-datanucleus-plugin</artifactId>

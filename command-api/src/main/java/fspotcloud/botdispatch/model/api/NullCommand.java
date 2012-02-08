@@ -41,4 +41,12 @@ public class NullCommand implements Command {
     public AsyncCallback<? extends Result> getCallback() {
         return null;
     }
+
+//    @Override
+//    public void setAction(Action<?> action) {
+//    }
+//
+//    @Override
+//    public void setCallback(AsyncCallback<? extends Result> callback) {
+//    }
 }

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fspotcloud.bot-dispatch</groupId>
     <artifactId>bot-dispatch</artifactId>
-    <version>0.3-bd</version>
+    <version>0.31-bd</version>
     <name>Bot Dispatch</name>
     <packaging>pom</packaging>
     <description>GWT-Dispatch extension for bot/controllers</description>
@@ -75,6 +75,7 @@
         <module>test</module>
         <module>command-api</module>
         <module>command-jpa</module>
+        <module>command-jpa-j2ee</module>
         <module>gae-command</module>
         <module>controller</module>
         <module>bot</module>

@@ -11,8 +11,12 @@ public interface Command {
     Long getId();
 
     Action<?> getAction();
+    
+//    void setAction(Action<?> action);
 
     AsyncCallback<? extends Result> getCallback();
+    
+//    void setCallback(AsyncCallback<? extends Result> callback);
 
     Date getCtime();
 

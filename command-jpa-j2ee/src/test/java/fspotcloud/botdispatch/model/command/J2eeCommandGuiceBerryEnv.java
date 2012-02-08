@@ -16,7 +16,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class GaeCommandGuiceberryEnv extends GuiceBerryModule {
+
+public class J2eeCommandGuiceBerryEnv extends GuiceBerryModule {
 
     @Override
     protected void configure() {
@@ -39,7 +40,6 @@ public class GaeCommandGuiceberryEnv extends GuiceBerryModule {
         }
     }
 }
-
 class CommandModelModule extends AbstractModule {
 
     @Override

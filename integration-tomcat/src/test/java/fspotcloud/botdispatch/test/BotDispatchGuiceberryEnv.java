@@ -7,7 +7,6 @@ import com.google.guiceberry.GuiceBerryModule;
 import com.google.inject.persist.PersistService;
 import fspotcloud.botdispatch.controller.inject.ControllerModule;
 import fspotcloud.botdispatch.model.command.jpa.CommandModelModule;
-import fspotcloud.botdispatch.test.selenium.LocalBotModule;
 
 public class BotDispatchGuiceberryEnv extends GuiceBerryModule {
 

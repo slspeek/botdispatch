@@ -6,8 +6,7 @@ import com.google.inject.Provider;
 import fspotcloud.botdispatch.model.api.Command;
 import fspotcloud.botdispatch.model.api.Commands;
 import fspotcloud.botdispatch.model.api.NullCommand;
-import fspotcloud.botdispatch.model.command.jpa.CommandEntity;
-import java.io.Serializable;
+import fspotcloud.botdispatch.model.command.jpa.CommandEntityBase;
 import java.util.List;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -15,20 +14,19 @@ import javax.persistence.Query;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
 
-public class CommandManager implements Commands {
+public abstract class CommandManagerBase implements Commands {
 
     private final Provider<EntityManager> entityManagerProvider;
     private Integer maxDelete;
 
     @Inject
-    public CommandManager(Provider<EntityManager> entityManagerProvider,
+    public CommandManagerBase(Provider<EntityManager> entityManagerProvider,
             @Named("maxCommandDelete") Integer maxDelete) {
         this.entityManagerProvider = entityManagerProvider;
         this.maxDelete = maxDelete;
     }
 
     public void save(Command c) {
-        
         EntityManager entityManager = entityManagerProvider.get();
         entityManager.getTransaction().begin();
         entityManager.persist(c);
@@ -41,19 +39,18 @@ public class CommandManager implements Commands {
         entityManager.getTransaction().begin();
         int count = -1;
         Query query = entityManager.createQuery("select c.id from "
-                + CommandEntity.class.getName() + " AS c");
+                + getEntityClass().getName() + " AS c");
         @SuppressWarnings("unchecked")
-        List<CommandEntity> rs = (List<CommandEntity>) query.getResultList();
+        List<CommandEntityBase> rs = (List<CommandEntityBase>) query.getResultList();
         count = rs.size();
         entityManager.getTransaction().commit();
-        //entityManager.close();
         return count;
     }
 
     @Override
-    public CommandEntity createAndSave(Action<?> action,
+    public Command createAndSave(Action<?> action,
             AsyncCallback<? extends Result> callback) {
-        CommandEntity cmd = new CommandEntity(action, callback);
+        Command cmd = newEntity(action, callback);
         save(cmd);
         return cmd;
     }
@@ -64,11 +61,11 @@ public class CommandManager implements Commands {
         entityManager.getTransaction().begin();
         Command returnValue;
         Query query = entityManager.createQuery("SELECT c FROM "
-                + CommandEntity.class.getName()
+                + getEntityClass().getName()
                 + " c WHERE c.locked = false ORDER BY ctime");
         query.setMaxResults(1);
         @SuppressWarnings("unchecked")
-        List<CommandEntity> cmdList = (List<CommandEntity>) query.getResultList();
+        List<Command> cmdList = (List<Command>) query.getResultList();
         if (cmdList.size() > 0) {
             Command first = cmdList.get(0);
             first.setLocked(true);
@@ -85,7 +82,7 @@ public class CommandManager implements Commands {
     public Command getById(long callbackId) {
         EntityManager entityManager = entityManagerProvider.get();
         entityManager.getTransaction().begin();
-        Command cmd = entityManager.find(CommandEntity.class, callbackId);
+        Command cmd = entityManager.find(getEntityClass(), callbackId);
         entityManager.getTransaction().commit();
         return cmd;
     }
@@ -95,7 +92,7 @@ public class CommandManager implements Commands {
         EntityManager entityManager = entityManagerProvider.get();
         entityManager.getTransaction().begin();
         Long id = command.getId();
-        CommandEntity cmd = entityManager.find(CommandEntity.class, id);
+        Command cmd = entityManager.find(getEntityClass(), id);
         entityManager.remove(cmd);
         entityManager.getTransaction().commit();
     }
@@ -105,13 +102,17 @@ public class CommandManager implements Commands {
         EntityManager entityManager = entityManagerProvider.get();
         entityManager.getTransaction().begin();
         Query query = entityManager.createQuery("SELECT c FROM "
-                + CommandEntity.class.getName() + " AS c ORDER BY ctime");
+                + getEntityClass().getName() + " AS c ORDER BY ctime");
         query.setMaxResults(maxDelete);
         @SuppressWarnings("unchecked")
-        List<CommandEntity> resultList = (List<CommandEntity>) query.getResultList();
-        for (CommandEntity cmdEntity : resultList) {
+        List<Command> resultList = (List<Command>) query.getResultList();
+        for (Command cmdEntity : resultList) {
             entityManager.remove(cmdEntity);
         }
         entityManager.getTransaction().commit();
     }
+    
+    abstract Class<? extends Command> getEntityClass();
+    abstract Command newEntity(Action<?> action, AsyncCallback<? extends Result> callback);
+    
 }

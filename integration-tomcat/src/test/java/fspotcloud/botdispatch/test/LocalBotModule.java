@@ -1,4 +1,4 @@
-package fspotcloud.botdispatch.test.selenium;
+package fspotcloud.botdispatch.test;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.assistedinject.FactoryModuleBuilder;

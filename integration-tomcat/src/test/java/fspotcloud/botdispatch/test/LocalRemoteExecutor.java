@@ -1,4 +1,4 @@
-package fspotcloud.botdispatch.test.selenium;
+package fspotcloud.botdispatch.test;
 
 import java.io.IOException;
 
