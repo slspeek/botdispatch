@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fspotcloud.bot-dispatch</groupId>
     <artifactId>bot-dispatch</artifactId>
-    <version>0.2-botdispatch</version>
+    <version>0.31-bd</version>
     <name>Bot Dispatch</name>
     <packaging>pom</packaging>
     <description>GWT-Dispatch extension for bot/controllers</description>
@@ -98,13 +98,18 @@
         <module>test</module>
         <module>command-api</module>
         <module>command-jpa</module>
+        <module>command-jpa-j2ee</module>
         <module>gae-command</module>
         <module>controller</module>
         <module>bot</module>
         <module>test-bot</module>
         <module>integration-test</module>
+        <module>integration-tomcat</module>
     </modules>
     <properties>
+        
+        <hibernate.version>3.6.9.Final</hibernate.version>
+        <derby.version>10.2.2.0</derby.version>
         <guice.version>3.0</guice.version>
         <gin.version>1.5.0</gin.version>
         <gwt.version>2.4.0</gwt.version>
@@ -137,6 +142,11 @@
             <dependency>
                 <groupId>fspotcloud.bot-dispatch</groupId>
                 <artifactId>gae-command</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>fspotcloud.bot-dispatch</groupId>
+                <artifactId>command-jpa</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -231,6 +241,49 @@
                 <artifactId>gwt-user</artifactId>
                 <version>${gwt.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.google.gwt</groupId>
+                <artifactId>gwt-servlet</artifactId>
+                <version>${gwt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency><!-- Hibernate gives you a choice of bytecode providers between cglib and javassist -->
+            <dependency>
+                <groupId>javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>3.12.0.GA</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derby</artifactId>
+                <version>${derby.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derbyclient</artifactId>
+                <version>${derby.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derbynet</artifactId>
+                <version>${derby.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derbytools</artifactId>
+                <version>${derby.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <reporting>
@@ -304,6 +357,13 @@
         </plugins>
     </reporting>
     <repositories>
+        <repository>
+            <id>Apache</id>
+            <url>http://people.apache.org/repo/m2-snapshot-repository</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
         <repository>
             <id>fspotcloud-maven</id>
             <url>http://maven.fspotcloud.googlecode.com/hg/repo</url>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+	<application>${application.id}</application>
+	<version>5</version>
+	<!-- Configure serving/caching of GWT files -->
+	<static-files>
+		<include path="**" />
+		
+	</static-files>
+	<system-properties>
+		<property name="java.util.logging.config.file" value="WEB-INF/logging.properties" />
+		<property name="log4j.configuration" value="log4j.properties" />
+		<property name="bot.secret" value="${bot.secret}" />
+	</system-properties>
+</appengine-web-app>
