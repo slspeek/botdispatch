@@ -3,14 +3,15 @@ package fspotcloud.botdispatch.model.command.jpa;
 import fspotcloud.botdispatch.model.api.Command;
 import java.util.Date;
 import javax.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public abstract class CommandEntityBase implements Command {
 
     @Id
-    //@GeneratedValue(generator="increment")
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //Derby with Hibernate do not want this, I thought
-    //@GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(generator="increment")
+    //@GeneratedValue(strategy = GenerationType.IDENTITY) //Derby with Hibernate do not want this, I know
+    @GenericGenerator(name = "increment", strategy = "increment")
     private Long id;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date ctime;

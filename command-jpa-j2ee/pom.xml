@@ -5,11 +5,11 @@
     <parent>
         <groupId>fspotcloud.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.32-bd</version>
+        <version>0.33-bd</version>
     </parent>
     <groupId>fspotcloud.bot-dispatch</groupId>
     <artifactId>command-jpa-j2ee</artifactId>
-    <version>0.32-bd</version>
+    <version>0.33-bd</version>
     <packaging>jar</packaging>
     <name>Command JPA J2EE Implementation</name>
     <dependencies>
@@ -149,7 +149,7 @@
         <dependency>
             <groupId>fspotcloud.bot-dispatch</groupId>
             <artifactId>command-jpa</artifactId>
-            <version>0.32-bd</version>
+            <version>0.33-bd</version>
             <type>jar</type>
         </dependency>
         <dependency>
