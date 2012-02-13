@@ -128,6 +128,12 @@ public class DAOBase<T extends HasId, U extends T> implements AbstractDAO<T> {
         List<Object> keys = findAllKeys(1);
         return keys.isEmpty();
     }
+    
+     @Override
+    public int count(int max) {
+        List<Object> keys = findAllKeys(max);
+        return keys.size();
+    }
 
     @Override
     public boolean deleteBulk(int max) {

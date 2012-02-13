@@ -29,4 +29,6 @@ public interface AbstractDAO<T> {
     boolean deleteBulk(int max);
 
     boolean isEmpty();
+    
+    int count(int max);
 }

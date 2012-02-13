@@ -30,17 +30,7 @@ public abstract class CommandManagerBase<T extends HasId, U extends T> extends S
     
     @Override
     public int getCountUnderAThousend() {
-        EntityManager entityManager = entityManagerProvider.get();
-        //entityManager.getTransaction().begin();
-        int count = -1;
-        Query query = entityManager.createQuery("select c.id from "
-                + getEntityClass().getName() + " AS c");
-        @SuppressWarnings("unchecked")
-        List<Long> rs = (List<Long>) query.getResultList();
-        //entityManager.getTransaction().commit();
-        count = rs.size();
-        entityManager.close();
-        return count;
+        return count(1000);
     }
     
     @Override
