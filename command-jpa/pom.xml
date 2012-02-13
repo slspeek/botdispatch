@@ -5,11 +5,11 @@
     <parent>
         <groupId>fspotcloud.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.32-bd</version>
+        <version>0.34-bd</version>
     </parent>
     <groupId>fspotcloud.bot-dispatch</groupId>
     <artifactId>command-jpa</artifactId>
-    <version>0.32-bd</version>
+    <version>0.34-bd</version>
     <packaging>jar</packaging>
     <name>Command JPA Base</name>
     <dependencies>
@@ -57,18 +57,20 @@
             <artifactId>gwt-dispatch</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.google.inject.extensions</groupId>
-            <artifactId>guice-persist</artifactId>
-        </dependency>
-        <dependency>
             <groupId>javax.jdo</groupId>
             <artifactId>jdo-api</artifactId>
             <version>3.0</version>
         </dependency>
         <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>geronimo-jpa_3.0_spec</artifactId>
-            <version>1.1.1</version>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <version>1.0.1.Final</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>fspotcloud.bot-dispatch</groupId>
+            <artifactId>simple-jpa-dao</artifactId>
+            <version>0.34-bd</version>
             <type>jar</type>
         </dependency>
     </dependencies>

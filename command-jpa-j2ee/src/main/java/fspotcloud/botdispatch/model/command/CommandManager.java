@@ -10,25 +10,17 @@ import javax.persistence.EntityManager;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
 
-public class CommandManager extends CommandManagerBase {
-
+public class CommandManager extends CommandManagerBase<Command, CommandEntity> {
 
     @Inject
     public CommandManager(Provider<EntityManager> entityManagerProvider,
             @Named("maxCommandDelete") Integer maxDelete) {
-        super(entityManagerProvider, maxDelete);
-        
-       }
+        super(CommandEntity.class, entityManagerProvider, maxDelete);
 
-    @Override
-    Class<? extends Command> getEntityClass() {
-    return CommandEntity.class;
     }
 
     @Override
-    Command newEntity(Action<?> action, AsyncCallback<? extends Result> callback) {
+    public Command newEntity(Action action, AsyncCallback callback) {
         return new CommandEntity(action, callback);
     }
-
-    
 }
