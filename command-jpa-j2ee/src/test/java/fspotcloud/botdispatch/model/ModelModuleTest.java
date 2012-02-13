@@ -6,7 +6,6 @@ import junit.framework.TestSuite;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.google.inject.persist.jpa.JpaPersistModule;
 
 public class ModelModuleTest extends TestCase {
 
