@@ -1,12 +1,13 @@
 package fspotcloud.botdispatch.model.api;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import fspotcloud.simplejpadao.HasId;
 import java.io.Serializable;
 import java.util.Date;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
 
-public interface Command {
+public interface Command extends HasId {
 
     Long getId();
 

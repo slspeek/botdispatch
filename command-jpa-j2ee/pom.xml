@@ -5,11 +5,11 @@
     <parent>
         <groupId>fspotcloud.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.33-bd</version>
+        <version>0.35-bd</version>
     </parent>
     <groupId>fspotcloud.bot-dispatch</groupId>
     <artifactId>command-jpa-j2ee</artifactId>
-    <version>0.33-bd</version>
+    <version>0.35-bd</version>
     <packaging>jar</packaging>
     <name>Command JPA J2EE Implementation</name>
     <dependencies>
@@ -24,6 +24,10 @@
                 <exclusion>
                     <artifactId>gwt-user</artifactId>
                     <groupId>com.google.gwt</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>geronimo-jpa_3.0_spec</artifactId>
+                    <groupId>com.google.appengine</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -96,14 +100,13 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-        </dependency><!-- Hibernate gives you a choice of bytecode providers between cglib and javassist -->
-
-        
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.6.1</version>
-        </dependency><dependency>
+        </dependency>
+        <dependency>
             <groupId>javassist</groupId>
             <artifactId>javassist</artifactId>
         </dependency>
@@ -111,8 +114,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-        </dependency>
-        <dependency>
+        </dependency><dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derby</artifactId>
         </dependency>
@@ -138,10 +140,6 @@
             <artifactId>gwt-dispatch</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.google.inject.extensions</groupId>
-            <artifactId>guice-persist</artifactId>
-        </dependency>
-        <dependency>
             <groupId>javax.jdo</groupId>
             <artifactId>jdo-api</artifactId>
             <version>3.0</version>
@@ -149,9 +147,10 @@
         <dependency>
             <groupId>fspotcloud.bot-dispatch</groupId>
             <artifactId>command-jpa</artifactId>
-            <version>0.33-bd</version>
+            <version>0.35-bd</version>
             <type>jar</type>
         </dependency>
+        
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>command-api</artifactId>
@@ -159,17 +158,30 @@
             <scope>test</scope>
             <type>test-jar</type>
         </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>command-api</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-            <type>test-jar</type>
-        </dependency>
+       
     </dependencies>
     <build>
         <plugins>
-             <plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>clean-database-files</id>
+                        <phase>process-test-resources,clean</phase>
+                        <configuration>
+                            <target>
+                                <delete dir="${basedir}/JPA" includeemptydirs="true" />
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
@@ -225,7 +237,7 @@
                     <mappingIncludes>fspotcloud/botdispatch/model/jpa/**/*Entity.class</mappingIncludes>
                     <verbose>true</verbose>
                     <enhancerName>ASM</enhancerName>
-                    <api>JDO</api>
+                    <api>JPA</api>
                 </configuration>
                 <executions>
                     <execution>
