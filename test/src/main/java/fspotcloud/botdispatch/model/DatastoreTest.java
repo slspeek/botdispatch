@@ -1,14 +1,12 @@
 package fspotcloud.botdispatch.model;
 
-import junit.framework.TestCase;
-
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
 
-public abstract class DatastoreTest extends TestCase {
+public abstract class DatastoreTest {
 
-	private final LocalServiceTestHelper helper =
-        new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
+    private final LocalServiceTestHelper helper =
+            new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
 
     public void setUp() {
         helper.setUp();
@@ -18,8 +16,6 @@ public abstract class DatastoreTest extends TestCase {
         helper.tearDown();
     }
 
-	public DatastoreTest() {
-	}
-
-
+    public DatastoreTest() {
+    }
 }

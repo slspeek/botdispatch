@@ -75,4 +75,8 @@ public class CommandEntity implements Command {
     private void setCallback(AsyncCallback<? extends Result> callback) {
         this.callback = new Blob(SerializationUtils.serialize((Serializable) callback));
     }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }

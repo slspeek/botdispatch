@@ -6,7 +6,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 
 import fspotcloud.botdispatch.controller.dispatch.ControllerDispatchAsync;
-import fspotcloud.botdispatch.model.CommandModelModule;
+import fspotcloud.botdispatch.model.jpa.gae.command.CommandModelModule;
 
 public class ControllerModuleTest extends TestCase {
 

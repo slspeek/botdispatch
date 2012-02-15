@@ -1,19 +1,23 @@
 package fspotcloud.botdispatch.controller.callback;
 
 import static org.mockito.Mockito.*;
-import junit.framework.TestCase;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
 import fspotcloud.botdispatch.model.api.Command;
-import fspotcloud.botdispatch.model.command.CommandDO;
+import fspotcloud.botdispatch.model.jpa.gae.command.CommandEntity;
 import fspotcloud.botdispatch.test.HeavyReport;
 import fspotcloud.botdispatch.test.HeavyReportModule;
 import fspotcloud.botdispatch.test.TestAsyncCallback;
 import fspotcloud.botdispatch.test.ThrowingAction;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
-public class ErrorHandlerImplTest extends TestCase {
+        
+
+public class ErrorHandlerImplTest   {
 
 	Command cmd;
 	TestAsyncCallback callback;
@@ -23,18 +27,18 @@ public class ErrorHandlerImplTest extends TestCase {
 	Injector injector;
 	HeavyReport report;
 
-	@Override
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		report = mock(HeavyReport.class);
 		injector = Guice.createInjector(new HeavyReportModule(report));
 		action = new ThrowingAction("Demian");
 		caught = new Throwable();
 		callback = new TestAsyncCallback();
-		cmd = new CommandDO(action, callback);
+		cmd = new CommandEntity(action, callback);
 		target = new ErrorHandlerImpl(caught, cmd, injector);
-		super.setUp();
 	}
 
+        @Test
 	public void testOnError() {
 		target.onError();
 		verify(report).error(caught);
