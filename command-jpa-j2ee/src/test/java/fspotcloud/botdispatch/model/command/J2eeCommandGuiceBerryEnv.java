@@ -7,6 +7,7 @@ import com.google.inject.name.Names;
 
 import fspotcloud.botdispatch.model.api.Commands;
 import fspotcloud.simplejpadao.EMProvider;
+import fspotcloud.simplejpadao.SimpleDAOGenId;
 import javax.persistence.EntityManager;
 
 public class J2eeCommandGuiceBerryEnv extends GuiceBerryModule {
@@ -26,5 +27,6 @@ class CommandModelModule extends AbstractModule {
         bind(Integer.class).annotatedWith(Names.named("maxCommandDelete")).toInstance(new Integer(3));
         bind(String.class).annotatedWith(Names.named("persistence-unit")).toInstance("derby-command");
         bind(EntityManager.class).toProvider(EMProvider.class);
+        bind(SimpleDAOGenId.class).to(CommandManager.class);
     }
 }

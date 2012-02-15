@@ -163,7 +163,12 @@
             <scope>test</scope>
             <type>test-jar</type>
         </dependency>
-       
+        <dependency>
+            <groupId>fspotcloud.simple-jpa-dao</groupId>
+            <artifactId>dao-genid-test</artifactId>
+            <version>0.1-sjd</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -204,6 +209,12 @@
                                     <type>test-jar</type>
                                     <outputDirectory>${project.build.directory}/additionaltests/</outputDirectory>
                                 </artifactItem>
+                                <artifactItem>
+                                    <groupId>fspotcloud.simple-jpa-dao</groupId>
+                                    <artifactId>dao-genid-test</artifactId>
+                                    <type>jar</type>
+                                    <outputDirectory>${project.build.directory}/additionaltests/</outputDirectory>
+                                </artifactItem>
                             </artifactItems>
                         </configuration>
                     </execution>
@@ -223,6 +234,7 @@
                             <testClassesDirectory>${project.build.directory}/additionaltests/</testClassesDirectory>
                             <systemPropertyVariables>
                                 <GuiceBerryEnvSelectorOverride_fspotcloud.botdispatch.model.command.EmptyGuiceBerryEnv>fspotcloud.botdispatch.model.command.J2eeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_fspotcloud.botdispatch.model.command.EmptyGuiceBerryEnv>
+                                <GuiceBerryEnvSelectorOverride_fspotcloud.simplejpadao.test.EmptyGuiceBerryEnv>fspotcloud.botdispatch.model.command.J2eeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_fspotcloud.simplejpadao.test.EmptyGuiceBerryEnv>
                             </systemPropertyVariables>
                             <additionalClasspathElements>
                                 <additionalClasspathElement>${project.build.directory}/test-classes</additionalClasspathElement>
