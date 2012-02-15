@@ -5,10 +5,13 @@ import com.google.guiceberry.GuiceBerryModule;
 import com.google.guiceberry.TestWrapper;
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
+import com.google.inject.TypeLiteral;
 import com.google.inject.name.Names;
+import fspotcloud.botdispatch.model.api.Command;
 
 import fspotcloud.botdispatch.model.api.Commands;
 import fspotcloud.simplejpadao.EMProvider;
+import fspotcloud.simplejpadao.SimpleDAOGenId;
 import javax.persistence.EntityManager;
 
 public class GaeCommandGuiceBerryEnv extends GuiceBerryModule {
@@ -29,5 +32,6 @@ class CommandModelModule extends AbstractModule {
         bind(EntityManager.class).toProvider(EMProvider.class);
         bind(String.class).annotatedWith(Names.named("persistence-unit")).toInstance("gae-jpa-command");
         bind(Commands.class).to(CommandManager.class).in(Singleton.class);
+        bind(SimpleDAOGenId.class).to(CommandManager.class);
     }
 }
