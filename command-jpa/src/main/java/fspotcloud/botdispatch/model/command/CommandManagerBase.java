@@ -1,21 +1,20 @@
 package fspotcloud.botdispatch.model.command;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.inject.Inject;
-import com.google.inject.Provider;
 import fspotcloud.botdispatch.model.api.Command;
 import fspotcloud.botdispatch.model.api.Commands;
 import fspotcloud.botdispatch.model.api.NullCommand;
-import fspotcloud.simplejpadao.HasId;
 import fspotcloud.simplejpadao.SimpleDAOGenIdImpl;
 import java.util.List;
+import javax.inject.Inject;
 import javax.inject.Named;
+import javax.inject.Provider;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
 
-public abstract class CommandManagerBase<T extends HasId, U extends T> extends SimpleDAOGenIdImpl<T, U> implements Commands {
+public abstract class CommandManagerBase<T extends Command, U extends T> extends SimpleDAOGenIdImpl<Command, U>  implements Commands {
     
     protected final Provider<EntityManager> entityManagerProvider;
     protected Integer maxDelete;
@@ -28,20 +27,17 @@ public abstract class CommandManagerBase<T extends HasId, U extends T> extends S
         this.maxDelete = maxDelete;
     }
     
-    @Override
     public int getCountUnderAThousend() {
         return count(1000);
     }
     
-    @Override
     public Command createAndSave(Action<?> action,
             AsyncCallback<? extends Result> callback) {
         Command cmd = newEntity(action, callback);
         save(cmd);
         return cmd;
     }
-    
-    @Override
+
     public Command getAndLockFirstCommand() {
         EntityManager entityManager = entityManagerProvider.get();
         entityManager.getTransaction().begin();
@@ -65,13 +61,11 @@ public abstract class CommandManagerBase<T extends HasId, U extends T> extends S
         return returnValue;
     }
     
-    @Override
     public Command getById(long callbackId) {
         return (Command) find(callbackId);
     }
     
     
-    @Override
     public void deleteAll() {
         deleteBulk(maxDelete);
     }

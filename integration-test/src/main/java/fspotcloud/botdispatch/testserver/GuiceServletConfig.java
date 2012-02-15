@@ -10,7 +10,7 @@ import com.google.inject.servlet.GuiceServletContextListener;
 
 import fspotcloud.botdispatch.controller.inject.ControllerModule;
 import fspotcloud.botdispatch.controller.inject.ControllerServletModule;
-import fspotcloud.botdispatch.model.CommandModelModule;
+import fspotcloud.botdispatch.model.jpa.gae.command.CommandModelModule;
 
 public class GuiceServletConfig extends GuiceServletContextListener {
 	@Override

@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>fspotcloud.bot-dispatch</groupId>
 		<artifactId>bot-dispatch</artifactId>
-		<version>0.36-bd</version>
+		<version>0.37-bd</version>
 	</parent>
 	<groupId>fspotcloud.bot-dispatch</groupId>
 	<artifactId>test</artifactId>
@@ -23,11 +23,6 @@
 		<dependency>
 			<groupId>net.customware.gwt.dispatch</groupId>
 			<artifactId>gwt-dispatch</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>compile</scope>
 		</dependency>
 			<!-- GAE libraries for local testing as described here: http://code.google.com/appengine/docs/java/howto/unittesting.html -->
 		<dependency>

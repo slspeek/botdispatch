@@ -12,8 +12,10 @@ import com.google.inject.Injector;
 import fspotcloud.botdispatch.bot.Bot;
 import fspotcloud.botdispatch.controller.dispatch.DefaultControllerDispatchAsync;
 import fspotcloud.botdispatch.controller.inject.ControllerModule;
-import fspotcloud.botdispatch.model.CommandModelModule;
 import fspotcloud.botdispatch.model.DatastoreTest;
+import fspotcloud.botdispatch.model.jpa.gae.command.CommandModelModule;
+import org.junit.Before;
+import org.junit.Test;
 public class IntegrationTest extends DatastoreTest {
 
 	Injector injector;
@@ -28,8 +30,9 @@ public class IntegrationTest extends DatastoreTest {
 	Bot bot;
 	ArgumentCaptor<DispatchException> captor;
 
-	@Override
+	@Before
 	public void setUp() {
+            super.setUp();
 		callback  = new TestAsyncCallback();
 		report = mock(HeavyReport.class);
 		 
@@ -39,9 +42,10 @@ public class IntegrationTest extends DatastoreTest {
 		bot = injector.getInstance(Bot.class);
 		dispatch = injector.getInstance(DefaultControllerDispatchAsync.class);
 		captor = ArgumentCaptor.forClass(DispatchException.class);
-		super.setUp();
+		
 	}
 
+        @Test
 	public void testOne() throws InterruptedException {
 		dispatch.execute(action, callback);
 		dispatch.execute(secondAction, callback);

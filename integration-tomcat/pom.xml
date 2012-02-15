@@ -5,7 +5,7 @@
     <parent>
         <groupId>fspotcloud.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.36-bd</version>
+        <version>0.37-bd</version>
     </parent>
     <groupId>fspotcloud.bot-dispatch</groupId>
     <artifactId>integration-tomcat</artifactId>
@@ -118,7 +118,7 @@
         <dependency>
             <groupId>fspotcloud.bot-dispatch</groupId>
             <artifactId>command-jpa-j2ee</artifactId>
-            <version>0.36-bd</version>
+            <version>0.37-bd</version>
             <type>jar</type>
         </dependency>
         <dependency>

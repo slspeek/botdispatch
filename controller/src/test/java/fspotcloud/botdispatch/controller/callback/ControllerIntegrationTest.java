@@ -20,22 +20,23 @@ import com.google.inject.Provider;
 
 import fspotcloud.botdispatch.controller.inject.ControllerModule;
 import fspotcloud.botdispatch.controller.inject.NullControllerHook;
-import fspotcloud.botdispatch.model.CommandModelModule;
 import fspotcloud.botdispatch.model.DatastoreTest;
-import fspotcloud.botdispatch.model.PersistenceManagerProvider;
 import fspotcloud.botdispatch.model.api.Command;
 import fspotcloud.botdispatch.model.api.Commands;
-import fspotcloud.botdispatch.model.command.CommandManager;
+import fspotcloud.botdispatch.model.jpa.gae.command.CommandModelModule;
 import fspotcloud.botdispatch.test.HeavyReport;
 import fspotcloud.botdispatch.test.HeavyReportModule;
 import fspotcloud.botdispatch.test.TestAction;
 import fspotcloud.botdispatch.test.TestAsyncCallback;
 import fspotcloud.botdispatch.test.TestResult;
 import fspotcloud.botdispatch.test.ThrowingAction;
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
+
 
 public class ControllerIntegrationTest extends DatastoreTest {
 
-	Provider<PersistenceManager> pmProvider = new PersistenceManagerProvider();
 	DispatchException error = new ActionException("Wrong");
 	Commands commandManager;
 	TestAction action = new TestAction("Your name here");
@@ -51,7 +52,8 @@ public class ControllerIntegrationTest extends DatastoreTest {
 	ErrorHandlerFactory errorHandlerFactory;
 	ArgumentCaptor<Throwable> captor;
 
-	public void setUp() {
+	@Before
+        public void setUp() {
 		super.setUp();
 		report = mock(HeavyReport.class);
 		injector = Guice.createInjector(new ControllerModule(),
@@ -59,13 +61,14 @@ public class ControllerIntegrationTest extends DatastoreTest {
 		handlerFactory = injector.getInstance(ResultHandlerFactory.class);
 		errorHandlerFactory = injector.getInstance(ErrorHandlerFactory.class);
 		captor = ArgumentCaptor.forClass(Throwable.class);
-		commandManager = new CommandManager(pmProvider, 300);
+		commandManager = injector.getInstance(Commands.class);
 		controller = new Controller(commandManager, handlerFactory,
 				errorHandlerFactory, new NullControllerHook());
 		serializedResult = SerializationUtils.serialize(result);
 		serializedError = SerializationUtils.serialize(error);
 	}
 
+        @Test
 	public void testCallback() throws IOException {
 		Command cmd = commandManager.createAndSave(action, callback);
 		Object[] back = controller.callback(cmd.getId(), serializedResult);
@@ -73,14 +76,16 @@ public class ControllerIntegrationTest extends DatastoreTest {
 		verify(report).report("Hey you");
 	}
 
-	public void testOnError() throws IOException {
+	@Test
+        public void testOnError() throws IOException {
 		Command cmd = commandManager.createAndSave(throwing, callback);
 		Object[] back = controller.callback(cmd.getId(), serializedError);
 		// assertEquals(-1L, back[0]);
 		verify(report).error(captor.capture());
 	}
 
-	public void testDoubleCallback() throws IOException {
+	@Test
+        public void testDoubleCallback() throws IOException {
 		Command cmd1 = commandManager.createAndSave(action, callback);
 		Command cmd2 = commandManager.createAndSave(action, callback);
 		Object[] back = controller.callback(cmd1.getId(), serializedResult);
