@@ -33,7 +33,6 @@
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-local-runtime</artifactId>
-			<version>${gae.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.appengine</groupId>
