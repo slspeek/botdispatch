@@ -180,8 +180,6 @@
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-local-runtime</artifactId>
-            <version>${gae.version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>fspotcloud.simple-jpa-dao</groupId>

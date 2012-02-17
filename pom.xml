@@ -20,7 +20,7 @@
                         <phase>clean</phase>
                         <configuration>
                             <target>
-                                <delete dir="${project.basedir}/MODELJPA" />
+                                <delete dir="${project.basedir}/JPA" />
                                 <delete file="${project.basedir}/derby.log" />
                                 <delete dir="${project.basedir}/runtime" />
                             </target>
@@ -93,6 +93,13 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav</artifactId>
+                <version>1.0-beta-2</version>
+            </extension>
+        </extensions>
     </build>
     <modules>
         <module>test</module>
@@ -284,6 +291,15 @@
                 <artifactId>derbytools</artifactId>
                 <version>${derby.version}</version>
             </dependency>
+             <dependency>
+                <groupId>com.google.appengine</groupId>
+                <artifactId>appengine-local-runtime</artifactId>
+                <version>${gae.version}</version>
+                <scope>system</scope>
+                <systemPath>${gae.home}/lib/impl/appengine-local-runtime.jar</systemPath>
+                <type>jar</type>
+            </dependency>
+            
         </dependencies>
     </dependencyManagement>
     <reporting>
@@ -356,6 +372,13 @@
             </plugin>
         </plugins>
     </reporting>
+    <distributionManagement>
+        <repository>
+            <id>fspotcloud-maven</id>
+            <name>fspotcloud-maven</name>
+            <url>dav:https://fspotcloud-maven.googlecode.com/svn/maven/repository</url>
+        </repository>
+    </distributionManagement>
     <repositories>
         <repository>
             <id>Apache</id>
