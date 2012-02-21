@@ -81,7 +81,7 @@ public class CommandManagerGuiceBerryTest {
         assertEquals(5, commandManager.getCountUnderAThousend());
     }
 
-    @Test
+  
     public void testGetById() {
         Command cmd = commandManager.createAndSave(action, callback);
         System.out.println(cmd);

@@ -14,7 +14,6 @@ public class CommandModelModule extends AbstractModule {
     protected void configure() {
         bind(Commands.class).to(CommandManager.class).in(Singleton.class);
         bind(Integer.class).annotatedWith(Names.named("maxCommandDelete")).toInstance(new Integer(300));
-        bind(PersistServiceInitializer.class);
         bind(EntityManager.class).toProvider(EMProvider.class);
         bind(String.class).annotatedWith(Names.named("persistence-unit")).toInstance("gae-jpa-command");
     }
