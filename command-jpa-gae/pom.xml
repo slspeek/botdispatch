@@ -5,11 +5,11 @@
     <parent>
         <groupId>fspotcloud.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.37-bd</version>
+        <version>0.38-bd</version>
     </parent>
     <groupId>fspotcloud.bot-dispatch</groupId>
     <artifactId>command-jpa-gae</artifactId>
-    <version>0.37-bd</version>
+    <version>0.38-bd</version>
     <packaging>jar</packaging>
     <name>Command JPA GAE Implementation</name>
     <dependencies>
@@ -162,13 +162,7 @@
             <groupId>com.google.appengine</groupId>
             <artifactId>datanucleus-jpa</artifactId>
             <version>1.1.5</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>geronimo-jpa_3.0_spec</artifactId>
-            <version>1.1.1</version>
-            <scope>runtime</scope>
+            <scope>test</scope>
         </dependency>
         	<!-- GAE libraries for local testing as described here: http://code.google.com/appengine/docs/java/howto/unittesting.html -->
         <dependency>

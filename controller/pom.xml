@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>fspotcloud.bot-dispatch</groupId>
 		<artifactId>bot-dispatch</artifactId>
-		<version>0.37-bd</version>
+		<version>0.38-bd</version>
 	</parent>
 	<groupId>fspotcloud.bot-dispatch</groupId>
 	<artifactId>controller</artifactId>
@@ -79,6 +79,12 @@
 	  <version>4.10</version>
 	  <scope>test</scope>
 	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>com.google.appengine</groupId>
+	  <artifactId>datanucleus-jpa</artifactId>
+	  <version>1.1.5</version>
+	  <scope>test</scope>
 	 </dependency>
 	</dependencies>
 	<build>
