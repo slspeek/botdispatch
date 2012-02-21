@@ -178,12 +178,12 @@
         <dependency>
             <groupId>fspotcloud.simple-jpa-dao</groupId>
             <artifactId>dao-impl</artifactId>
-            <version>0.1-sjd</version>
+            <version>0.11-sjd</version>
         </dependency>
         <dependency>
             <groupId>fspotcloud.simple-jpa-dao</groupId>
             <artifactId>dao-genid-test</artifactId>
-            <version>0.1-sjd</version>
+            <version>0.11-sjd</version>
         </dependency>
     </dependencies>
     <build>
