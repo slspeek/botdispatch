@@ -4,8 +4,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import java.util.Date;
 
 
-import fspotcloud.botdispatch.model.api.Command;
-import java.io.Serializable;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
 
