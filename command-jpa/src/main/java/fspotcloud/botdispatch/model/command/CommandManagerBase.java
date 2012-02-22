@@ -14,7 +14,8 @@ import javax.persistence.Query;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
 
-public abstract class CommandManagerBase<T extends Command, U extends T> extends SimpleDAOGenIdImpl<Command, U>  implements Commands {
+public abstract class CommandManagerBase<T extends Command, U extends T>
+extends SimpleDAOGenIdImpl<Command, U,Long>  implements Commands {
     
     protected final Provider<EntityManager> entityManagerProvider;
     protected Integer maxDelete;

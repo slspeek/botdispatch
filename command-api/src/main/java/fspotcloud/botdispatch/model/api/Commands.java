@@ -5,7 +5,7 @@ import fspotcloud.simplejpadao.SimpleDAOGenId;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
 
-public interface Commands extends SimpleDAOGenId<Command> {
+public interface Commands extends SimpleDAOGenId<Command,Long> {
 
 	Command createAndSave(Action<?> action, AsyncCallback<? extends Result> callback);
 
