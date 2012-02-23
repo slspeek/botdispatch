@@ -31,9 +31,7 @@ public class CommandManagerGuiceBerryTest {
 
     @Before
     public void setUp() {
-        commandManager.deleteAll();
-        commandManager.deleteAll();
-        commandManager.deleteAll();
+        commandManager.deleteBulk(100);
     }
 
     @Test
@@ -92,12 +90,28 @@ public class CommandManagerGuiceBerryTest {
         assertEquals(TestAsyncCallback.class, retrieved.getCallback().getClass());
     }
 
-    //@Test
-    public void testDelete() {
+    @Test
+    public void testDelete() throws InterruptedException {
         Command cmd = commandManager.createAndSave(action, callback);
+        //Thread.sleep(100);
+        commandManager.deleteByKey(cmd.getId());
+    }
+    
+     @Test
+    public void testDelete2() throws InterruptedException {
+        Command cmd = commandManager.createAndSave(action, callback);
+        commandManager.createAndSave(action, callback);
+        //Thread.sleep(100);
         commandManager.delete(cmd);
     }
 
+     @Test
+    public void testDelete3() throws InterruptedException {
+        commandManager.createAndSave(action, callback);
+        Command cmd = commandManager.createAndSave(action, callback);
+        //Thread.sleep(100);
+        commandManager.delete(cmd);
+    }
     @Test
     public void testDeleteAll() {
         commandManager.createAndSave(action, callback);

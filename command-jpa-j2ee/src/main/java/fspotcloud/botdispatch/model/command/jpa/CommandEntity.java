@@ -1,14 +1,52 @@
 package fspotcloud.botdispatch.model.command.jpa;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import fspotcloud.botdispatch.model.api.Command;
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.*;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class CommandEntity extends CommandEntityBase {
+public class CommandEntity implements Command {
 
+    @Id
+    @GeneratedValue(generator = "increment")
+    //@GeneratedValue(strategy = GenerationType.IDENTITY) //Derby with Hibernate do not want this, I know
+    @GenericGenerator(name = "increment", strategy = "increment")
+    private Long id;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date ctime;
+    @Basic
+    private boolean locked;
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public Date getCtime() {
+        return ctime;
+    }
+
+    @Override
+    public String toString() {
+        String result = " : ";
+        return result;
+    }
+
+    @Override
+    public void setLocked(boolean locked) {
+        this.locked = locked;
+    }
+
+    @Override
+    public boolean isLocked() {
+        return locked;
+    }
     @Lob
     private Serializable callback;
     @Lob
