@@ -1,65 +1,73 @@
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>fspotcloud.bot-dispatch</groupId>
-		<artifactId>bot-dispatch</artifactId>
-		<version>0.40-bd</version>
-	</parent>
-	<groupId>fspotcloud.bot-dispatch</groupId>
-	<artifactId>test-bot</artifactId>
-	<name>Test bot</name>
-	<description>Test bot with three actions</description>
-	<packaging>jar</packaging>
-	<dependencies>
-		<dependency>
-			<groupId>fspotcloud.bot-dispatch</groupId>
-			<artifactId>bot</artifactId>
-			<version>0.40-bd</version>
-		</dependency>
-		<dependency>
-			<groupId>fspotcloud.bot-dispatch</groupId>
-			<artifactId>test</artifactId>
-			<version>0.40-bd</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.inject</groupId>
-			<artifactId>guice</artifactId>
-		</dependency>
-	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.1</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-					<archive>
-						<manifest>
-							<mainClass>fspotcloud.botdispatch.testbot.Main</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-				<executions>
-					<execution>
-						<id>make-assembly</id><!-- this is used for inheritance merges -->
-						<phase>package</phase><!-- append to the packaging phase. -->
-						<goals>
-							<goal>single</goal><!-- goals == mojos -->
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>fspotcloud.bot-dispatch</groupId>
+        <artifactId>bot-dispatch</artifactId>
+        <version>0.40-bd</version>
+    </parent>
+    <groupId>fspotcloud.bot-dispatch</groupId>
+    <artifactId>test-bot</artifactId>
+    <name>Test bot</name>
+    <description>Test bot with three actions</description>
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>fspotcloud.bot-dispatch</groupId>
+            <artifactId>bot</artifactId>
+            <version>0.40-bd</version>
+        </dependency>
+        <dependency>
+            <groupId>fspotcloud.bot-dispatch</groupId>
+            <artifactId>test</artifactId>
+            <version>0.40-bd</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+             <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>fspotcloud.botdispatch.testbot.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id><!-- this is used for inheritance merges -->
+                        <phase>package</phase><!-- append to the packaging phase. -->
+                        <goals>
+                            <goal>single</goal><!-- goals == mojos -->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
