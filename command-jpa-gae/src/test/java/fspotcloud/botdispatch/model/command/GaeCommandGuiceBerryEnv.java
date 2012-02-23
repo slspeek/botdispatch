@@ -1,15 +1,12 @@
 package fspotcloud.botdispatch.model.command;
 
-import fspotcloud.botdispatch.model.jpa.gae.command.CommandManager;
 import com.google.guiceberry.GuiceBerryModule;
 import com.google.guiceberry.TestWrapper;
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
-import com.google.inject.TypeLiteral;
 import com.google.inject.name.Names;
-import fspotcloud.botdispatch.model.api.Command;
-
 import fspotcloud.botdispatch.model.api.Commands;
+import fspotcloud.botdispatch.model.jpa.gae.command.CommandManager;
 import fspotcloud.simplejpadao.EMProvider;
 import fspotcloud.simplejpadao.SimpleDAOGenId;
 import javax.persistence.EntityManager;

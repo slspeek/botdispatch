@@ -2,8 +2,6 @@ package fspotcloud.botdispatch.model.api;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import java.util.Date;
-
-
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
 
