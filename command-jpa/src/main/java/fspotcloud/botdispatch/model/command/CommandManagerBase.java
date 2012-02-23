@@ -28,10 +28,12 @@ extends SimpleDAOGenIdImpl<Command, U,Long>  implements Commands {
         this.maxDelete = maxDelete;
     }
     
+    @Override
     public int getCountUnderAThousend() {
         return count(1000);
     }
     
+    @Override
     public Command createAndSave(Action<?> action,
             AsyncCallback<? extends Result> callback) {
         Command cmd = newEntity(action, callback);
@@ -39,6 +41,7 @@ extends SimpleDAOGenIdImpl<Command, U,Long>  implements Commands {
         return cmd;
     }
 
+    @Override
     public Command getAndLockFirstCommand() {
         EntityManager entityManager = entityManagerProvider.get();
         entityManager.getTransaction().begin();
@@ -62,11 +65,13 @@ extends SimpleDAOGenIdImpl<Command, U,Long>  implements Commands {
         return returnValue;
     }
     
+    @Override
     public Command getById(long callbackId) {
         return (Command) find(callbackId);
     }
     
     
+    @Override
     public void deleteAll() {
         deleteBulk(maxDelete);
     }
