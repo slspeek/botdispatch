@@ -52,7 +52,7 @@
         <dependency>
             <groupId>fspotcloud.simple-jpa-dao</groupId>
             <artifactId>dao-api</artifactId>
-            <version>0.12-sjd</version>
+            <version>0.13-sjd</version>
             <type>jar</type>
         </dependency>
     </dependencies>
