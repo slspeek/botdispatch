@@ -13,14 +13,12 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import com.google.guiceberry.junit4.GuiceBerryRule;
-import com.google.inject.Provider;
 
 import fspotcloud.botdispatch.model.api.Command;
 import fspotcloud.botdispatch.model.api.Commands;
 import fspotcloud.botdispatch.model.api.NullCommand;
 import fspotcloud.botdispatch.test.TestAction;
 import fspotcloud.botdispatch.test.TestAsyncCallback;
-import org.junit.After;
 
 public class CommandManagerGuiceBerryTest {
 
