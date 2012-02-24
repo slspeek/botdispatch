@@ -5,11 +5,11 @@
     <parent>
         <groupId>fspotcloud.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.41-bd</version>
+        <version>0.42-bd</version>
     </parent>
     <groupId>fspotcloud.bot-dispatch</groupId>
     <artifactId>command-jpa-j2ee</artifactId>
-    <version>0.41-bd</version>
+    <version>0.42-bd</version>
     <packaging>jar</packaging>
     <name>Command JPA J2EE Implementation</name>
     <dependencies>
@@ -96,7 +96,7 @@
         <dependency>
             <groupId>fspotcloud.simple-jpa-dao</groupId>
             <artifactId>dao-impl</artifactId>
-            <version>0.14-sjd</version>
+            <version>0.15-sjd</version>
         </dependency>
         <!-- Hibernate uses slf4j for logging, for our purposes here use the simple backend -->
 
@@ -152,7 +152,7 @@
         <dependency>
             <groupId>fspotcloud.bot-dispatch</groupId>
             <artifactId>command-jpa</artifactId>
-            <version>0.41-bd</version>
+            <version>0.42-bd</version>
             <type>jar</type>
         </dependency>
         
@@ -166,7 +166,7 @@
         <dependency>
             <groupId>fspotcloud.simple-jpa-dao</groupId>
             <artifactId>dao-genid-test</artifactId>
-            <version>0.14-sjd</version>
+            <version>0.15-sjd</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -182,13 +182,13 @@
                         <configuration>
                             <target>
                                 <delete dir="${basedir}/JPA" includeemptydirs="true" />
+                                 <delete file="${basedir}/derby.log" />
                             </target>
                         </configuration>
                         <goals>
                             <goal>run</goal>
                         </goals>
                     </execution>
-                    
                 </executions>
             </plugin>
             <plugin>
