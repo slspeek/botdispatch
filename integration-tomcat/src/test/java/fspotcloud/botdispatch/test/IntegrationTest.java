@@ -45,7 +45,7 @@ public class IntegrationTest {
         dispatch.execute(throwing, callback);
         dispatch.execute(secondAction, callback);
         dispatch.execute(action, callback);
-        bot.runForever(4);
+        bot.runForever(2);
        Assert.assertEquals(resultMessage, report.report);
     }
 }
