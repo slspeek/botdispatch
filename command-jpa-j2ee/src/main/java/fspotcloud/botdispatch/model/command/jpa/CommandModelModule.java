@@ -8,6 +8,8 @@ import fspotcloud.botdispatch.model.api.Commands;
 import fspotcloud.botdispatch.model.command.CommandManager;
 import fspotcloud.simplejpadao.EMProvider;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class CommandModelModule extends AbstractModule {
 
@@ -16,6 +18,9 @@ public class CommandModelModule extends AbstractModule {
         bind(Commands.class).to(CommandManager.class).in(Singleton.class);
         bind(Integer.class).annotatedWith(Names.named("maxCommandDelete")).toInstance(new Integer(300));
         bind(EntityManager.class).toProvider(EMProvider.class);
-        bind(String.class).annotatedWith(Names.named("persistence-unit")).toInstance("derby-command");
+         EntityManagerFactory factory = Persistence.createEntityManagerFactory("derby-command");
+        System.out.println("EMF " + factory);
+        bind(EntityManagerFactory.class).toInstance(factory);
+
     }
 }
