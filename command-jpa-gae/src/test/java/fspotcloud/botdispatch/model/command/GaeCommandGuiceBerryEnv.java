@@ -10,6 +10,8 @@ import fspotcloud.botdispatch.model.jpa.gae.command.CommandManager;
 import fspotcloud.simplejpadao.EMProvider;
 import fspotcloud.simplejpadao.SimpleDAOGenId;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class GaeCommandGuiceBerryEnv extends GuiceBerryModule {
 
@@ -27,7 +29,10 @@ class CommandModelModule extends AbstractModule {
     protected void configure() {
         bind(Integer.class).annotatedWith(Names.named("maxCommandDelete")).toInstance(new Integer(3));
         bind(EntityManager.class).toProvider(EMProvider.class);
-        bind(String.class).annotatedWith(Names.named("persistence-unit")).toInstance("gae-jpa-command");
+         EntityManagerFactory factory = Persistence.createEntityManagerFactory("gae-jpa-command");
+        System.out.println("EMF " + factory);
+        bind(EntityManagerFactory.class).toInstance(factory);
+
         bind(Commands.class).to(CommandManager.class).in(Singleton.class);
         bind(SimpleDAOGenId.class).to(CommandManager.class);
     }

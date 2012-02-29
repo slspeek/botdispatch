@@ -55,6 +55,7 @@ public class ControllerIntegrationTest extends DatastoreTest {
 	@Before
         public void setUp() {
 		super.setUp();
+                System.setProperty("appengine.orm.disable.duplicate.emf.exception", "true");
 		report = mock(HeavyReport.class);
 		injector = Guice.createInjector(new ControllerModule(),
 				new HeavyReportModule(report), new CommandModelModule());
