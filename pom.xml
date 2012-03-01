@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>fspotcloud.bot-dispatch</groupId>
+    <groupId>com.googlecode.bot-dispatch</groupId>
     <artifactId>bot-dispatch</artifactId>
     <version>0.42-bd</version>
     <name>Bot Dispatch</name>
@@ -134,23 +134,23 @@
                 <version>1.2.0</version>
             </dependency>
             <dependency>
-                <groupId>fspotcloud.bot-dispatch</groupId>
+                <groupId>com.googlecode.bot-dispatch</groupId>
                 <artifactId>controller</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>fspotcloud.bot-dispatch</groupId>
+                <groupId>com.googlecode.bot-dispatch</groupId>
                 <artifactId>gae-command</artifactId>
                 <version>${project.version}</version>
                 <classifier>special</classifier>
             </dependency>
             <dependency>
-                <groupId>fspotcloud.bot-dispatch</groupId>
+                <groupId>com.googlecode.bot-dispatch</groupId>
                 <artifactId>gae-command</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>fspotcloud.bot-dispatch</groupId>
+                <groupId>com.googlecode.bot-dispatch</groupId>
                 <artifactId>command-jpa</artifactId>
                 <version>${project.version}</version>
             </dependency>
