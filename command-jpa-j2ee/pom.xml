@@ -3,18 +3,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>fspotcloud.bot-dispatch</groupId>
+        <groupId>com.googlecode.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
         <version>0.42-bd</version>
     </parent>
-    <groupId>fspotcloud.bot-dispatch</groupId>
+    <groupId>com.googlecode.bot-dispatch</groupId>
     <artifactId>command-jpa-j2ee</artifactId>
     <version>0.42-bd</version>
     <packaging>jar</packaging>
     <name>Command JPA J2EE Implementation</name>
     <dependencies>
         <dependency>
-            <groupId>fspotcloud.bot-dispatch</groupId>
+            <groupId>com.googlecode.bot-dispatch</groupId>
             <artifactId>command-api</artifactId>
             <exclusions>
                 <exclusion>
@@ -33,7 +33,7 @@
         </dependency>
         
         <dependency>
-            <groupId>fspotcloud.bot-dispatch</groupId>
+            <groupId>com.googlecode.bot-dispatch</groupId>
             <artifactId>test</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
@@ -150,7 +150,7 @@
             <version>3.0</version>
         </dependency>
         <dependency>
-            <groupId>fspotcloud.bot-dispatch</groupId>
+            <groupId>com.googlecode.bot-dispatch</groupId>
             <artifactId>command-jpa</artifactId>
             <version>0.42-bd</version>
             <type>jar</type>
@@ -233,8 +233,8 @@
                         <configuration>
                             <testClassesDirectory>${project.build.directory}/additionaltests/</testClassesDirectory>
                             <systemPropertyVariables>
-                                <GuiceBerryEnvSelectorOverride_fspotcloud.botdispatch.model.command.EmptyGuiceBerryEnv>fspotcloud.botdispatch.model.command.J2eeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_fspotcloud.botdispatch.model.command.EmptyGuiceBerryEnv>
-                                <GuiceBerryEnvSelectorOverride_fspotcloud.simplejpadao.test.EmptyGuiceBerryEnv>fspotcloud.botdispatch.model.command.J2eeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_fspotcloud.simplejpadao.test.EmptyGuiceBerryEnv>
+                                <GuiceBerryEnvSelectorOverride_com.googlecode.botdispatch.model.command.EmptyGuiceBerryEnv>com.googlecode.botdispatch.model.command.J2eeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_com.googlecode.botdispatch.model.command.EmptyGuiceBerryEnv>
+                                <GuiceBerryEnvSelectorOverride_fspotcloud.simplejpadao.test.EmptyGuiceBerryEnv>com.googlecode.botdispatch.model.command.J2eeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_fspotcloud.simplejpadao.test.EmptyGuiceBerryEnv>
                             </systemPropertyVariables>
                             <additionalClasspathElements>
                                 <additionalClasspathElement>${project.build.directory}/test-classes</additionalClasspathElement>

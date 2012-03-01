@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>fspotcloud.bot-dispatch</groupId>
+        <groupId>com.googlecode.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
         <version>0.42-bd</version>
     </parent>
-    <groupId>fspotcloud.bot-dispatch</groupId>
+    <groupId>com.googlecode.bot-dispatch</groupId>
     <artifactId>integration-tomcat</artifactId>
     <name>Integration tests for Bot-Dispatch on Tomcat with Derby DB</name>
     <description></description>
@@ -30,7 +30,7 @@
             <artifactId>guice-servlet</artifactId>
         </dependency>
         <dependency>
-            <groupId>fspotcloud.bot-dispatch</groupId>
+            <groupId>com.googlecode.bot-dispatch</groupId>
             <artifactId>test</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
@@ -43,7 +43,7 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>fspotcloud.bot-dispatch</groupId>
+            <groupId>com.googlecode.bot-dispatch</groupId>
             <artifactId>controller</artifactId>
             <exclusions>
                 <exclusion>
@@ -53,7 +53,7 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>fspotcloud.bot-dispatch</groupId>
+            <groupId>com.googlecode.bot-dispatch</groupId>
             <artifactId>test-bot</artifactId>
             <version>${project.version}</version>
             <type>jar</type>
@@ -116,7 +116,7 @@
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>fspotcloud.bot-dispatch</groupId>
+            <groupId>com.googlecode.bot-dispatch</groupId>
             <artifactId>command-jpa-j2ee</artifactId>
             <version>0.42-bd</version>
             <type>jar</type>

@@ -4,7 +4,7 @@
   <persistence-unit name="derby-command" transaction-type="RESOURCE_LOCAL">
     <!-- JPA entities must be registered here -->
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <class>fspotcloud.botdispatch.model.command.jpa.CommandEntity</class>
+    <class>com.googlecode.botdispatch.model.command.jpa.CommandEntity</class>
     <properties>
       <property name="hibernate.show_sql" value="true"/>
       <property name="hibernate.connection.username" value="jpa"/>
@@ -13,7 +13,6 @@
       <property name="hibernate.connection.password" value="jpa"/>
       <property name="hibernate.connection.url" value="jdbc:derby:JPA;create=true"/>
       <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-      
     </properties>
   </persistence-unit>
 </persistence>
