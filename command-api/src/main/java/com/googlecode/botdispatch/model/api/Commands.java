@@ -1,7 +1,7 @@
 package com.googlecode.botdispatch.model.api;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import fspotcloud.simplejpadao.SimpleDAOGenId;
+import com.googlecode.simplejpadao.SimpleDAOGenId;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
 

@@ -5,11 +5,11 @@
     <parent>
         <groupId>com.googlecode.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.42-bd</version>
+        <version>0.43-bd</version>
     </parent>
     <groupId>com.googlecode.bot-dispatch</groupId>
     <artifactId>command-jpa-j2ee</artifactId>
-    <version>0.42-bd</version>
+    <version>0.43-bd</version>
     <packaging>jar</packaging>
     <name>Command JPA J2EE Implementation</name>
     <dependencies>
@@ -94,9 +94,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>fspotcloud.simple-jpa-dao</groupId>
+            <groupId>com.googlecode.simple-jpa-dao</groupId>
             <artifactId>dao-impl</artifactId>
-            <version>0.15-sjd</version>
+            <version>0.16-sjd</version>
         </dependency>
         <!-- Hibernate uses slf4j for logging, for our purposes here use the simple backend -->
 
@@ -152,7 +152,7 @@
         <dependency>
             <groupId>com.googlecode.bot-dispatch</groupId>
             <artifactId>command-jpa</artifactId>
-            <version>0.42-bd</version>
+            <version>0.43-bd</version>
             <type>jar</type>
         </dependency>
         
@@ -164,9 +164,9 @@
             <type>test-jar</type>
         </dependency>
         <dependency>
-            <groupId>fspotcloud.simple-jpa-dao</groupId>
+            <groupId>com.googlecode.simple-jpa-dao</groupId>
             <artifactId>dao-genid-test</artifactId>
-            <version>0.15-sjd</version>
+            <version>0.16-sjd</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -210,7 +210,7 @@
                                     <outputDirectory>${project.build.directory}/additionaltests/</outputDirectory>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>fspotcloud.simple-jpa-dao</groupId>
+                                    <groupId>com.googlecode.simple-jpa-dao</groupId>
                                     <artifactId>dao-genid-test</artifactId>
                                     <type>jar</type>
                                     <outputDirectory>${project.build.directory}/additionaltests/</outputDirectory>
@@ -234,7 +234,7 @@
                             <testClassesDirectory>${project.build.directory}/additionaltests/</testClassesDirectory>
                             <systemPropertyVariables>
                                 <GuiceBerryEnvSelectorOverride_com.googlecode.botdispatch.model.command.EmptyGuiceBerryEnv>com.googlecode.botdispatch.model.command.J2eeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_com.googlecode.botdispatch.model.command.EmptyGuiceBerryEnv>
-                                <GuiceBerryEnvSelectorOverride_fspotcloud.simplejpadao.test.EmptyGuiceBerryEnv>com.googlecode.botdispatch.model.command.J2eeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_fspotcloud.simplejpadao.test.EmptyGuiceBerryEnv>
+                                <GuiceBerryEnvSelectorOverride_com.googlecode.simplejpadao.test.EmptyGuiceBerryEnv>com.googlecode.botdispatch.model.command.J2eeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_com.googlecode.simplejpadao.test.EmptyGuiceBerryEnv>
                             </systemPropertyVariables>
                             <additionalClasspathElements>
                                 <additionalClasspathElement>${project.build.directory}/test-classes</additionalClasspathElement>

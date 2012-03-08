@@ -5,11 +5,11 @@
     <parent>
         <groupId>com.googlecode.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.42-bd</version>
+        <version>0.43-bd</version>
     </parent>
     <groupId>com.googlecode.bot-dispatch</groupId>
     <artifactId>command-jpa-gae</artifactId>
-    <version>0.42-bd</version>
+    <version>0.43-bd</version>
     <packaging>jar</packaging>
     <name>Command JPA GAE Implementation</name>
     <dependencies>
@@ -176,14 +176,14 @@
             <artifactId>appengine-local-runtime</artifactId>
         </dependency>
         <dependency>
-            <groupId>fspotcloud.simple-jpa-dao</groupId>
+            <groupId>com.googlecode.simple-jpa-dao</groupId>
             <artifactId>dao-impl</artifactId>
-            <version>0.15-sjd</version>
+            <version>0.16-sjd</version>
         </dependency>
         <dependency>
-            <groupId>fspotcloud.simple-jpa-dao</groupId>
+            <groupId>com.googlecode.simple-jpa-dao</groupId>
             <artifactId>dao-genid-test</artifactId>
-            <version>0.15-sjd</version>
+            <version>0.16-sjd</version>
         </dependency>
     </dependencies>
     <build>
@@ -208,7 +208,7 @@
                                 </artifactItem>
                                 
                                 <artifactItem>
-                                    <groupId>fspotcloud.simple-jpa-dao</groupId>
+                                    <groupId>com.googlecode.simple-jpa-dao</groupId>
                                     <artifactId>dao-genid-test</artifactId>
                                     <type>jar</type>
                                     <outputDirectory>${project.build.directory}/additionaltests/</outputDirectory>
@@ -233,7 +233,7 @@
                             <testClassesDirectory>${project.build.directory}/additionaltests/</testClassesDirectory>
                             <systemPropertyVariables>
                                 <GuiceBerryEnvSelectorOverride_com.googlecode.botdispatch.model.command.EmptyGuiceBerryEnv>com.googlecode.botdispatch.model.command.GaeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_com.googlecode.botdispatch.model.command.EmptyGuiceBerryEnv>
-                                <GuiceBerryEnvSelectorOverride_fspotcloud.simplejpadao.test.EmptyGuiceBerryEnv>com.googlecode.botdispatch.model.command.GaeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_fspotcloud.simplejpadao.test.EmptyGuiceBerryEnv>
+                                <GuiceBerryEnvSelectorOverride_com.googlecode.simplejpadao.test.EmptyGuiceBerryEnv>com.googlecode.botdispatch.model.command.GaeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_com.googlecode.simplejpadao.test.EmptyGuiceBerryEnv>
                             </systemPropertyVariables>
                             <additionalClasspathElements>
                                 <additionalClasspathElement>${project.build.directory}/test-classes</additionalClasspathElement>

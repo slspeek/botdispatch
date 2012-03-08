@@ -4,7 +4,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.googlecode.botdispatch.model.api.Command;
 import com.googlecode.botdispatch.model.api.Commands;
 import com.googlecode.botdispatch.model.api.NullCommand;
-import fspotcloud.simplejpadao.SimpleDAOGenIdImpl;
+import com.googlecode.simplejpadao.SimpleDAOGenIdImpl;
 import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;

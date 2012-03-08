@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.googlecode.bot-dispatch</groupId>
     <artifactId>bot-dispatch</artifactId>
-    <version>0.42-bd</version>
+    <version>0.43-bd</version>
     <name>Bot Dispatch</name>
     <packaging>pom</packaging>
     <description>GWT-Dispatch extension for bot/controllers</description>
