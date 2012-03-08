@@ -6,7 +6,7 @@ import com.google.inject.name.Names;
 
 import com.googlecode.botdispatch.model.api.Commands;
 import com.googlecode.botdispatch.model.command.CommandManager;
-import fspotcloud.simplejpadao.EMProvider;
+import com.googlecode.simplejpadao.EMProvider;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
