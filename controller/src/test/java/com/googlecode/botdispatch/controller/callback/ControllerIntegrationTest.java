@@ -20,6 +20,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
+import com.googlecode.botdispatch.SerializableAsyncCallback;
 
 import com.googlecode.botdispatch.controller.inject.ControllerModule;
 import com.googlecode.botdispatch.controller.inject.NullControllerHook;
@@ -47,7 +48,7 @@ public class ControllerIntegrationTest extends DatastoreTest {
 	ThrowingAction throwing = new ThrowingAction("Demian");
 	byte[] serializedResult;
 	byte[] serializedError;
-	AsyncCallback<TestResult> callback = new TestAsyncCallback();
+	SerializableAsyncCallback<TestResult> callback = new TestAsyncCallback();
 	Injector injector;
 	HeavyReport report;
 	Controller controller;

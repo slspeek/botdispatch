@@ -5,11 +5,11 @@ import java.util.List;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
+import com.googlecode.botdispatch.SerializableAsyncCallback;
 
 import com.googlecode.botdispatch.test.TestResult;
 
-public class TestCallback implements Serializable,
-		AsyncCallback<TestResult> {
+public class TestCallback implements SerializableAsyncCallback<TestResult> {
 
 	/**
 	 * 

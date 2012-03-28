@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.googlecode.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.43-bd</version>
+        <version>0.44-bd</version>
     </parent>
     <groupId>com.googlecode.bot-dispatch</groupId>
     <artifactId>integration-test</artifactId>
@@ -13,10 +13,6 @@
     <description></description>
     <packaging>war</packaging>
     <dependencies>
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-user</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
@@ -112,6 +108,11 @@
             <groupId>com.google.appengine</groupId>
             <artifactId>datanucleus-jpa</artifactId>
             <version>1.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-servlet_2.5_spec</artifactId>
+            <version>1.2</version>
         </dependency>
     </dependencies>
     <build>

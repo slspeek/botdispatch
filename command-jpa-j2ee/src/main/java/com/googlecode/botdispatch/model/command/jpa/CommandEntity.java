@@ -1,6 +1,6 @@
 package com.googlecode.botdispatch.model.command.jpa;
 
-import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.googlecode.botdispatch.AsyncCallback;
 import com.googlecode.botdispatch.model.api.Command;
 import java.io.Serializable;
 import java.util.Date;

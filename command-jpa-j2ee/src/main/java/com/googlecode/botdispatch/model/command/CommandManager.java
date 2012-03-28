@@ -1,9 +1,9 @@
 package com.googlecode.botdispatch.model.command;
 
 import com.googlecode.botdispatch.model.command.CommandManagerBase;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import com.googlecode.botdispatch.AsyncCallback;
 import com.googlecode.botdispatch.model.api.Command;
 import com.googlecode.botdispatch.model.command.jpa.CommandEntity;
 import javax.inject.Named;

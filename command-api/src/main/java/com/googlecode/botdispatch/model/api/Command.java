@@ -1,6 +1,6 @@
 package com.googlecode.botdispatch.model.api;
 
-import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.googlecode.botdispatch.AsyncCallback;
 import com.googlecode.simplejpadao.HasKey;
 import java.util.Date;
 import net.customware.gwt.dispatch.shared.Action;

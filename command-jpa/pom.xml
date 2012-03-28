@@ -5,11 +5,11 @@
     <parent>
         <groupId>com.googlecode.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.43-bd</version>
+        <version>0.44-bd</version>
     </parent>
     <groupId>com.googlecode.bot-dispatch</groupId>
     <artifactId>command-jpa</artifactId>
-    <version>0.43-bd</version>
+    <version>0.44-bd</version>
     <packaging>jar</packaging>
     <name>Command JPA Base</name>
     <dependencies>
@@ -72,6 +72,11 @@
             <artifactId>dao-impl</artifactId>
             <version>0.16-sjd</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>dispatch-api</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
     <build>

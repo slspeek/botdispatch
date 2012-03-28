@@ -1,9 +1,9 @@
 package com.googlecode.botdispatch.controller.callback;
 
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.assistedinject.Assisted;
+import com.googlecode.botdispatch.SerializableAsyncCallback;
 import com.googlecode.botdispatch.model.api.Command;
 import com.googlecode.botdispatch.model.api.Commands;
 import net.customware.gwt.dispatch.shared.Result;
@@ -26,7 +26,7 @@ public class ResultHandlerImpl {
     }
 
     public void callback() {
-        AsyncCallback<Result> callback = (AsyncCallback<Result>) command.getCallback();
+        SerializableAsyncCallback<Result> callback = (SerializableAsyncCallback<Result>) command.getCallback();
         if (injector != null) {
             injector.injectMembers(callback);
         }
