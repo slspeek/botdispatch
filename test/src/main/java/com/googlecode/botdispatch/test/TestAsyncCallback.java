@@ -5,11 +5,12 @@ import java.util.logging.Logger;
 
 import net.customware.gwt.dispatch.shared.DispatchException;
 
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
+import com.googlecode.botdispatch.AsyncCallback;
+import com.googlecode.botdispatch.SerializableAsyncCallback;
 import java.util.Random;
 
-public class TestAsyncCallback implements AsyncCallback<TestResult>, Serializable {
+public class TestAsyncCallback implements SerializableAsyncCallback<TestResult> {
 
     private static final long serialVersionUID = 23234243L;
     private static final Logger log = Logger.getLogger(TestAsyncCallback.class.getName());

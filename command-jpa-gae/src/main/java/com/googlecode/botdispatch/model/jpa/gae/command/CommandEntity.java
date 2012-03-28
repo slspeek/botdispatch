@@ -1,7 +1,7 @@
 package com.googlecode.botdispatch.model.jpa.gae.command;
 
 import com.google.appengine.api.datastore.Blob;
-import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.googlecode.botdispatch.AsyncCallback;
 import com.googlecode.botdispatch.model.api.Command;
 import java.io.Serializable;
 import java.util.Date;

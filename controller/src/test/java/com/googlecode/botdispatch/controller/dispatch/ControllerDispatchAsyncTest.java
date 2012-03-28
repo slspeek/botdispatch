@@ -6,6 +6,8 @@ import static org.mockito.Mockito.verify;
 import junit.framework.TestCase;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.googlecode.botdispatch.NullCallback;
+import com.googlecode.botdispatch.SerializableAsyncCallback;
 
 import com.googlecode.botdispatch.model.api.Commands;
 import com.googlecode.botdispatch.test.TestAction;
@@ -15,28 +17,14 @@ public class ControllerDispatchAsyncTest extends TestCase {
 	Commands commandManager;
 	TestAction action;
 	DefaultControllerDispatchAsync target;
-	AsyncCallback<TestResult> callback;
+	SerializableAsyncCallback<TestResult> callback;
 
 	@Override
 	protected void setUp() throws Exception {
 		commandManager = mock(Commands.class);
 		action = new TestAction("Jim");
 		target = new DefaultControllerDispatchAsync(commandManager);
-		callback = new AsyncCallback<TestResult> () {
-
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void onSuccess(TestResult result) {
-				
-				
-			}
-			
-		};
+		callback = new NullCallback<TestResult>();
 		super.setUp();
 	}
 	

@@ -7,9 +7,9 @@ import javax.persistence.EntityManager;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
 
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import com.googlecode.botdispatch.AsyncCallback;
 
 import com.googlecode.botdispatch.model.api.Command;
 import com.googlecode.botdispatch.model.api.Commands;

@@ -1,6 +1,6 @@
 package com.googlecode.botdispatch.model.command;
 
-import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.googlecode.botdispatch.AsyncCallback;
 import com.googlecode.botdispatch.model.api.Command;
 import com.googlecode.botdispatch.model.api.Commands;
 import com.googlecode.botdispatch.model.api.NullCommand;

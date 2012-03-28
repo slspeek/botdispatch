@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.googlecode.bot-dispatch</groupId>
 		<artifactId>bot-dispatch</artifactId>
-		<version>0.43-bd</version>
+		<version>0.44-bd</version>
 	</parent>
 	<groupId>com.googlecode.bot-dispatch</groupId>
 	<artifactId>controller</artifactId>
@@ -85,6 +85,18 @@
 	  <artifactId>datanucleus-jpa</artifactId>
 	  <version>1.1.5</version>
 	  <scope>test</scope>
+	 </dependency>
+	 <dependency>
+	  <groupId>${project.groupId}</groupId>
+	  <artifactId>dispatch-api</artifactId>
+	  <version>0.44-bd</version>
+	  <scope>test</scope>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>${project.groupId}</groupId>
+	  <artifactId>dispatch-api</artifactId>
+	  <version>${project.version}</version>
 	 </dependency>
 	</dependencies>
 	<build>
