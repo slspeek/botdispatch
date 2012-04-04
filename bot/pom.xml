@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.googlecode.bot-dispatch</groupId>
 		<artifactId>bot-dispatch</artifactId>
-		<version>0.44-bd</version>
+		<version>0.45-bd</version>
 	</parent>
 	<groupId>com.googlecode.bot-dispatch</groupId>
 	<artifactId>bot</artifactId>
@@ -51,6 +51,11 @@
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 		</dependency>
+	 <dependency>
+	  <groupId>com.google.gwt</groupId>
+	  <artifactId>gwt-servlet</artifactId>
+	  <version>2.4.0</version>
+	 </dependency>
 	</dependencies>
 	<build>
 		<plugins>
