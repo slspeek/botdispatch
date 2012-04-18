@@ -21,40 +21,39 @@ import com.googlecode.botdispatch.test.TestAction;
 @SuppressWarnings("serial")
 @Singleton
 public class TestServlet extends HttpServlet {
-	@Inject
-	Commands commandManager;
-	@Inject
-	DefaultControllerDispatchAsync dispatch;
-	
-	@SuppressWarnings("rawtypes")
-	@Inject
-	List results;
 
-	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String name = request.getParameter("name");
-		if (name != null) {
-			dispatch.execute(new TestAction(name), new TestCallback());
-		}
-		String second = request.getParameter("second");
-		if (second != null) {
-			dispatch.execute(new SecondAction(second), new TestCallback());
-		}
-		OutputStream out = response.getOutputStream();
-		PrintWriter p = new PrintWriter(out);
-		p.write(outputHTML());
-		p.close();
-		out.close();
-	}
+    @Inject
+    Commands commandManager;
+    @Inject
+    DefaultControllerDispatchAsync dispatch;
+    @SuppressWarnings("rawtypes")
+    @Inject
+    List results;
 
-	private String outputHTML() {
-		String result = "<html><h1>Bot Dispatch Test Servlet</h1><div>";
-		for (Object t : results) {
-			result += "<div>" + String.valueOf(t) + "</div>";
-		}
-		result += "</div></html>";
-		return result;
-	}
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String name = request.getParameter("name");
+        if (name != null) {
+            dispatch.execute(new TestAction(name), new TestCallback());
+        }
+        String second = request.getParameter("second");
+        if (second != null) {
+            dispatch.execute(new SecondAction(second), new TestCallback());
+        }
+        OutputStream out = response.getOutputStream();
+        PrintWriter p = new PrintWriter(out);
+        p.write(outputHTML());
+        p.close();
+        out.close();
+    }
 
+    private String outputHTML() {
+        String result = "<html><h1>Bot Dispatch Test Servlet</h1><div>";
+        for (Object t : results) {
+            result += "<div>" + String.valueOf(t) + "</div>";
+        }
+        result += "</div></html>";
+        return result;
+    }
 }

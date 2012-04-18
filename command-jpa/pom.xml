@@ -5,11 +5,11 @@
     <parent>
         <groupId>com.googlecode.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.45-bd</version>
+        <version>0.46-bd</version>
     </parent>
     <groupId>com.googlecode.bot-dispatch</groupId>
     <artifactId>command-jpa</artifactId>
-    <version>0.45-bd</version>
+    <version>0.46-bd</version>
     <packaging>jar</packaging>
     <name>Command JPA Base</name>
     <dependencies>
