@@ -16,12 +16,16 @@ public class GuiceServletConfig extends GuiceServletContextListener {
 	@Override
 	protected Injector getInjector() {
 		Injector i = Guice.createInjector(new ControllerModule(),
-				new CommandModelModule(), new TestServletModule(),
+				new CommandModelModule(), new TestServletModule("SECRET"),
 				new TestModule());
 		return i;
 	}
 
 	private class TestServletModule extends ControllerServletModule {
+            
+                public TestServletModule(String botSecret) {
+                    super(botSecret);
+                }
 		@Override
 		protected void configureServlets() {
 			super.configureServlets();

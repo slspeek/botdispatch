@@ -33,6 +33,10 @@ public class GuiceServletConfig extends GuiceServletContextListener {
 }
 
 class TestServletModule extends ControllerServletModule {
+    
+    TestServletModule() {
+        super("SECRET");
+    }
 
     @Override
     protected void configureServlets() {

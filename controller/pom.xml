@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.googlecode.bot-dispatch</groupId>
 		<artifactId>bot-dispatch</artifactId>
-		<version>0.45-bd</version>
+		<version>0.46-bd</version>
 	</parent>
 	<groupId>com.googlecode.bot-dispatch</groupId>
 	<artifactId>controller</artifactId>
@@ -89,7 +89,7 @@
 	 <dependency>
 	  <groupId>${project.groupId}</groupId>
 	  <artifactId>dispatch-api</artifactId>
-	  <version>0.45-bd</version>
+	  <version>0.46-bd</version>
 	  <scope>test</scope>
 	  <type>jar</type>
 	 </dependency>
