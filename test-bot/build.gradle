@@ -1,0 +1,11 @@
+description = 'Test bot'
+
+dependencies {
+    compile project(':bot')
+    compile project(':test')
+    compile libs.guice
+}
+
+jar {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}

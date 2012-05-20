@@ -1,11 +1,10 @@
 package com.googlecode.botdispatch.testserver;
 
-import java.util.List;
-
 import com.google.inject.Inject;
 import com.googlecode.botdispatch.SerializableAsyncCallback;
-
 import com.googlecode.botdispatch.test.TestResult;
+
+import java.util.List;
 
 public class TestCallback implements SerializableAsyncCallback<TestResult> {
 

@@ -1,13 +1,11 @@
 package com.googlecode.botdispatch.controller.callback;
 
-import net.customware.gwt.dispatch.shared.Result;
-
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.assistedinject.Assisted;
 import com.googlecode.botdispatch.SerializableAsyncCallback;
-
 import com.googlecode.botdispatch.model.api.Command;
+import net.customware.gwt.dispatch.shared.Result;
 
 public class ErrorHandlerImpl {
 

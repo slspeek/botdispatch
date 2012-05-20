@@ -1,11 +1,10 @@
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.googlecode.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.46-bd</version>
+        <version>0.47-bd</version>
     </parent>
     <groupId>com.googlecode.bot-dispatch</groupId>
     <artifactId>integration-tomcat</artifactId>
@@ -73,7 +72,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava-testlib</artifactId>
-        </dependency>	
+        </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium</artifactId>
@@ -97,7 +96,7 @@
             <version>4.10</version>
             <scope>test</scope>
         </dependency>
-		<!-- GAE libraries for local testing as described here: http://code.google.com/appengine/docs/java/howto/unittesting.html -->
+        <!-- GAE libraries for local testing as described here: http://code.google.com/appengine/docs/java/howto/unittesting.html -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>command-jpa</artifactId>
@@ -118,7 +117,7 @@
         <dependency>
             <groupId>com.googlecode.bot-dispatch</groupId>
             <artifactId>command-jpa-j2ee</artifactId>
-            <version>0.46-bd</version>
+            <version>0.47-bd</version>
             <type>jar</type>
         </dependency>
         <dependency>
@@ -155,7 +154,7 @@
                         </goals>
                         <configuration>
                             <skip>false</skip>
-							 XXX: excludes-element really needed 
+                            XXX: excludes-element really needed
                             <excludes>
                                 <exclude>none</exclude>
                             </excludes>
@@ -166,7 +165,7 @@
                     </execution>
                 </executions>
             </plugin>
-          
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -175,7 +174,7 @@
                     <webXml>${basedir}/src/main/resources/WEB-INF/web.xml</webXml>
                 </configuration>
             </plugin>
-              <plugin>
+            <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>maven-jetty-plugin</artifactId>
                 <version>6.1.10</version>
@@ -216,11 +215,11 @@
                         <configuration>
                             <target>
                                 <java
-                                    jar="${basedir}/../test-bot/target/test-bot-${project.version}-jar-with-dependencies.jar"
-                                    fork="yes" spawn="yes">
-                                    <sysproperty key="endpoint" value="localhost:8080/integration-tomcat" />
-                                    <sysproperty key="bot.secret" value="${bot.secret}" />
-                                    <sysproperty key="pause" value="2000" />
+                                        jar="${basedir}/../test-bot/target/test-bot-${project.version}-jar-with-dependencies.jar"
+                                        fork="yes" spawn="yes">
+                                    <sysproperty key="endpoint" value="localhost:8080/integration-tomcat"/>
+                                    <sysproperty key="bot.secret" value="${bot.secret}"/>
+                                    <sysproperty key="pause" value="2000"/>
                                 </java>
                             </target>
                         </configuration>
@@ -234,8 +233,8 @@
                         <configuration>
                             <target>
                                 <exec executable="telnet">
-                                    <arg value="localhost" />
-                                    <arg value="4444" />
+                                    <arg value="localhost"/>
+                                    <arg value="4444"/>
                                 </exec>
                             </target>
                         </configuration>
@@ -245,7 +244,7 @@
                     </execution>
                 </executions>
             </plugin>
-             <plugin>
+            <plugin>
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>2.7</version>
                 <configuration>

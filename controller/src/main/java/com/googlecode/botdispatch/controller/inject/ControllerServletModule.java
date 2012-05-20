@@ -1,7 +1,6 @@
 package com.googlecode.botdispatch.controller.inject;
 
 import com.google.inject.servlet.ServletModule;
-
 import com.googlecode.botdispatch.controller.callback.ControllerServlet;
 
 public class ControllerServletModule extends ServletModule {

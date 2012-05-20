@@ -1,14 +1,10 @@
 package com.googlecode.botdispatch.test;
 
-import java.io.Serializable;
-import java.util.logging.Logger;
-
-import net.customware.gwt.dispatch.shared.DispatchException;
-
 import com.google.inject.Inject;
-import com.googlecode.botdispatch.AsyncCallback;
 import com.googlecode.botdispatch.SerializableAsyncCallback;
+
 import java.util.Random;
+import java.util.logging.Logger;
 
 public class TestAsyncCallback implements SerializableAsyncCallback<TestResult> {
 
@@ -19,7 +15,7 @@ public class TestAsyncCallback implements SerializableAsyncCallback<TestResult> 
     TestResult result;
     private Throwable error;
     private byte[] bigFile;
-    
+
     static private Random random = new Random();
 
     public TestAsyncCallback() {

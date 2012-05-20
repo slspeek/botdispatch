@@ -1,0 +1,58 @@
+description = 'Integration tests for Bot-Dispatch'
+
+apply plugin: 'gae'
+apply plugin: 'war'
+System.properties['appengine.sdk.root'] = System.properties['user.home'] + "/appengine-java-sdk-${gae_version}"
+
+gae {
+    stopKey = 'STOP'
+    disableUpdateCheck = true
+    daemon = true
+//    warDir = file('build/exploded');
+}
+
+war {
+    webXml = file('src/main/resources/WEB-INF/web.xml')
+    from "build/javascript"
+    from "src/main/resources"
+}
+
+dependencies {
+    compile libs.guice
+    compile "com.google.inject.extensions:guice-assistedinject:${guice_version}"
+    compile "com.google.inject.extensions:guice-servlet:${guice_version}"
+    compile project(':test')
+    compile project(':controller')
+    compile project(':command-jpa-gae')
+    compile "com.google.appengine:datanucleus-jpa:1.1.5"
+    compile libs.servlet_spec
+    testCompile project(':test-bot')
+    testCompile "org.seleniumhq.selenium:selenium:2.0b3"
+    testCompile "org.seleniumhq.selenium.client-drivers:selenium-java-client-driver:1.0.2"
+    testCompile "org.mockito:mockito-core:1.9.0-rc1"
+    providedRuntime libs.gae_testing
+    testCompile libs.junit
+    testCompile "com.google.guiceberry:guiceberry:3.0.4"
+    testCompile "com.google.guava:guava-testlib:10.0.1"
+}
+
+
+test {
+    exclude "**/*ITest*"
+}
+
+task integrationTest(type: Test, dependsOn: gaeRun) {
+    exclude "**/IntegrationTest*"
+    systemProperties['bot.secret'] = "SECRET"
+    systemProperties['endpoint'] = "localhost:8080"
+    systemProperties['peer.jar'] = "../test-bot/build/libs/test-bot-${version}.jar"
+    testLogging.showStandardStreams = true
+}
+
+
+integrationTest << {
+    gaeStop.execute()
+}
+
+clean.dependsOn gaeStop
+check.dependsOn integrationTest

@@ -1,0 +1,22 @@
+description = 'Integration tests for Bot-Dispatch on Tomcat with Derby DB'
+
+apply plugin: 'war'
+dependencies {
+    compile "com.google.gwt:gwt-servlet:2.4.0"
+    compile "com.google.inject:guice:3.0"
+    compile "com.google.inject.extensions:guice-assistedinject:3.0"
+    compile "com.google.inject.extensions:guice-servlet:3.0"
+    compile project(':test')
+    compile project(':controller')
+    compile "com.google.guiceberry:guiceberry:3.0.4"
+    compile project(':command-jpa')
+    compile "org.apache.tomcat.maven:tomcat-maven-plugin:2.0-SNAPSHOT"
+    compile project(':command-jpa-j2ee')
+    compile "org.apache.geronimo.specs:geronimo-servlet_2.5_spec:1.2"
+    testCompile project(':test-bot')
+    testCompile "com.google.guava:guava-testlib:10.0.1"
+    testCompile "org.seleniumhq.selenium:selenium:2.0b3"
+    testCompile "org.seleniumhq.selenium.client-drivers:selenium-java-client-driver:1.0.2"
+    testCompile "org.mockito:mockito-core:1.9.0-rc1"
+    testCompile "junit:junit:4.10"
+}

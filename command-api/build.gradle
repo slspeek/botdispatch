@@ -1,0 +1,26 @@
+description = 'Command Model API'
+
+dependencies {
+    compile libs.gwt_dispatch
+    compile libs.gwt_servlet
+    compile libs.simple_jpa_dao_api
+    compile project(':bot-dispatch-api')
+    testCompile project(':test')
+    testCompile libs.guiceberry
+    testCompile libs.inject
+    testCompile libs.junit
+}
+
+task packageTests(type: Jar) {
+    from sourceSets.test.classes
+    classifier = 'tests'
+}
+
+test {
+    exclude '*'
+}
+
+artifacts {
+    testCompile packageTests
+}
+

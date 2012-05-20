@@ -3,12 +3,13 @@ package com.googlecode.botdispatch.model.jpa.gae.command;
 import com.google.appengine.api.datastore.Blob;
 import com.googlecode.botdispatch.AsyncCallback;
 import com.googlecode.botdispatch.model.api.Command;
-import java.io.Serializable;
-import java.util.Date;
-import javax.persistence.*;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
 import org.apache.commons.lang.SerializationUtils;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 public class CommandEntity implements Command {
@@ -46,6 +47,7 @@ public class CommandEntity implements Command {
     public boolean isLocked() {
         return locked;
     }
+
     //@Lob
     private Blob callback;
     //@Lob

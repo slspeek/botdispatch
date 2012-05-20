@@ -1,15 +1,14 @@
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.googlecode.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.46-bd</version>
+        <version>0.47-bd</version>
     </parent>
     <groupId>com.googlecode.bot-dispatch</groupId>
     <artifactId>command-jpa</artifactId>
-    <version>0.46-bd</version>
+    <version>0.47-bd</version>
     <packaging>jar</packaging>
     <name>Command JPA Base</name>
     <dependencies>
@@ -88,7 +87,7 @@
                 <configuration>
                     <log4jConfiguration>${project.build.directory}/classes/log4j.properties</log4jConfiguration>
                     <verbose>true</verbose>
-					<!-- Make sure this path contains your persistent classes! -->
+                    <!-- Make sure this path contains your persistent classes! -->
                     <mappingIncludes>fspotcloud/botdispatch/model/jpa/**/*Entity.class</mappingIncludes>
                     <verbose>true</verbose>
                     <enhancerName>ASM</enhancerName>
@@ -138,7 +137,7 @@
         <repository>
             <id>fspotcloud-maven</id>
             <url>http://maven.fspotcloud.googlecode.com/hg/repo</url>
-        </repository> 
+        </repository>
         <repository>
             <id>central</id>
             <name>Maven Repository Switchboard</name>

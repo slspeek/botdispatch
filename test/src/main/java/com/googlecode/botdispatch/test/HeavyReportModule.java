@@ -4,15 +4,15 @@ import com.google.inject.AbstractModule;
 
 public class HeavyReportModule extends AbstractModule {
 
-	private HeavyReport report;
+    private HeavyReport report;
 
-	public HeavyReportModule(HeavyReport report) {
-		this.report = report;
-	}
+    public HeavyReportModule(HeavyReport report) {
+        this.report = report;
+    }
 
-	@Override
-	protected void configure() {
-		bind(HeavyReport.class).toInstance(report);
-	}
+    @Override
+    protected void configure() {
+        bind(HeavyReport.class).toInstance(report);
+    }
 
 }

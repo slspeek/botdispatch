@@ -1,11 +1,10 @@
 package com.googlecode.botdispatch.test;
 
-import java.io.IOException;
-
 import com.google.inject.Inject;
-
 import com.googlecode.botdispatch.bot.RemoteExecutor;
 import com.googlecode.botdispatch.controller.callback.Controller;
+
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

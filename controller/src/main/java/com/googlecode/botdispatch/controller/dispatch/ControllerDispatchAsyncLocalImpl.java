@@ -1,13 +1,12 @@
 package com.googlecode.botdispatch.controller.dispatch;
 
+import com.google.inject.Inject;
+import com.google.inject.Injector;
+import com.googlecode.botdispatch.SerializableAsyncCallback;
 import net.customware.gwt.dispatch.server.Dispatch;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.DispatchException;
 import net.customware.gwt.dispatch.shared.Result;
-
-import com.google.inject.Inject;
-import com.google.inject.Injector;
-import com.googlecode.botdispatch.SerializableAsyncCallback;
 
 public class ControllerDispatchAsyncLocalImpl implements ControllerDispatchAsync {
 
@@ -22,7 +21,7 @@ public class ControllerDispatchAsyncLocalImpl implements ControllerDispatchAsync
     }
 
     public <A extends Action<R>, R extends Result> void execute(A action,
-            SerializableAsyncCallback<R> callback) {
+                                                                SerializableAsyncCallback<R> callback) {
         injector.injectMembers(callback);
         try {
             R result = dispatch.execute(action);

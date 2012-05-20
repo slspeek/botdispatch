@@ -1,24 +1,19 @@
 package com.googlecode.botdispatch.model.command;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
-import javax.inject.Inject;
-
-import net.customware.gwt.dispatch.shared.Action;
-
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-
 import com.google.guiceberry.junit4.GuiceBerryRule;
-
 import com.googlecode.botdispatch.model.api.Command;
 import com.googlecode.botdispatch.model.api.Commands;
 import com.googlecode.botdispatch.model.api.NullCommand;
 import com.googlecode.botdispatch.test.TestAction;
 import com.googlecode.botdispatch.test.TestAsyncCallback;
+import net.customware.gwt.dispatch.shared.Action;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+
+import javax.inject.Inject;
+
+import static org.junit.Assert.*;
 
 public class CommandManagerGuiceBerryTest {
 
@@ -77,7 +72,7 @@ public class CommandManagerGuiceBerryTest {
         assertEquals(5, commandManager.getCountUnderAThousend());
     }
 
-  
+
     public void testGetById() {
         Command cmd = commandManager.createAndSave(action, callback);
         System.out.println(cmd);
@@ -96,8 +91,8 @@ public class CommandManagerGuiceBerryTest {
         //Thread.sleep(100);
         commandManager.deleteByKey(cmd.getId());
     }
-    
-     @Test
+
+    @Test
     public void testDelete2() throws InterruptedException {
         Command cmd = commandManager.createAndSave(action, callback);
         commandManager.createAndSave(action, callback);
@@ -105,13 +100,14 @@ public class CommandManagerGuiceBerryTest {
         commandManager.delete(cmd);
     }
 
-     @Test
+    @Test
     public void testDelete3() throws InterruptedException {
         commandManager.createAndSave(action, callback);
         Command cmd = commandManager.createAndSave(action, callback);
         //Thread.sleep(100);
         commandManager.delete(cmd);
     }
+
     @Test
     public void testDeleteAll() {
         commandManager.createAndSave(action, callback);

@@ -17,7 +17,7 @@ public class ResultHandlerImpl {
 
     @Inject
     public ResultHandlerImpl(@Assisted Result result, @Assisted Command command, Injector injector,
-            Commands commandManager) {
+                             Commands commandManager) {
         super();
         this.result = result;
         this.command = command;

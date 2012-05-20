@@ -1,0 +1,55 @@
+apply from: 'libraries.gradle'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        add(new org.apache.ivy.plugins.resolver.URLResolver()) {
+            name = 'GitHub'
+            addArtifactPattern 'http://cloud.github.com/downloads/[organisation]/[module]/[module]-[revision].[ext]'
+        }
+        maven {
+            url "http://fspotcloud-maven.googlecode.com/svn/maven/repository"
+
+        }
+    }
+
+    dependencies {
+        classpath 'bmuschko:gradle-gae-plugin:0.5.4'
+        classpath 'bmuschko:gradle-tomcat-plugin:0.9.1'
+    }
+}
+
+allprojects {
+    apply plugin: 'maven'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+
+    group = 'com.googlecode.bot-dispatch'
+    version = '0.47-bdg'
+    defaultTasks 'build'
+
+}
+
+subprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.6
+    targetCompatibility = 1.6
+
+    repositories {
+        mavenCentral()
+        maven {
+            url "http://fspotcloud-maven.googlecode.com/svn/maven/repository"
+        }
+        maven { url "http://maven-gae-plugin.googlecode.com/svn/repository"}
+
+        maven {
+            url "http://gwt-maven.googlecode.com/svn/trunk/mavenrepo/"
+        }
+        maven {
+            url "http://www.datanucleus.org/downloads/maven2"
+        }
+        mavenLocal()
+    }
+}
+
+  

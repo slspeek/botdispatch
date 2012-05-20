@@ -1,10 +1,8 @@
 package com.googlecode.botdispatch.test.selenium;
 
-import junit.framework.TestCase;
-
-import org.openqa.selenium.WebDriver;
-
 import com.google.inject.Provider;
+import junit.framework.TestCase;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 public class WebDriverITestCase extends TestCase {

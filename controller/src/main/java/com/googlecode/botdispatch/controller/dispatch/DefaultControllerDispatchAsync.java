@@ -1,30 +1,29 @@
 package com.googlecode.botdispatch.controller.dispatch;
 
+import com.google.inject.Inject;
+import com.googlecode.botdispatch.SerializableAsyncCallback;
+import com.googlecode.botdispatch.model.api.Commands;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
 
-import com.google.inject.Inject;
-import com.googlecode.botdispatch.SerializableAsyncCallback;
+public class DefaultControllerDispatchAsync implements ControllerDispatchAsync {
 
-import com.googlecode.botdispatch.model.api.Commands;
+    private final Commands commandManager;
 
-public class DefaultControllerDispatchAsync implements ControllerDispatchAsync{
+    @Inject
+    public DefaultControllerDispatchAsync(Commands commandManager) {
+        super();
+        this.commandManager = commandManager;
+    }
 
-	private final Commands commandManager;
-	
-	@Inject
-	public DefaultControllerDispatchAsync(Commands commandManager) {
-		super();
-		this.commandManager = commandManager;
-	}
-	public <A extends Action<R>, R extends Result> void execute(A action,
-			SerializableAsyncCallback<R> callback) {
-		commandManager.createAndSave(action, callback);
-	}
-	
-	
-	@Override
-	public int getPendingCommands() {
-		return commandManager.getCountUnderAThousend();
-	}
+    public <A extends Action<R>, R extends Result> void execute(A action,
+                                                                SerializableAsyncCallback<R> callback) {
+        commandManager.createAndSave(action, callback);
+    }
+
+
+    @Override
+    public int getPendingCommands() {
+        return commandManager.getCountUnderAThousend();
+    }
 }

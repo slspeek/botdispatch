@@ -1,0 +1,15 @@
+description = 'The Bot'
+
+dependencies {
+    compile libs.http_unit
+    compile libs.inject
+    compile libs.guice
+    compile "com.google.inject.extensions:guice-assistedinject:${guice_version}"
+    compile libs.gwt_dispatch
+    compile libs.commons_lang
+    compile libs.gwt_servlet
+
+    testCompile project(':test')
+    testCompile "junit:junit:3.8.1"
+    testCompile libs.mockito
+}

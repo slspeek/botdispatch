@@ -5,5 +5,6 @@ import junit.framework.TestCase;
 
 public class ControllerTest extends TestCase {
 
-	public void testFake() {}
+    public void testFake() {
+    }
 }

@@ -1,16 +1,15 @@
 package com.googlecode.botdispatch.testserver;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.servlet.GuiceServletContextListener;
-
 import com.googlecode.botdispatch.controller.inject.ControllerModule;
 import com.googlecode.botdispatch.controller.inject.ControllerServletModule;
 import com.googlecode.botdispatch.model.command.jpa.CommandModelModule;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GuiceServletConfig extends GuiceServletContextListener {
 
@@ -33,7 +32,7 @@ public class GuiceServletConfig extends GuiceServletContextListener {
 }
 
 class TestServletModule extends ControllerServletModule {
-    
+
     TestServletModule() {
         super("SECRET");
     }

@@ -1,9 +1,10 @@
 package com.googlecode.botdispatch.model.api;
 
 import com.googlecode.botdispatch.AsyncCallback;
-import java.util.Date;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
+
+import java.util.Date;
 
 public class NullCommand implements Command {
 
