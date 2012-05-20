@@ -1,15 +1,14 @@
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.googlecode.bot-dispatch</groupId>
         <artifactId>bot-dispatch</artifactId>
-        <version>0.46-bd</version>
+        <version>0.47-bd</version>
     </parent>
     <groupId>com.googlecode.bot-dispatch</groupId>
     <artifactId>command-jpa-gae</artifactId>
-    <version>0.46-bd</version>
+    <version>0.47-bd</version>
     <packaging>jar</packaging>
     <name>Command JPA GAE Implementation</name>
     <dependencies>
@@ -27,7 +26,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        
+
         <dependency>
             <groupId>com.googlecode.bot-dispatch</groupId>
             <artifactId>test</artifactId>
@@ -93,7 +92,7 @@
         </dependency>
 
         <!-- Hibernate uses slf4j for logging, for our purposes here use the simple backend -->
-      
+
         <dependency>
             <groupId>net.customware.gwt.dispatch</groupId>
             <artifactId>gwt-dispatch</artifactId>
@@ -134,8 +133,8 @@
             <artifactId>jdo2-api</artifactId>
             <version>2.3-eb</version>
             <exclusions>
-				<!-- exclude the legacy javax.transaction:transaction-api and replace 
-					it with javax.transaction:jta (it appears to be the same thing) -->
+                <!-- exclude the legacy javax.transaction:transaction-api and replace
+                        it with javax.transaction:jta (it appears to be the same thing) -->
                 <exclusion>
                     <groupId>javax.transaction</groupId>
                     <artifactId>transaction-api</artifactId>
@@ -164,7 +163,7 @@
             <version>1.1.5</version>
             <scope>test</scope>
         </dependency>
-        	<!-- GAE libraries for local testing as described here: http://code.google.com/appengine/docs/java/howto/unittesting.html -->
+        <!-- GAE libraries for local testing as described here: http://code.google.com/appengine/docs/java/howto/unittesting.html -->
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-stubs</artifactId>
@@ -207,14 +206,14 @@
                                     <type>test-jar</type>
                                     <outputDirectory>${project.build.directory}/additionaltests/</outputDirectory>
                                 </artifactItem>
-                                
+
                                 <artifactItem>
                                     <groupId>com.googlecode.simple-jpa-dao</groupId>
                                     <artifactId>dao-genid-test</artifactId>
                                     <type>jar</type>
                                     <outputDirectory>${project.build.directory}/additionaltests/</outputDirectory>
                                 </artifactItem>
-                                
+
                             </artifactItems>
                         </configuration>
                     </execution>
@@ -233,11 +232,16 @@
                         <configuration>
                             <testClassesDirectory>${project.build.directory}/additionaltests/</testClassesDirectory>
                             <systemPropertyVariables>
-                                <GuiceBerryEnvSelectorOverride_com.googlecode.botdispatch.model.command.EmptyGuiceBerryEnv>com.googlecode.botdispatch.model.command.GaeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_com.googlecode.botdispatch.model.command.EmptyGuiceBerryEnv>
-                                <GuiceBerryEnvSelectorOverride_com.googlecode.simplejpadao.test.EmptyGuiceBerryEnv>com.googlecode.botdispatch.model.command.GaeCommandGuiceBerryEnv</GuiceBerryEnvSelectorOverride_com.googlecode.simplejpadao.test.EmptyGuiceBerryEnv>
+                                <GuiceBerryEnvSelectorOverride_com.googlecode.botdispatch.model.command.EmptyGuiceBerryEnv>
+                                    com.googlecode.botdispatch.model.command.GaeCommandGuiceBerryEnv
+                                </GuiceBerryEnvSelectorOverride_com.googlecode.botdispatch.model.command.EmptyGuiceBerryEnv>
+                                <GuiceBerryEnvSelectorOverride_com.googlecode.simplejpadao.test.EmptyGuiceBerryEnv>
+                                    com.googlecode.botdispatch.model.command.GaeCommandGuiceBerryEnv
+                                </GuiceBerryEnvSelectorOverride_com.googlecode.simplejpadao.test.EmptyGuiceBerryEnv>
                             </systemPropertyVariables>
                             <additionalClasspathElements>
-                                <additionalClasspathElement>${project.build.directory}/test-classes</additionalClasspathElement>
+                                <additionalClasspathElement>${project.build.directory}/test-classes
+                                </additionalClasspathElement>
                             </additionalClasspathElements>
                         </configuration>
                     </execution>
@@ -250,7 +254,7 @@
                 <configuration>
                     <log4jConfiguration>${project.build.directory}/classes/log4j.properties</log4jConfiguration>
                     <verbose>true</verbose>
-					<!-- Make sure this path contains your persistent classes! -->
+                    <!-- Make sure this path contains your persistent classes! -->
                     <mappingIncludes>com/googlecode/botdispatch/model/jpa/**/*Entity*.class</mappingIncludes>
                     <verbose>true</verbose>
                     <enhancerName>ASM</enhancerName>
@@ -300,7 +304,7 @@
         <repository>
             <id>fspotcloud-maven</id>
             <url>http://maven.fspotcloud.googlecode.com/hg/repo</url>
-        </repository> 
+        </repository>
         <repository>
             <id>central</id>
             <name>Maven Repository Switchboard</name>

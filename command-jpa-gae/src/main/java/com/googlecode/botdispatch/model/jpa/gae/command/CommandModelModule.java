@@ -3,9 +3,9 @@ package com.googlecode.botdispatch.model.jpa.gae.command;
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
-
 import com.googlecode.botdispatch.model.api.Commands;
 import com.googlecode.simplejpadao.EMProvider;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

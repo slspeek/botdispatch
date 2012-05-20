@@ -5,11 +5,11 @@ import com.google.inject.name.Names;
 
 public class TestModule extends AbstractModule {
 
-	@Override
-	protected void configure() {
-		bind(StopListener.class);
-		bind(Integer.class).annotatedWith(Names.named("stop port")).toInstance(
-				Integer.valueOf(System.getProperty("stop.port", "4444")));
-	}
+    @Override
+    protected void configure() {
+        bind(StopListener.class);
+        bind(Integer.class).annotatedWith(Names.named("stop port")).toInstance(
+                Integer.valueOf(System.getProperty("stop.port", "4444")));
+    }
 
 }

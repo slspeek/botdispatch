@@ -2,10 +2,12 @@ package com.googlecode.botdispatch.test;
 
 import com.google.guiceberry.junit4.GuiceBerryRule;
 import com.thoughtworks.selenium.Selenium;
-import static org.junit.Assert.*;
-import org.junit.Test;
-import javax.inject.Inject;
 import org.junit.Rule;
+import org.junit.Test;
+
+import javax.inject.Inject;
+
+import static org.junit.Assert.assertTrue;
 
 public class BotDispatchITest {
 
@@ -19,11 +21,16 @@ public class BotDispatchITest {
     public static void sleepShort(int times) throws InterruptedException {
         Thread.sleep(900 * times);
     }
+
     @Inject
     Selenium selenium;
 
+    @Inject
+    TestBotRunner testBotRunner;
+
     @Test
     public void testSimpleAction() throws Exception {
+        testBotRunner.startPeer();
         selenium.open("/test?name=David");
         selenium.waitForPageToLoad("30000");
         sleepShort(4);
@@ -38,5 +45,6 @@ public class BotDispatchITest {
         selenium.open("/test");
         selenium.waitForPageToLoad("30000");
         assertTrue(selenium.isTextPresent("GNU"));
+        testBotRunner.stopPeer();
     }
 }

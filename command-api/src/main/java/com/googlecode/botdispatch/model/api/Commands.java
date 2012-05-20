@@ -5,16 +5,16 @@ import com.googlecode.simplejpadao.SimpleDAOGenId;
 import net.customware.gwt.dispatch.shared.Action;
 import net.customware.gwt.dispatch.shared.Result;
 
-public interface Commands extends SimpleDAOGenId<Command,Long> {
+public interface Commands extends SimpleDAOGenId<Command, Long> {
 
-	Command createAndSave(Action<?> action, AsyncCallback<? extends Result> callback);
+    Command createAndSave(Action<?> action, AsyncCallback<? extends Result> callback);
 
-	Command getById(long callbackId);
-	
-	int getCountUnderAThousend();
+    Command getById(long callbackId);
 
-	void deleteAll();
+    int getCountUnderAThousend();
 
-	Command getAndLockFirstCommand();
+    void deleteAll();
+
+    Command getAndLockFirstCommand();
 
 }

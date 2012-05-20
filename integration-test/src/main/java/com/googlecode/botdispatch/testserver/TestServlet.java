@@ -1,22 +1,20 @@
 package com.googlecode.botdispatch.testserver;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.util.List;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import com.googlecode.botdispatch.controller.dispatch.DefaultControllerDispatchAsync;
+import com.googlecode.botdispatch.model.api.Commands;
+import com.googlecode.botdispatch.test.SecondAction;
+import com.googlecode.botdispatch.test.TestAction;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-
-import com.googlecode.botdispatch.controller.dispatch.DefaultControllerDispatchAsync;
-import com.googlecode.botdispatch.model.api.Commands;
-import com.googlecode.botdispatch.test.SecondAction;
-import com.googlecode.botdispatch.test.TestAction;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.List;
 
 @SuppressWarnings("serial")
 @Singleton

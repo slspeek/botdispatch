@@ -1,0 +1,21 @@
+description = 'The Controller'
+
+dependencies {
+
+    compile project(':bot-dispatch-api')
+    compile project(':command-api')
+    compile libs.gwt_servlet
+    compile libs.gwt_dispatch
+    compile libs.inject
+    compile libs.guice
+    compile "com.google.inject.extensions:guice-assistedinject:${guice_version}"
+    compile "com.google.inject.extensions:guice-servlet:${guice_version}"
+    compile libs.commons_lang
+    compile libs.servlet_spec
+
+    testCompile project(':command-jpa-gae')
+    testCompile project(':test')
+    testCompile libs.mockito
+    testCompile libs.junit
+    testCompile "com.google.appengine:datanucleus-jpa:1.1.5"
+}

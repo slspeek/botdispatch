@@ -1,16 +1,15 @@
-	dependencies {
-	compile "com.google.gwt:gwt-user:2.4.0"
-	compile "net.customware.gwt.dispatch:gwt-dispatch:1.2.0"
-	compile "com.google.appengine:appengine-api-1.0-sdk:1.6.0"
-	compile "commons-lang:commons-lang:2.6"
-	compile "javax.inject:javax.inject:1"
-	compile "com.google.inject:guice:3.0"
-	compile "com.google.inject.extensions:guice-servlet:3.0"
-	runtime "com.google.gwt:gwt-servlet:2.4.0"
-	testCompile "com.google.appengine:appengine-api-stubs:1.6.0"
-	testCompile "com.google.appengine:appengine-local-runtime:1.6.0"
-	testCompile "com.google.appengine:appengine-testing:1.6.0"
-	testCompile "org.mockito:mockito-all:1.9.0-rc1"
-	testCompile "junit:junit:4.9"
-	testCompile "httpunit:httpunit:1.7"
-	}
+description = 'Bot Dispatch Api'
+
+dependencies {
+    compile libs.gwt_dispatch
+    compile libs.commons_lang
+    compile libs.inject
+    compile libs.guice
+    compile libs.gwt_servlet
+}
+
+task packageTests(type: Jar) {
+    from sourceSets.test.classes
+    classifier = 'tests'
+}
+artifacts.archives packageTests

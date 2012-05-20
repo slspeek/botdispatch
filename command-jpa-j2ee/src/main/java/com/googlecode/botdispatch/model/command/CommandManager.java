@@ -1,21 +1,20 @@
 package com.googlecode.botdispatch.model.command;
 
-import com.googlecode.botdispatch.model.command.CommandManagerBase;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.googlecode.botdispatch.AsyncCallback;
 import com.googlecode.botdispatch.model.api.Command;
 import com.googlecode.botdispatch.model.command.jpa.CommandEntity;
+import net.customware.gwt.dispatch.shared.Action;
+
 import javax.inject.Named;
 import javax.persistence.EntityManager;
-import net.customware.gwt.dispatch.shared.Action;
-import net.customware.gwt.dispatch.shared.Result;
 
 public class CommandManager extends CommandManagerBase<Command, CommandEntity> {
 
     @Inject
     public CommandManager(Provider<EntityManager> entityManagerProvider,
-            @Named("maxCommandDelete") Integer maxDelete) {
+                          @Named("maxCommandDelete") Integer maxDelete) {
         super(CommandEntity.class, entityManagerProvider, maxDelete);
 
     }
