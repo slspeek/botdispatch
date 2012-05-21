@@ -1,14 +1,12 @@
-description = 'Command Model API'
+description = 'Selenium tests for Bot-Dispatch'
 
 dependencies {
-    compile libs.gwt_dispatch
-    compile libs.gwt_servlet
-    compile libs.simple_jpa_dao_api
-    compile project(':bot-dispatch-api')
-    testCompile project(':test')
+    testCompile "org.seleniumhq.selenium:selenium:2.0b3"
+    testCompile "org.seleniumhq.selenium.client-drivers:selenium-java-client-driver:1.0.2"
+    testCompile libs.guava_testlib
     testCompile libs.guiceberry
+    testCompile libs.guice
     testCompile libs.inject
-    testCompile libs.junit
 }
 
 task packageTests(type: Jar, dependsOn: compileTestJava) {

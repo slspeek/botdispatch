@@ -1,0 +1,8 @@
+description = 'Test web-application'
+
+dependencies {
+    compile libs.inject
+    compile project(':bot-dispatch-api')
+    compile project(':test')
+    compile libs.servlet_spec
+}

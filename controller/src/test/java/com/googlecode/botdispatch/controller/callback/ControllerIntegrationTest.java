@@ -5,10 +5,9 @@ import com.google.inject.Injector;
 import com.googlecode.botdispatch.SerializableAsyncCallback;
 import com.googlecode.botdispatch.controller.inject.ControllerModule;
 import com.googlecode.botdispatch.controller.inject.NullControllerHook;
-import com.googlecode.botdispatch.model.DatastoreTest;
 import com.googlecode.botdispatch.model.api.Command;
 import com.googlecode.botdispatch.model.api.Commands;
-import com.googlecode.botdispatch.model.jpa.gae.command.CommandModelModule;
+import com.googlecode.botdispatch.model.jpa.gae.command.GaeCommandModelModule;
 import com.googlecode.botdispatch.test.*;
 import net.customware.gwt.dispatch.shared.ActionException;
 import net.customware.gwt.dispatch.shared.DispatchException;
@@ -47,7 +46,7 @@ public class ControllerIntegrationTest extends DatastoreTest {
         System.setProperty("appengine.orm.disable.duplicate.emf.exception", "true");
         report = mock(HeavyReport.class);
         injector = Guice.createInjector(new ControllerModule(),
-                new HeavyReportModule(report), new CommandModelModule());
+                new HeavyReportModule(report), new GaeCommandModelModule());
         handlerFactory = injector.getInstance(ResultHandlerFactory.class);
         errorHandlerFactory = injector.getInstance(ErrorHandlerFactory.class);
         captor = ArgumentCaptor.forClass(Throwable.class);

@@ -1,0 +1,9 @@
+description = 'GAE Integration testing'
+
+dependencies {
+    testCompile project(path: ':itest', configuration: "testCompile")
+    testCompile project(':command-jpa-gae')
+    testCompile libs.gae_testing
+    testCompile libs.junit
+}
+

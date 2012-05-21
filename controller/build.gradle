@@ -17,5 +17,6 @@ dependencies {
     testCompile project(':test')
     testCompile libs.mockito
     testCompile libs.junit
+    testCompile libs.gae_testing
     testCompile "com.google.appengine:datanucleus-jpa:1.1.5"
 }

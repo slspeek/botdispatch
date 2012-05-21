@@ -1,0 +1,51 @@
+description = 'GAE Selenium testing'
+
+apply plugin: 'gae'
+apply plugin: 'war'
+System.properties['appengine.sdk.root'] = System.properties['user.home'] + "/appengine-java-sdk-${gae_version}"
+
+gae {
+    stopKey = 'STOP'
+    disableUpdateCheck = true
+    daemon = true
+//    warDir = file('build/exploded');
+}
+
+war {
+    webXml = file('src/main/resources/WEB-INF/web.xml')
+    from "src/main/resources"
+}
+
+dependencies {
+    compile libs.guice
+    compile "com.google.inject.extensions:guice-assistedinject:${guice_version}"
+    compile "com.google.inject.extensions:guice-servlet:${guice_version}"
+    compile project(':test-app')
+    compile project(':test')
+    compile project(':controller')
+    compile project(':command-jpa-gae')
+    testCompile project(':test-bot')
+    testCompile project(path:':selenium-test', configuration: "testCompile")
+}
+
+task unpackTest(dependsOn: ":selenium-test:packageTests") << {
+    mkdir "$buildDir/selenium-test"
+    myTests = file("../selenium-test/build/libs/selenium-test-${version}-tests.jar")
+    ant.unjar(dest: "$buildDir/selenium-test", src: myTests)
+}
+
+task integrationTest(type: Test, dependsOn: [gaeRun, unpackTest]) {
+    testClassesDir  file("$buildDir/selenium-test")
+    systemProperties['bot.secret'] = "SECRET"
+    systemProperties['endpoint'] = "localhost:8080"
+    systemProperties['peer.jar'] = "../test-bot/build/libs/test-bot-${version}.jar"
+    testLogging.showStandardStreams = true
+}
+
+
+integrationTest << {
+    gaeStop.execute()
+}
+
+clean.dependsOn gaeStop
+check.dependsOn integrationTest
