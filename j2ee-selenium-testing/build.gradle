@@ -1,0 +1,53 @@
+description = 'J2ee selenium testing'
+
+apply plugin: 'war'
+apply plugin:  'tomcat'
+
+[tomcatRunWar, tomcatStop]*.httpPort = 8100
+[tomcatRunWar, tomcatStop]*.stopPort = 8190
+[tomcatRunWar, tomcatStop]*.stopKey = 'STOP'
+[tomcatRunWar, tomcatStop]*.daemon = true
+
+war {
+    webXml = file('src/main/resources/WEB-INF/web.xml')
+    from "src/main/resources"
+}
+
+dependencies {
+    tomcat "org.apache.tomcat:catalina:${tomcatVersion}",
+            "org.apache.tomcat:coyote:${tomcatVersion}",
+            "org.apache.tomcat:juli:${tomcatVersion}",
+            "org.apache.tomcat:jasper:${tomcatVersion}"
+
+    compile libs.guice
+    compile "com.google.inject.extensions:guice-assistedinject:${guice_version}"
+    compile "com.google.inject.extensions:guice-servlet:${guice_version}"
+    compile project(':test-app')
+    compile project(':test')
+    compile project(':controller')
+    compile project(':command-jpa-j2ee')
+    testCompile project(':test-bot')
+    testCompile project(path:':selenium-test', configuration: "testCompile")
+}
+
+task unpackTest(dependsOn: ":selenium-test:packageTests") << {
+    mkdir "$buildDir/selenium-test"
+    myTests = file("../selenium-test/build/libs/selenium-test-${version}-tests.jar")
+    ant.unjar(dest: "$buildDir/selenium-test", src: myTests)
+}
+
+task integrationTest(type: Test, dependsOn: [tomcatRunWar, unpackTest, ':test-bot:assemble']) {
+    testClassesDir  file("$buildDir/selenium-test")
+    systemProperties['bot.secret'] = "SECRET"
+    systemProperties['endpoint'] = "localhost:8100/j2ee-selenium-testing"
+    systemProperties['peer.jar'] = "../test-bot/build/libs/test-bot-${version}.jar"
+    testLogging.showStandardStreams = true
+}
+
+
+integrationTest << {
+    tomcatStop.execute()
+}
+
+clean.dependsOn tomcatStop
+check.dependsOn integrationTest

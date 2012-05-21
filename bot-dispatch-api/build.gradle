@@ -7,9 +7,3 @@ dependencies {
     compile libs.guice
     compile libs.gwt_servlet
 }
-
-task packageTests(type: Jar) {
-    from sourceSets.test.classes
-    classifier = 'tests'
-}
-artifacts.archives packageTests

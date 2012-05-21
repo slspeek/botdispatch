@@ -1,0 +1,7 @@
+description = 'J2ee Integration testing'
+
+dependencies {
+    testCompile project(path: ':itest', configuration: "testCompile")
+    testCompile project(':command-jpa-j2ee')
+}
+

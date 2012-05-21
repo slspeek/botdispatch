@@ -1,0 +1,32 @@
+description = 'Integration test'
+
+
+
+dependencies {
+    compile libs.guice
+    compile "com.google.inject.extensions:guice-assistedinject:${guice_version}"
+    compile "com.google.inject.extensions:guice-servlet:${guice_version}"
+    testCompile project(':bot')
+    testCompile project(':test')
+    testCompile project(':controller')
+
+    testCompile project(':test-bot')
+    testCompile libs.mockito
+    testCompile libs.gae_testing
+    testCompile libs.junit
+    testCompile "com.google.guiceberry:guiceberry:3.0.4"
+    testCompile "com.google.guava:guava-testlib:10.0.1"
+}
+task packageTests(type: Jar, dependsOn: compileTestJava) {
+    from sourceSets.test.output.classesDir
+    classifier = 'tests'
+}
+
+test {
+    exclude '*'
+}
+
+artifacts {
+    testCompile packageTests
+}
+

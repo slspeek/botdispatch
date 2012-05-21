@@ -3,6 +3,6 @@ description = 'Test objects for bot-dispatch'
 dependencies {
     compile libs.guice
     compile libs.gwt_dispatch
-    compile libs.gae_testing
+    //compile libs.gae_testing
     compile project(':bot-dispatch-api')
 }
