@@ -42,21 +42,15 @@ public class BotDispatchServerImpl implements BotDispatchServer {
                 byte[] serializedAction = (byte[]) result[1];
                 currentAction = (Action<?>) SerializationUtils
                         .deserialize(serializedAction);
+                CommandWorker worker = factory.get(currentAction);
+                serializedResult = worker.doExecute();
+                log.info("Executed(" +callbackId + ") " + currentAction + " resulted in: " + SerializationUtils.deserialize(serializedResult));
             } else {
-                currentAction = null;
-            }
-
-            if (currentAction == null) {
                 pauser.increaseIdleCount();
                 log.info("No action at this time, sleeping for " + pauser.getPauseSeconds()
                         + "s.");
                 pauser.pause();
-                ;
-            } else {
-                CommandWorker worker = factory.get(currentAction);
-                serializedResult = worker.doExecute();
             }
-
         }
     }
 }

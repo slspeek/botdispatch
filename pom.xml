@@ -102,15 +102,6 @@
         </extensions>
     </build>
     <modules>
-        <module>test</module>
-        <module>command-api</module>
-        <module>command-jpa</module>
-        <module>command-jpa-j2ee</module>
-        <module>command-jpa-gae</module>
-        <module>controller</module>
-        <module>bot</module>
-        <module>bot-dispatch-api</module>
-        <module>test-bot</module>
         <module>integration-test</module>
         <module>integration-tomcat</module>
     </modules>
