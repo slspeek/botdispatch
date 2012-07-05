@@ -12,15 +12,14 @@ import javax.persistence.EntityManager;
 
 public class CommandManager extends CommandManagerBase<Command, CommandEntity> {
 
-    @Inject
-    public CommandManager(Provider<EntityManager> entityManagerProvider,
-                          @Named("maxCommandDelete") Integer maxDelete) {
-        super(CommandEntity.class, entityManagerProvider, maxDelete);
-
-    }
 
     @Override
     public Command newEntity(Action action, AsyncCallback callback) {
         return new CommandEntity(action, callback);
+    }
+
+    @Override
+    public Class<CommandEntity> getEntityType() {
+        return CommandEntity.class;
     }
 }

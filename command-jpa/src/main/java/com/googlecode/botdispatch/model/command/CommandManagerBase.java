@@ -18,16 +18,8 @@ import java.util.List;
 public abstract class CommandManagerBase<T extends Command, U extends T>
         extends SimpleDAOGenIdImpl<Command, U, Long> implements Commands {
 
-    protected final Provider<EntityManager> entityManagerProvider;
+    @Inject   @Named("maxCommandDelete")
     protected Integer maxDelete;
-
-    @Inject
-    public CommandManagerBase(Class<U> entityType, Provider<EntityManager> entityManagerProvider,
-                              @Named("maxCommandDelete") Integer maxDelete) {
-        super(entityType, entityManagerProvider);
-        this.entityManagerProvider = entityManagerProvider;
-        this.maxDelete = maxDelete;
-    }
 
     @Override
     public int getCountUnderAThousend() {
@@ -48,7 +40,7 @@ public abstract class CommandManagerBase<T extends Command, U extends T>
         entityManager.getTransaction().begin();
         Command returnValue;
         Query query = entityManager.createQuery("SELECT c FROM "
-                + getEntityClass().getName()
+                + getEntityType().getName()
                 + " c WHERE c.locked = false ORDER BY ctime");
         query.setMaxResults(1);
         @SuppressWarnings("unchecked")
@@ -76,10 +68,5 @@ public abstract class CommandManagerBase<T extends Command, U extends T>
     public void deleteAll() {
         deleteBulk(maxDelete);
     }
-
-    public Class<? extends Command> getEntityClass() {
-        return (Class<? extends Command>) entityType;
-    }
-
     public abstract Command newEntity(Action<?> action, AsyncCallback<? extends Result> callback);
 }
