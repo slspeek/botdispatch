@@ -25,7 +25,7 @@ allprojects {
     apply plugin: 'eclipse'
 
     group = 'com.googlecode.bot-dispatch'
-    version = '0.49-bdg'
+    version = '0.50-bdg'
     defaultTasks 'build'
 
     configurations {
@@ -34,6 +34,8 @@ allprojects {
 
     dependencies {
         deployerJars "org.apache.maven.wagon:wagon-webdav:1.0-beta-2"
+        //deployerJars 'org.apache.maven.wagon:wagon-webdav:1.0-beta-1'
+
         //"org.apache.maven.wagon:wagon-webdav-jackrabbit:1.0-beta-6",
     }
 
@@ -45,13 +47,6 @@ allprojects {
             }
         }
     }
-
-}
-
-subprojects {
-    apply plugin: 'java'
-    sourceCompatibility = 1.6
-    targetCompatibility = 1.6
 
     repositories {
         mavenCentral()
@@ -68,6 +63,15 @@ subprojects {
         }
         mavenLocal()
     }
+
+}
+
+subprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.6
+    targetCompatibility = 1.6
+
+
 }
 
 
