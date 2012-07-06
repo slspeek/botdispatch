@@ -7,7 +7,7 @@ System.properties['appengine.sdk.root'] = System.properties['user.home'] + "/app
 gae {
     stopKey = 'STOP'
     disableUpdateCheck = true
-    daemon = true
+    daemon = server_daemon
 //    warDir = file('build/exploded');
 }
 

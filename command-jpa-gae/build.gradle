@@ -20,11 +20,11 @@ dependencies {
     compile libs.gwt_dispatch
     compile libs.jdo_api
     compile project(':command-jpa')
-    compile "com.google.appengine:appengine-api-1.0-sdk:1.6.0"
+    compile "com.google.appengine:appengine-api-1.0-sdk:${gae_version}"
     compile("javax.jdo:jdo2-api:2.3-eb") {
         exclude(module: 'transaction-api')
     }
-    compile "com.google.appengine.orm:datanucleus-appengine:1.0.4.1"
+    compile "com.google.appengine.orm:datanucleus-appengine:1.0.10"
     compile("org.datanucleus:datanucleus-core:1.1.5") {
         exclude(module: 'transaction-api')
     }
@@ -63,6 +63,7 @@ task daoTest(type: Test, dependsOn: [classes, unpackTest]) {
         'com.googlecode.botdispatch.model.command.GaeCommandGuiceBerryEnv'
     systemProperties['GuiceBerryEnvSelectorOverride_com.googlecode.botdispatch.model.command.EmptyGuiceBerryEnv'] =
         'com.googlecode.botdispatch.model.command.GaeCommandGuiceBerryEnv'
+    testLogging.showStandardStreams = true
 }
 
 

@@ -6,7 +6,7 @@ apply plugin:  'tomcat'
 [tomcatRunWar, tomcatStop]*.httpPort = 8100
 [tomcatRunWar, tomcatStop]*.stopPort = 8190
 [tomcatRunWar, tomcatStop]*.stopKey = 'STOP'
-[tomcatRunWar, tomcatStop]*.daemon = true
+[tomcatRunWar, tomcatStop]*.daemon = server_daemon
 
 war {
     webXml = file('src/main/resources/WEB-INF/web.xml')
