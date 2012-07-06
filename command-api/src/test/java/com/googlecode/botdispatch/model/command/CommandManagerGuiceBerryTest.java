@@ -88,7 +88,6 @@ public class CommandManagerGuiceBerryTest {
     @Test
     public void testDelete() throws InterruptedException {
         Command cmd = commandManager.createAndSave(action, callback);
-        //Thread.sleep(100);
         commandManager.deleteByKey(cmd.getId());
     }
 
@@ -96,7 +95,6 @@ public class CommandManagerGuiceBerryTest {
     public void testDelete2() throws InterruptedException {
         Command cmd = commandManager.createAndSave(action, callback);
         commandManager.createAndSave(action, callback);
-        //Thread.sleep(100);
         commandManager.delete(cmd);
     }
 
@@ -104,7 +102,6 @@ public class CommandManagerGuiceBerryTest {
     public void testDelete3() throws InterruptedException {
         commandManager.createAndSave(action, callback);
         Command cmd = commandManager.createAndSave(action, callback);
-        //Thread.sleep(100);
         commandManager.delete(cmd);
     }
 

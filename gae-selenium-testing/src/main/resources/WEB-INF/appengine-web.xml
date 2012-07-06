@@ -12,4 +12,5 @@
         <property name="log4j.configuration" value="log4j.properties"/>
         <property name="bot.secret" value="${bot.secret}"/>
     </system-properties>
+    <threadsafe>true</threadsafe>
 </appengine-web-app>

@@ -54,6 +54,7 @@ public class CommandEntity implements Command {
     private Blob action;
 
     public CommandEntity() {
+        ctime = new Date();
     }
 
     public CommandEntity(Action<?> action, AsyncCallback<? extends Result> callback) {
