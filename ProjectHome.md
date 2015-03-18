@@ -1,0 +1,1 @@
+An extension of GWT-Dispatch for the controller/bot-architecture
