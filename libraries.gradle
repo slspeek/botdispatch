@@ -1,4 +1,4 @@
-libs = [
+ext.libs = [
         inject: "javax.inject:javax.inject:1",
         junit: "junit:junit:4.10",
         guice: "com.google.inject:guice:${guice_version}",
@@ -7,8 +7,7 @@ libs = [
         jdo_api: "javax.jdo:jdo-api:3.0",
         jta: "javax.transaction:jta:1.1",
         commons_lang: "commons-lang:commons-lang:2.6",
-        gae_testing: ["com.google.appengine:appengine-local-runtime:${gae_version}",
-                "com.google.appengine:appengine-api-stubs:${gae_version}",
+        gae_testing: ["com.google.appengine:appengine-api-stubs:${gae_version}",
                 "com.google.appengine:appengine-testing:${gae_version}"],
         guava: "com.google.guava:guava:${guava_version}",
         guava_gwt: "com.google.guava:guava-gwt:${guava_version}",

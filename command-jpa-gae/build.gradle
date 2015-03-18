@@ -1,5 +1,15 @@
 description = 'Command JPA GAE Implementation'
 
+//apply plugin: 'war'
+//apply plugin: 'appengine'
+
+//appengine {
+		//enhancer {
+			//version = "v2"
+				//enhanceOnBuild = true
+		//}
+//}
+
 configurations {
     daoTests
     testCompile.extendsFrom(daoTests)
@@ -7,6 +17,7 @@ configurations {
     testRuntime
     runtime
 }
+
 dependencies {
     jdo 'org.datanucleus:datanucleus-core:1.1.5',
             'javax.jdo:jdo2-api:2.3-eb'
@@ -48,12 +59,8 @@ dependencies {
 
 task unpackTest(dependsOn: ":command-api:packageTests") << {
     mkdir "$buildDir/dao-test"
-
-    myTests = configurations.daoTests.files.iterator().next()
-    ant.unjar(dest: "$buildDir/dao-test", src: myTests)
-
-    myTests = file("../command-api/build/libs/command-api-${version}-tests.jar")
-    ant.unjar(dest: "$buildDir/dao-test", src: myTests)
+		ant.unjar(dest: "$buildDir/dao-test", src:configurations.daoTests.files.iterator().next())
+		ant.unjar(dest: "$buildDir/dao-test", src: file("../command-api/build/libs/command-api-${version}-tests.jar"))
 }
 
 task daoTest(type: Test, dependsOn: [classes, unpackTest]) {
@@ -70,22 +77,22 @@ task daoTest(type: Test, dependsOn: [classes, unpackTest]) {
 check.dependsOn daoTest
 
 
-task jdoEnhance << {
-    inputs.dir sourceSets.main.allSource
-    outputs.dir sourceSets.main.output.classesDir
+//task jdoEnhance << {
+    //inputs.dir sourceSets.main.allSource
+    //outputs.dir sourceSets.main.output.classesDir
 
-    ant.taskdef(name: 'enhancer', classname: 'org.datanucleus.enhancer.tools.EnhancerTask', classpath: configurations.jdo.asPath)
-    ant.enhancer(dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString(), verbose: 'true') {
-        classpath {
-            pathelement(location: sourceSets.main.output.classesDir.canonicalPath.toURI().toString())
-            pathelement(path: configurations.jdo.asPath)
-            pathelement(path: sourceSets.main.runtimeClasspath.asPath)
-        }
-        fileset(dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString()) {
-            include(name: '**/*.class')
-        }
-    }
-}
+    //ant.taskdef(name: 'enhancer', classname: 'org.datanucleus.enhancer.tools.EnhancerTask', classpath: configurations.jdo.asPath)
+    //ant.enhancer(dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString(), verbose: 'true') {
+        //classpath {
+            //pathelement(location: sourceSets.main.output.classesDir.canonicalPath.toURI().toString())
+            //pathelement(path: configurations.jdo.asPath)
+            //pathelement(path: sourceSets.main.runtimeClasspath.asPath)
+        //}
+        //fileset(dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString()) {
+            //include(name: '**/*.class')
+        //}
+    //}
+//}
 
 
-classes.dependsOn jdoEnhance
+//classes.dependsOn appengineEnhance
