@@ -1,2 +1,2 @@
 rootProject.name = 'bot-dispatch'
-include ':bot-dispatch-api', ':test', ':command-api', ':command-jpa', ':command-jpa-j2ee', ':command-jpa-gae', ':controller', ':bot', ':test-bot', ':gae-selenium-testing', ':j2ee-selenium-testing', ':itest', ':test-app', ':selenium-test', ':gae-integration-testing' ,':j2ee-integration-testing'
+include ':bot-dispatch-api', ':test', ':command-api', ':command-jpa', ':command-jpa-j2ee', /*':command-jpa-gae', */':controller', ':bot', ':test-bot', /*':gae-selenium-testing',*/ ':j2ee-selenium-testing', ':itest', ':test-app', ':selenium-test', /*':gae-integration-testing' ,*/ ':j2ee-integration-testing'

@@ -13,10 +13,8 @@ dependencies {
     compile libs.commons_lang
     compile libs.servlet_spec
 
-    testCompile project(':command-jpa-gae')
+    testCompile project(':command-jpa-j2ee')
     testCompile project(':test')
     testCompile libs.mockito
     testCompile libs.junit
-    testCompile libs.gae_testing
-    testCompile "com.google.appengine:datanucleus-jpa:1.1.5"
 }

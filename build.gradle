@@ -3,20 +3,17 @@ apply from: 'libraries.gradle'
 buildscript {
     repositories {
         mavenCentral()
-        add(new org.apache.ivy.plugins.resolver.URLResolver()) {
-            name = 'GitHub'
-            addArtifactPattern 'http://cloud.github.com/downloads/[organisation]/[module]/[module]-[revision].[ext]'
-        }
         maven {
             url "http://fspotcloud-maven.googlecode.com/svn/maven/repository"
 
         }
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.1'
+				classpath 'com.google.appengine:gradle-appengine-plugin:1.9.18'
     }
 
-    dependencies {
-        classpath 'bmuschko:gradle-gae-plugin:0.5.4'
-        classpath 'bmuschko:gradle-tomcat-plugin:0.9.1'
-    }
 }
 
 allprojects {
@@ -64,8 +61,8 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
-    sourceCompatibility = 1.6
-    targetCompatibility = 1.6
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
 
 
 }

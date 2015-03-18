@@ -1,11 +1,15 @@
 description = 'GAE Selenium testing'
 
-apply plugin: 'gae'
+apply plugin: 'appengine'
 apply plugin: 'war'
 System.properties['appengine.sdk.root'] = System.properties['user.home'] + "/appengine-java-sdk-${gae_version}"
 
-gae {
-    stopKey = 'STOP'
+appengine {
+		enhancer {
+			version = "v2"
+				enhanceOnBuild = true
+		}
+    //stopKey = 'STOP'
     disableUpdateCheck = true
     daemon = server_daemon
 //    warDir = file('build/exploded');
@@ -34,7 +38,7 @@ task unpackTest(dependsOn: ":selenium-test:packageTests") << {
     ant.unjar(dest: "$buildDir/selenium-test", src: myTests)
 }
 
-task integrationTest(type: Test, dependsOn: [gaeRun, unpackTest]) {
+task integrationTest(type: Test, dependsOn: [appengineRun, unpackTest]) {
     testClassesDir  file("$buildDir/selenium-test")
     systemProperties['bot.secret'] = "SECRET"
     systemProperties['endpoint'] = "localhost:8080"
@@ -44,8 +48,8 @@ task integrationTest(type: Test, dependsOn: [gaeRun, unpackTest]) {
 
 
 integrationTest << {
-    gaeStop.execute()
+    appengineStop.execute()
 }
 
-clean.dependsOn gaeStop
+clean.dependsOn appengineStop
 check.dependsOn integrationTest

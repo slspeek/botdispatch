@@ -1,12 +1,12 @@
 description = 'J2ee selenium testing'
 
 apply plugin: 'war'
-apply plugin:  'tomcat'
+apply plugin:  'com.bmuschko.tomcat'
 
-[tomcatRunWar, tomcatStop]*.httpPort = 8100
-[tomcatRunWar, tomcatStop]*.stopPort = 8190
-[tomcatRunWar, tomcatStop]*.stopKey = 'STOP'
-[tomcatRunWar, tomcatStop]*.daemon = server_daemon
+tomcatRunWar.httpPort = 8100
+tomcatRunWar.stopPort = 8190
+//[tomcatRunWar, tomcatStop]*.stopKey = 'STOP'
+tomcatRunWar.daemon = server_daemon
 
 war {
     webXml = file('src/main/resources/WEB-INF/web.xml')
