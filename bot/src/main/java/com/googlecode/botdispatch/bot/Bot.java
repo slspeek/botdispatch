@@ -12,16 +12,14 @@ public class Bot {
 
     final private Provider<BotDispatchServer> serverProvider;
 
-    final private Pauser pauser;
     final private int pause;
 
     @Inject
-    public Bot(Provider<BotDispatchServer> serverProvider, Pauser pauser,
+    public Bot(Provider<BotDispatchServer> serverProvider,
                @Named("pause") int pause) {
         super();
         this.serverProvider = serverProvider;
         this.pause = pause;
-        this.pauser = pauser;
     }
 
     public void runForever() throws InterruptedException {

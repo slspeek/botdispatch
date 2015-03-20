@@ -3,11 +3,12 @@ package com.googlecode.botdispatch.controller.callback;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.googlecode.botdispatch.model.api.Command;
-import com.googlecode.botdispatch.model.jpa.gae.command.CommandEntity;
+import com.googlecode.botdispatch.model.command.jpa.CommandEntity;
 import com.googlecode.botdispatch.test.HeavyReport;
 import com.googlecode.botdispatch.test.HeavyReportModule;
 import com.googlecode.botdispatch.test.TestAsyncCallback;
 import com.googlecode.botdispatch.test.ThrowingAction;
+
 import org.junit.Before;
 import org.junit.Test;
 

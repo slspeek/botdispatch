@@ -78,21 +78,40 @@ check.dependsOn daoTest
 
 
 //task jdoEnhance << {
-    //inputs.dir sourceSets.main.allSource
-    //outputs.dir sourceSets.main.output.classesDir
+		////inputs.dir sourceSets.main.allSource
+		////outputs.dir sourceSets.main.output.classesDir
 
-    //ant.taskdef(name: 'enhancer', classname: 'org.datanucleus.enhancer.tools.EnhancerTask', classpath: configurations.jdo.asPath)
-    //ant.enhancer(dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString(), verbose: 'true') {
-        //classpath {
-            //pathelement(location: sourceSets.main.output.classesDir.canonicalPath.toURI().toString())
-            //pathelement(path: configurations.jdo.asPath)
-            //pathelement(path: sourceSets.main.runtimeClasspath.asPath)
-        //}
-        //fileset(dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString()) {
-            //include(name: '**/*.class')
-        //}
-    //}
+		//ant.taskdef(name: 'enhancer', classname: 'org.datanucleus.enhancer.tools.EnhancerTask', classpath: configurations.jdo.asPath)
+		//ant.enhancer(dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString(), verbose: 'true') {
+				//classpath {
+						//pathelement(location: sourceSets.main.output.classesDir.canonicalPath.toURI().toString())
+						//pathelement(path: configurations.jdo.asPath)
+						//pathelement(path: sourceSets.main.runtimeClasspath.asPath)
+				//}
+				//fileset(dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString()) {
+						//include(name: '**/*.class')
+				//}
+		//}
 //}
 
+	
 
-//classes.dependsOn appengineEnhance
+task jdoEnhance << {
+	ant.taskdef(name: 'enhancer', classname: 'org.datanucleus.enhancer.tools.EnhancerTask', classpath: configurations.jdo.asPath) 
+	ant.enhancer( dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString(), verbose: 'true') {
+		classpath {
+			pathelement(location: sourceSets.main.output.classesDir.canonicalPath.toURI().toString())
+			pathelement(path: configurations.jdo.asPath)
+		}
+		fileset(dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString()) {
+			include(name: '**/*.class')
+		}
+	}
+}
+
+jdoEnhance {
+		inputs.dir sourceSets.main.allSource
+		outputs.dir sourceSets.main.output.classesDir
+}
+
+classes.dependsOn jdoEnhance

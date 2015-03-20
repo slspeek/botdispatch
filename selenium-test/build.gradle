@@ -1,8 +1,7 @@
 description = 'Selenium tests for Bot-Dispatch'
 
 dependencies {
-    testCompile "org.seleniumhq.selenium:selenium:2.0b3"
-    testCompile "org.seleniumhq.selenium.client-drivers:selenium-java-client-driver:1.0.2"
+    testCompile libs.selenium
     testCompile libs.guava_testlib
     testCompile libs.guiceberry
     testCompile libs.guice

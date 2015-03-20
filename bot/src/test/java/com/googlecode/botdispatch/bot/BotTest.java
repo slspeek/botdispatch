@@ -25,7 +25,7 @@ public class BotTest extends TestCase {
             }
 
         };
-        target = new Bot(provider, pauser, PAUSE);
+        target = new Bot(provider, PAUSE);
         super.setUp();
     }
 

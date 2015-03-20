@@ -5,7 +5,8 @@ import com.google.guiceberry.TestScoped;
 import com.google.guiceberry.TestWrapper;
 import com.google.inject.Provides;
 import com.thoughtworks.selenium.Selenium;
-import org.openqa.selenium.WebDriverBackedSelenium;
+import com.thoughtworks.selenium.webdriven.WebDriverBackedSelenium;
+
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class SeleniumGuiceberryEnv extends GuiceBerryModule {
@@ -15,7 +16,9 @@ public class SeleniumGuiceberryEnv extends GuiceBerryModule {
     Selenium getSelenium() {
         FirefoxDriver driver = new FirefoxDriver();//new HtmlUnitDriver();//
         //driver.setJavascriptEnabled(true);
-        return new WebDriverBackedSelenium(driver, "http://" + System.getProperty("endpoint"));
+        String baseUrl = "http://" + System.getProperty("endpoint");
+//        System.out.println(">>>>>>>>>>>>b>>>>>>>>>>>>>Selenium baseURL:" + baseUrl);
+        return new WebDriverBackedSelenium(driver, baseUrl);
     }
 
     @Override

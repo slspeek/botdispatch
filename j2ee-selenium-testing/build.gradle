@@ -5,7 +5,6 @@ apply plugin:  'com.bmuschko.tomcat'
 
 tomcatRunWar.httpPort = 8100
 tomcatRunWar.stopPort = 8190
-//[tomcatRunWar, tomcatStop]*.stopKey = 'STOP'
 tomcatRunWar.daemon = server_daemon
 
 war {
@@ -32,7 +31,7 @@ dependencies {
 
 task unpackTest(dependsOn: ":selenium-test:packageTests") << {
     mkdir "$buildDir/selenium-test"
-    myTests = file("../selenium-test/build/libs/selenium-test-${version}-tests.jar")
+    def myTests = file("../selenium-test/build/libs/selenium-test-${version}-tests.jar")
     ant.unjar(dest: "$buildDir/selenium-test", src: myTests)
 }
 

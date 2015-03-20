@@ -31,18 +31,18 @@ public class BotDispatchITest {
     @Test
     public void testSimpleAction() throws Exception {
         testBotRunner.startPeer();
-        selenium.open("/test?name=David");
+        selenium.open("/j2ee-selenium-testing/test?name=David");
         selenium.waitForPageToLoad("30000");
         sleepShort(4);
-        selenium.open("/test?name=Joshua");
+        selenium.open("/j2ee-selenium-testing/test?name=Joshua");
         assertTrue(selenium.isTextPresent("Hello to you, David"));
         selenium.waitForPageToLoad("30000");
         sleepShort(4);
-        selenium.open("/test?second=gNu");
+        selenium.open("/j2ee-selenium-testing/test?second=gNu");
         selenium.waitForPageToLoad("30000");
         assertTrue(selenium.isTextPresent("Hello to you, Joshua"));
         sleepShort(4);
-        selenium.open("/test");
+        selenium.open("/j2ee-selenium-testing/test");
         selenium.waitForPageToLoad("30000");
         assertTrue(selenium.isTextPresent("GNU"));
         testBotRunner.stopPeer();

@@ -7,10 +7,12 @@ import com.googlecode.botdispatch.controller.inject.ControllerModule;
 import com.googlecode.botdispatch.controller.inject.NullControllerHook;
 import com.googlecode.botdispatch.model.api.Command;
 import com.googlecode.botdispatch.model.api.Commands;
-import com.googlecode.botdispatch.model.jpa.gae.command.GaeCommandModelModule;
+import com.googlecode.botdispatch.model.command.jpa.J2eeCommandModelModule;
 import com.googlecode.botdispatch.test.*;
+
 import net.customware.gwt.dispatch.shared.ActionException;
 import net.customware.gwt.dispatch.shared.DispatchException;
+
 import org.apache.commons.lang.SerializationUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -42,11 +44,10 @@ public class ControllerIntegrationTest extends DatastoreTest {
 
     @Before
     public void setUp() {
-        super.setUp();
         System.setProperty("appengine.orm.disable.duplicate.emf.exception", "true");
         report = mock(HeavyReport.class);
         injector = Guice.createInjector(new ControllerModule(),
-                new HeavyReportModule(report), new GaeCommandModelModule());
+                new HeavyReportModule(report), new J2eeCommandModelModule());
         handlerFactory = injector.getInstance(ResultHandlerFactory.class);
         errorHandlerFactory = injector.getInstance(ErrorHandlerFactory.class);
         captor = ArgumentCaptor.forClass(Throwable.class);

@@ -4,8 +4,9 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.googlecode.botdispatch.model.api.Command;
 import com.googlecode.botdispatch.model.api.Commands;
-import com.googlecode.botdispatch.model.jpa.gae.command.CommandEntity;
+import com.googlecode.botdispatch.model.command.jpa.CommandEntity;
 import com.googlecode.botdispatch.test.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
