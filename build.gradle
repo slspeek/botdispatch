@@ -22,7 +22,7 @@ allprojects {
     apply plugin: 'eclipse'
 
     group = 'com.googlecode.bot-dispatch'
-    version = '0.6-bdg'
+    version = '0.7-bdg'
     defaultTasks 'build'
 
     configurations {
