@@ -1,15 +1,21 @@
 description = 'Command JPA Base'
 
+configurations {
+	compile
+
+		all*.exclude group: 'org.ow2.asm', module: 'asm'
+}
+
 dependencies {
     compile project(':bot-dispatch-api')
     compile project(':command-api')
-    compile libs.gwt_servlet
-    compile libs.inject
-    compile libs.guice
-    compile libs.commons_lang
-    compile libs.jta
-    compile libs.gwt_dispatch
-    compile libs.jdo_api
-    compile "org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final"
+		compile libs.gwt_servlet
+		compile libs.inject
+		compile libs.guice
+		compile libs.commons_lang
+		compile libs.jta
+		compile libs.gwt_dispatch
+		compile libs.jdo_api
+		compile "org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final"
     compile libs.simple_jpa_dao_impl
 }

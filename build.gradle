@@ -16,6 +16,8 @@ buildscript {
 
 }
 
+System.properties['appengine.sdk.root'] = System.properties['user.home'] + "/appengine-java-sdk-${gae_version}"
+
 allprojects {
     apply plugin: 'maven'
     apply plugin: 'idea'

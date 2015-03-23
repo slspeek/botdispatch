@@ -1,48 +1,41 @@
 description = 'Command JPA GAE Implementation'
 
-//apply plugin: 'war'
-//apply plugin: 'appengine'
-
-//appengine {
-		//enhancer {
-			//version = "v2"
-				//enhanceOnBuild = true
-		//}
-//}
-
 configurations {
     daoTests
     testCompile.extendsFrom(daoTests)
     jdo
     testRuntime
+		//for jdoEnhance as it uses asm-4.1, and guice asm-3.1
+		runtime.exclude group: 'asm', module: 'asm'
     runtime
 }
 
-dependencies {
-    jdo 'org.datanucleus:datanucleus-core:1.1.5',
-            'javax.jdo:jdo2-api:2.3-eb'
-    jdo 'org.datanucleus:datanucleus-enhancer:1.1.4'
+ext.appenginesdkroot = System.properties['appengine.sdk.root'] 
 
-    compile project(':command-api')
-    compile libs.gwt_servlet
-    compile libs.inject
-    compile libs.guice
-    compile libs.commons_lang
-    compile libs.gwt_dispatch
-    compile libs.jdo_api
+dependencies {
+    jdo files("${appenginesdkroot}/lib/appengine-tools-api.jar")
+		jdo 'org.ow2.asm:asm:4.1'
+
+		compile project(':command-api')
+		compile libs.gwt_servlet
+		compile libs.inject
+		compile libs.guice
+		compile libs.commons_lang
+		compile libs.gwt_dispatch
+		compile libs.jdo_api
+    compile libs.simple_jpa_dao_impl
     compile project(':command-jpa')
     compile "com.google.appengine:appengine-api-1.0-sdk:${gae_version}"
-    compile("javax.jdo:jdo2-api:2.3-eb") {
-        exclude(module: 'transaction-api')
-    }
-    compile "com.google.appengine.orm:datanucleus-appengine:1.0.10"
-    compile("org.datanucleus:datanucleus-core:1.1.5") {
-        exclude(module: 'transaction-api')
-    }
-    compile libs.simple_jpa_dao_impl
+		compile("javax.jdo:jdo2-api:2.3-eb") {
+				exclude(module: 'transaction-api')
+		}
+		compile "com.google.appengine.orm:datanucleus-appengine:1.0.10"
+		compile("org.datanucleus:datanucleus-core:1.1.5") {
+				exclude(module: 'transaction-api')
+		}
 
-    runtime 'com.google.appengine:datanucleus-jpa:1.1.5'
-    runtime 'com.google.appengine:geronimo-jpa_3.0_spec:1.1.1'
+		runtime 'com.google.appengine:datanucleus-jpa:1.1.5'
+		runtime 'com.google.appengine:geronimo-jpa_3.0_spec:1.1.1'
 
     testCompile project(path: ':command-api', configuration: "testCompile")
     testCompile project(':test')
@@ -76,42 +69,18 @@ task daoTest(type: Test, dependsOn: [classes, unpackTest]) {
 
 check.dependsOn daoTest
 
-
-//task jdoEnhance << {
-		////inputs.dir sourceSets.main.allSource
-		////outputs.dir sourceSets.main.output.classesDir
-
-		//ant.taskdef(name: 'enhancer', classname: 'org.datanucleus.enhancer.tools.EnhancerTask', classpath: configurations.jdo.asPath)
-		//ant.enhancer(dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString(), verbose: 'true') {
-				//classpath {
-						//pathelement(location: sourceSets.main.output.classesDir.canonicalPath.toURI().toString())
-						//pathelement(path: configurations.jdo.asPath)
-						//pathelement(path: sourceSets.main.runtimeClasspath.asPath)
-				//}
-				//fileset(dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString()) {
-						//include(name: '**/*.class')
-				//}
-		//}
-//}
-
-	
-
 task jdoEnhance << {
-	ant.taskdef(name: 'enhancer', classname: 'org.datanucleus.enhancer.tools.EnhancerTask', classpath: configurations.jdo.asPath) 
+	ant.taskdef(name: 'enhancer', classname: 'com.google.appengine.tools.enhancer.EnhancerTask', classpath: configurations.jdo.asPath) 
 	ant.enhancer( dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString(), verbose: 'true') {
 		classpath {
 			pathelement(location: sourceSets.main.output.classesDir.canonicalPath.toURI().toString())
 			pathelement(path: configurations.jdo.asPath)
+			pathelement(path: sourceSets.main.runtimeClasspath.asPath)
 		}
 		fileset(dir: sourceSets.main.output.classesDir.canonicalPath.toURI().toString()) {
 			include(name: '**/*.class')
 		}
 	}
-}
-
-jdoEnhance {
-		inputs.dir sourceSets.main.allSource
-		outputs.dir sourceSets.main.output.classesDir
 }
 
 classes.dependsOn jdoEnhance
