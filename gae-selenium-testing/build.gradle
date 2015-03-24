@@ -4,14 +4,8 @@ apply plugin: 'appengine'
 apply plugin: 'war'
 
 appengine {
-		enhancer {
-			version = "v2"
-				enhanceOnBuild = true
-		}
-    //stopKey = 'STOP'
     disableUpdateCheck = true
     daemon = server_daemon
-//    warDir = file('build/exploded');
 }
 
 war {
@@ -33,11 +27,11 @@ dependencies {
 
 task unpackTest(dependsOn: ":selenium-test:packageTests") << {
     mkdir "$buildDir/selenium-test"
-    myTests = file("../selenium-test/build/libs/selenium-test-${version}-tests.jar")
+    def myTests = file("../selenium-test/build/libs/selenium-test-${version}-tests.jar")
     ant.unjar(dest: "$buildDir/selenium-test", src: myTests)
 }
 
-task integrationTest(type: Test, dependsOn: [appengineRun, unpackTest]) {
+task integrationTest(type: Test, dependsOn: [unpackTest, appengineRun]) {
     testClassesDir  file("$buildDir/selenium-test")
     systemProperties['bot.secret'] = "SECRET"
     systemProperties['endpoint'] = "localhost:8080"
@@ -45,10 +39,4 @@ task integrationTest(type: Test, dependsOn: [appengineRun, unpackTest]) {
     testLogging.showStandardStreams = true
 }
 
-
-integrationTest << {
-    appengineStop.execute()
-}
-
-clean.dependsOn appengineStop
-check.dependsOn integrationTest
+appengineStop.dependsOn integrationTest

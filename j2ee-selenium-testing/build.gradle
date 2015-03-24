@@ -13,10 +13,10 @@ war {
 }
 
 dependencies {
-    tomcat "org.apache.tomcat:catalina:${tomcatVersion}",
-            "org.apache.tomcat:coyote:${tomcatVersion}",
-            "org.apache.tomcat:juli:${tomcatVersion}",
-            "org.apache.tomcat:jasper:${tomcatVersion}"
+    tomcat "org.apache.tomcat:catalina:${tomcat_version}",
+            "org.apache.tomcat:coyote:${tomcat_version}",
+            "org.apache.tomcat:juli:${tomcat_version}",
+            "org.apache.tomcat:jasper:${tomcat_version}"
 
     compile libs.guice
     compile "com.google.inject.extensions:guice-assistedinject:${guice_version}"
