@@ -5,6 +5,7 @@ apply plugin:  'com.bmuschko.tomcat'
 
 tomcatRunWar.httpPort = 8100
 tomcatRunWar.stopPort = 8190
+tomcatStop.stopPort = 8190
 tomcatRunWar.daemon = server_daemon
 
 war {
