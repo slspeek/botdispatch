@@ -11,7 +11,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.bmuschko:gradle-tomcat-plugin:2.1'
-				classpath 'com.google.appengine:gradle-appengine-plugin:1.9.24'
+				classpath 'com.google.appengine:gradle-appengine-plugin:1.9.34'
     }
 
 }
@@ -24,7 +24,7 @@ allprojects {
     apply plugin: 'eclipse'
 
     group = 'com.googlecode.bot-dispatch'
-    version = '0.8-bdg'
+    version = '0.82-bdg'
     defaultTasks 'build'
 
     configurations {
